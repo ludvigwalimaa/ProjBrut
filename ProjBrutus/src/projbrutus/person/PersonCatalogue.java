@@ -8,7 +8,6 @@ public class PersonCatalogue {
 
 	public PersonCatalogue() {
 		PCatalogue = new ArrayList<Person>();
-		System.out.println("Skapar ny arraylist");
 		fetchPersons();
 
 	}
