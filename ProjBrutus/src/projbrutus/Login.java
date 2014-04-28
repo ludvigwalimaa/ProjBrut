@@ -11,10 +11,10 @@ public class Login {
 	
 	public Login() {
 		
-		System.out.println("Skriv in användarnamn: ");
+		System.out.print("Skriv in anvandarnamn: ");
 		userID = in.nextLine();
 		
-		System.out.println("Skriv in lösen: ");
+		System.out.print("Skriv in losen: ");
 		pass = in.nextLine();
 		
 		if (login.loginCheck(userID, pass)) {
