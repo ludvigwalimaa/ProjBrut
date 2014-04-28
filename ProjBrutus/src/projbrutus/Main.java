@@ -7,6 +7,8 @@ public class Main {
 		
 		System.out.println("Test1");
 		System.out.println("Tja maddagabbe!");
+		
+		System.out.println("Testpushaa!");
 	}
 
 }
