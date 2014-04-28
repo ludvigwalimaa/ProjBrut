@@ -1,4 +1,4 @@
-package projbrutus;
+package projbrutus.course;
 
 public class CourseManager {
 

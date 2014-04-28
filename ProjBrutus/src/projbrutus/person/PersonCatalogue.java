@@ -1,4 +1,4 @@
-package projbrutus;
+package projbrutus.person;
 
 public class PersonCatalogue {
 

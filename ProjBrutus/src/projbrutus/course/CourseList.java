@@ -1,5 +1,5 @@
-package projbrutus;
+package projbrutus.course;
 
-public class CourseList extends Main {
+public class CourseList {
 
 }
