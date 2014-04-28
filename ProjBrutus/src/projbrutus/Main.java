@@ -12,6 +12,7 @@ public class Main {
 		
 		
 		System.out.println("LOLATRON");
+		System.out.println("LOLATRON");
 	}
 
 }
