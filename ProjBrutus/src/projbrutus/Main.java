@@ -9,6 +9,9 @@ public class Main {
 		System.out.println("Tja maddagabbe!");
 		
 		System.out.println("Testpushaa!");
+		
+		
+		System.out.println("LOLATRON");
 	}
 
 }
