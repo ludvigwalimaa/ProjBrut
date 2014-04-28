@@ -1,5 +1,5 @@
 package projbrutus;
 
-public class Överblick {
+public class Overblick {
 
 }

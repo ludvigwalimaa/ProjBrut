@@ -1,5 +1,5 @@
 package projbrutus;
 
-public class LoggaIn {
+public class Login {
 
 }
