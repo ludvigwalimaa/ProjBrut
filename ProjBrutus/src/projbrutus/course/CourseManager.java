@@ -1,6 +1,5 @@
 package projbrutus.course;
 
-import projbrutus.person.Person;
 
 public class CourseManager {
 	
