@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PersonCatalogue {
 
-	ArrayList<Person> PCatalogue;
+	private ArrayList<Person> PCatalogue;
 
 	public PersonCatalogue() {
 		PCatalogue = new ArrayList<Person>();
@@ -14,7 +14,10 @@ public class PersonCatalogue {
 
 	private void fetchPersons() {
 		// Databas koppling till persondatabas.
-		PCatalogue.add(new Person("per000", "PerSon", "0123456789", "hej123"));
+		PCatalogue.add(new Person("gabol894", "Gabriel", "0123456789", "hej123"));
+		PCatalogue.add(new Person("filbr616", "Filip", "0123456789", "hej123"));
+		PCatalogue.add(new Person("ludwa930", "Ludvig", "0123456789", "hej123"));
+		PCatalogue.add(new Person("anka101", "Andreas", "0123456789", "hej123"));
 	}
 
 	// Nån funktion för att kolla listan mot det man loggar in med.
