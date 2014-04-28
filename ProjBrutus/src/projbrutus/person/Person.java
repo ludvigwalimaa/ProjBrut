@@ -2,20 +2,25 @@ package projbrutus.person;
 
 public class Person {
 
-	private String liudID;
+	private String liuID;
 	private String name;
 	private String personNummer;
+	private String password;
 
-	public Person(String liuID, String name, String personNummer) {
-
+	public Person(String liuID, String name, String personNummer, String password) {
+		setLiuID(liuID);
+		setName(name);
+		setPersonNummer(personNummer);
+		setPassword(password);
+		
 	}
 
 	public String getLiudID() {
-		return liudID;
+		return liuID;
 	}
 
-	public void setLiudID(String liudID) {
-		this.liudID = liudID;
+	public void setLiuID(String liudID) {
+		this.liuID = liudID;
 	}
 
 	public String getName() {
@@ -32,5 +37,13 @@ public class Person {
 
 	public void setPersonNummer(String personNummer) {
 		this.personNummer = personNummer;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
