@@ -31,5 +31,9 @@ public class PersonCatalogue {
 		}
 		return false;
 	}
+	
+	public ArrayList<Person> getPCatalogue() {
+		return PCatalogue;
+	}
 
 }
