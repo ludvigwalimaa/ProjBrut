@@ -24,6 +24,7 @@ public class Overblick {
 		String svar = in.nextLine();
 		if (svar.equals("1")) {
 			System.out.println(cl.getCourseList(p).toString());
+			
 		}
 		
 		
