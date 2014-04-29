@@ -4,13 +4,15 @@ import projbrutus.person.PersonCatalogue;
 
 public class LoginManager{
 	
-	public boolean loginCheck(String liuID, String password) {
+	
+	public void loginCheck(String liuID, String password) {
 		
 		PersonCatalogue PC = new PersonCatalogue();
 		if(!PC.comparePersons(liuID, password)){
-			return false;
+			System.out.println("--- Login failed ---");
 		}else{
-			return true;
+			System.out.println("--- Login success ---");
+			new Overblick(PC.getPerson(liuID));
 		}
 		
 //			boolean secure = false;

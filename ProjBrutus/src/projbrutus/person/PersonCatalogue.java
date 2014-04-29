@@ -35,5 +35,14 @@ public class PersonCatalogue {
 	public ArrayList<Person> getPCatalogue() {
 		return PCatalogue;
 	}
+	
+	public Person getPerson(String liuID){
+		for(int i=0; i< PCatalogue.size(); i++){
+			if(liuID.equals(PCatalogue.get(i))){
+				return PCatalogue.get(i);
+			}
+		}
+		return null;
+	}
 
 }
