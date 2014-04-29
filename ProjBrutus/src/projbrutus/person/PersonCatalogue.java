@@ -24,6 +24,7 @@ public class PersonCatalogue {
 	public boolean comparePersons(String liuID, String password) {
 		for (int i = 0; i < PCatalogue.size(); i++) {
 			if (liuID.equals(PCatalogue.get(i).getLiudID())) {
+				return false;
 			}
 			if (password.equals(PCatalogue.get(i).getPassword())) {
 				return true;
