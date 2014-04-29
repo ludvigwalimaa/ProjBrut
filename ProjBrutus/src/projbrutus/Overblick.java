@@ -12,7 +12,6 @@ public class Overblick {
 	
 	public Overblick(Person p){
 		this.p = p;
-		System.out.println(p.getLiudID());
 		createOverblick();
 	}
 	
