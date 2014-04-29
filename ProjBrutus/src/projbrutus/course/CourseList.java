@@ -34,7 +34,7 @@ public class CourseList {
 		courseList.add("725G66");
 		courseList.add("725G74");
 		} else {
-			courseList.add("null");
+			courseList.add("funka inte ffs");
 		}
 		
 		
