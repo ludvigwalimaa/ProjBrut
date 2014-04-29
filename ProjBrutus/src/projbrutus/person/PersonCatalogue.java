@@ -38,11 +38,9 @@ public class PersonCatalogue {
 	
 	public Person getPerson(String liuID){
 		for(int i=0; i< PCatalogue.size(); i++){
-			if(liuID.equals(PCatalogue.get(i))){
-				return PCatalogue.get(i);
-			}
+			if(liuID.equals(PCatalogue.get(i))) return PCatalogue.get(i);
 		}
-		return null;
+		return new Person("Voi00", "VoidPerson", "0123456789", "voidperson");
 	}
 
 }
