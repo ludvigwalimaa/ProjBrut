@@ -2,9 +2,9 @@ package projbrutus.course;
 
 public class CourseStructure {
 	
-	private int defaultGroupListSize = 40;
-	private int defaultExaminationListSize = 90;
-	private int defaultCourseTaskListSize = 300;
+	private int defaultGroupListSize;
+	private int defaultExaminationListSize;
+	private int defaultCourseTaskListSize;
 	
 	public CourseStructure(int defaultGroupListSize, int defaultExaminationListSize, int defaultCourseTaskListSize) {
 		
