@@ -1,5 +1,7 @@
 package projbrutus;
 
+import java.io.IOException;
+
 import projbrutus.person.PersonCatalogue;
 
 public class LoginManager{
@@ -11,7 +13,6 @@ public class LoginManager{
 		if(!PC.comparePersons(liuID, password)){
 			System.out.println("--- Login failed ---");
 		}else{
-			System.out.println("--- Login success ---");
 			new Overblick(PC.getPerson(liuID));
 		}
 		

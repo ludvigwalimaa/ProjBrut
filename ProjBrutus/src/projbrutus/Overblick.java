@@ -18,8 +18,8 @@ public class Overblick {
 	private void createOverblick(){
 		System.out.println("---- Overview -----");
 		System.out.println("1. My courses ");
-		System.out.println("2. Settings ");
-		
+		System.out.println("2. Settings \n");
+		System.out.print("Choice: ");
 		String svar = in.nextLine();
 		if (svar.equals("1")) {
 			System.out.println(cl.getCourseList(p).toString());
