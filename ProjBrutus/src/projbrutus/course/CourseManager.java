@@ -12,13 +12,24 @@ public class CourseManager {
 	
 	Scanner in = new Scanner(System.in);
 	
+	public CourseManager(){
+		
+	}
 	
 	
 	public CourseRoom getCourseRoom(String cID) {
-		CourseRoom k = new CourseRoom();
-		//h�mta specifik kurs f�r inskickad kurskod
-		
-		return k;
+		CourseCatalogue cc = new CourseCatalogue();
+		cc.populateCourseRooms();
+		for(int i = 0; i<cc.getAllCourseRooms().size(); i++){
+			if(cID.equals(cc.getAllCourseRooms().get(i).getcId())){
+				CourseRoom cr = cc.getAllCourseRooms().get(i);
+				System.out.println(cc.getAllCourseRooms().get(i).getcId() + " " + cc.getAllCourseRooms().get(i).getcName());
+				return cr;
+			}else{
+				
+			}
+		}
+		return null;
 	}
 	
 	public void createCourseRoom() {

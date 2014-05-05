@@ -9,17 +9,17 @@ import projbrutus.person.Person;
 
 
 public class ParticipantList {
-	ParticipantCatalogue pc = new ParticipantCatalogue();
+	private ParticipantCatalogue pc = new ParticipantCatalogue();
 
 	public ParticipantList(){
 		
 	}
 	
-	public ArrayList<String> getParticipantList(CourseRoom c) {
+	public ArrayList<String> getParticipantList(String kID) {
 
 		ArrayList<String> pList = new ArrayList<String>();
-
-		pList.addAll(pc.getParticipant(c.getcId()));
+	
+		pList.addAll(pc.getParticipant(kID));
 
 		//metod som via en sql sats h�mtar alla deltargare f�r en kurs och retunerar denna lista
 

@@ -8,14 +8,29 @@ import projbrutus.course.participant.ParticipantList;
 
 public class CourseCatalogue {
 	
-	CourseRoom k = new CourseRoom();
+	
 	
 	private ArrayList<CourseRoom> allCourseRooms = new ArrayList<CourseRoom>(); // Här är en databas för personers kursrum
 	
+	public CourseCatalogue(){
+		
+	}
 
 	public void populateCourseRooms(){
 		
+		ExaminationList exaList = new ExaminationList();
+		GroupList groupList = new GroupList();
+		ParticipantList participantList = new ParticipantList();
+		CourseRoom k = new CourseRoom("725G51", "Databaser", exaList.getList(), groupList.getGroupList("725G51"), participantList.getParticipantList("725G51"));
+		allCourseRooms.add(k);
 	}
+	
+	public ArrayList<CourseRoom> getAllCourseRooms(){
+		return allCourseRooms;
+		
+	}
+	
+	
 	
 	public boolean getCourse(String cId) {
 		boolean courseExists = false;

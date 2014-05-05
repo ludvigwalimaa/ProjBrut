@@ -1,5 +1,18 @@
 package projbrutus.course.examination;
 
-public class ExaminationList {
+import java.util.ArrayList;
 
+public class ExaminationList {
+	
+	private ArrayList<ExaminationArea> exaList = new ArrayList();
+	
+	public ExaminationList(){
+		
+	}
+	
+	public ArrayList<ExaminationArea> getList(){
+		return exaList;
+	}
+
+	
 }
