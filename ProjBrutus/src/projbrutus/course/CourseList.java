@@ -8,10 +8,10 @@ public class CourseList {
 	
 	ArrayList<String> courseList = new ArrayList<String>();
 	
-	public ArrayList<String> getCourseList (Person p) {
+	public void populateCourseList (Person p) {
 		
-		//Metod som hämtar lista över alla kurser för inskickad person
-		//löses med samma table som används för hämtning av deltagare i en kurs
+		//Metod som hï¿½mtar lista ï¿½ver alla kurser fï¿½r inskickad person
+		//lï¿½ses med samma table som anvï¿½nds fï¿½r hï¿½mtning av deltagare i en kurs
 		
 		if(p.getLiudID().equals("gabol892")) {
 		courseList.add("725G51");
@@ -36,8 +36,9 @@ public class CourseList {
 		} else {
 			courseList.add("funka inte ffs");
 		}
-		
-		
+	}
+	
+	public ArrayList<String> getList(){
 		return courseList;
 	}
 	
