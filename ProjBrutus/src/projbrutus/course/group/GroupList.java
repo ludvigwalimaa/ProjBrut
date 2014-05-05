@@ -21,8 +21,7 @@ public class GroupList {
 		//metod som skapar lista över grupper för en kurs
 		
 		for (int i = 0; i < cs.getDefaultGroupListSize(); i++) {
-		Group g = null;
-		g.setcId(cId);
+		Group g = new Group(cId, Integer.toString(i));
 		groupList.add(g);
 		}
 		return groupList;
