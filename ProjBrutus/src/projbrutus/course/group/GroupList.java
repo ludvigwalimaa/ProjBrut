@@ -22,6 +22,7 @@ public class GroupList {
 		
 		for (int i = 0; i < cs.getDefaultGroupListSize(); i++) {
 		Group g = null;
+		g.setcId(cId);
 		groupList.add(g);
 		}
 		return groupList;
