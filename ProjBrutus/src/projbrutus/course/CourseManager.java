@@ -12,9 +12,11 @@ public class CourseManager {
 	
 	Scanner in = new Scanner(System.in);
 	
+	
+	
 	public CourseRoom getCourseRoom(String cID) {
 		CourseRoom k = new CourseRoom();
-		//hämta specifik kurs för inskickad kurskod
+		//hï¿½mta specifik kurs fï¿½r inskickad kurskod
 		
 		return k;
 	}
@@ -38,7 +40,6 @@ public class CourseManager {
 		
 		//skapa deltagarlista? ArrayList<Person> participantList
  
-		//skapa kurstruktur? CourseStructure cStructure
 		
 	}
 	

@@ -1,12 +1,27 @@
 package projbrutus.course;
 
+import java.util.ArrayList;
+
+import projbrutus.course.examination.ExaminationList;
+import projbrutus.course.group.GroupList;
+import projbrutus.course.participant.ParticipantList;
+
 public class CourseCatalogue {
+	
+	CourseRoom k = new CourseRoom();
+	
+	private ArrayList<CourseRoom> allCourseRooms = new ArrayList<CourseRoom>(); // Här är en databas för personers kursrum
+	
+
+	public void populateCourseRooms(){
+		
+	}
 	
 	public boolean getCourse(String cId) {
 		boolean courseExists = false;
 		
 		//metod som kollar om inskickat kursID finns i databasen(MapCourseDesc?), 
-		//om ja retuneras true och klassen kursnhanterare kan g� vidare i koden
+		//om ja retuneras true och klassen kursnhanterare kan g� vidare i koden
 		
 		if(cId.equals("725G51") 
 		|| cId.equals("725G54")
@@ -24,7 +39,6 @@ public class CourseCatalogue {
 		} else {
 			
 		}
-		
 		return courseExists;
 	}
 

@@ -13,10 +13,18 @@ public class CourseRoom {
 	private ArrayList<ExaminationArea> exaList;
 	private ArrayList<Group> groupList;
 	private ArrayList<Person> participantList;
-	private CourseStructure cStructure;
+	
+	public CourseRoom(){
+		
+	}
 	
 	public void createCourseRoom(String cId, String cName,ArrayList<ExaminationArea> exaList, 
-			ArrayList<Group> groupList, ArrayList<Person> participantList, CourseStructure cStructure) {
+			ArrayList<Group> groupList, ArrayList<Person> participantList) {
+		this.cId = cId;
+		this.cName = cName;
+		this.exaList = exaList;
+		this.groupList = groupList;
+		this.participantList = participantList;
 		
 	}
 
@@ -60,13 +68,6 @@ public class CourseRoom {
 		this.participantList = participantList;
 	}
 
-	public CourseStructure getcStructure() {
-		return cStructure;
-	}
-
-	public void setcStructure(CourseStructure cStructure) {
-		this.cStructure = cStructure;
-	}
 
 	
 

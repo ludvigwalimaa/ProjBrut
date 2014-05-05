@@ -11,16 +11,19 @@ import projbrutus.person.Person;
 public class ParticipantList {
 	ParticipantCatalogue pc = new ParticipantCatalogue();
 
+	public ParticipantList(){
+		
+	}
+	
 	public ArrayList<String> getParticipantList(CourseRoom c) {
 
 		ArrayList<String> pList = new ArrayList<String>();
 
 		pList.addAll(pc.getParticipant(c.getcId()));
 
-		//metod som via en sql sats hämtar alla deltargare för en kurs och retunerar denna lista
+		//metod som via en sql sats hï¿½mtar alla deltargare fï¿½r en kurs och retunerar denna lista
 
 		return pList;
-
 	}
 
 }
