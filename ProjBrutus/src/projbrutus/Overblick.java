@@ -25,6 +25,9 @@ public class Overblick {
 			System.out.println(cl.getCourseList(p).toString());
 			
 		}
+		System.out.print("Choose course: ");
+		String courseChoise = in.nextLine();
+		
 		
 		
 	}
