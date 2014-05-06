@@ -17,7 +17,7 @@ public class CourseCatalogue {
 	}
 
 	public void populateCourseRooms(){
-		
+		System.out.println("denne sysout ligger i populatecourserooms metoden");
 		ExaminationList exaList = new ExaminationList();
 		GroupList groupList = new GroupList();
 		ParticipantList participantList = new ParticipantList();
