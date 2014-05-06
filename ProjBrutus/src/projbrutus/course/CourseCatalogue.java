@@ -10,14 +10,14 @@ public class CourseCatalogue {
 	
 	
 	
-	private ArrayList<CourseRoom> allCourseRooms = new ArrayList<CourseRoom>(); // Här är en databas för personers kursrum
+	private ArrayList<CourseRoom> allCourseRooms = new ArrayList<CourseRoom>(); // HÃ¤r Ã¤r en databas fÃ¶r personers kursrum
 	
 	public CourseCatalogue(){
 		
 	}
 
 	public void populateCourseRooms(){
-		
+		System.out.println("denne sysout ligger i populatecourserooms metoden");
 		ExaminationList exaList = new ExaminationList();
 		GroupList groupList = new GroupList();
 		ParticipantList participantList = new ParticipantList();
@@ -67,7 +67,7 @@ public class CourseCatalogue {
 		boolean courseExists = false;
 		
 		//metod som kollar om inskickat kursID finns i databasen(MapCourseDesc?), 
-		//om ja retuneras true och klassen kursnhanterare kan g� vidare i koden
+		//om ja retuneras true och klassen kursnhanterare kan gï¿½ vidare i koden
 		
 		if(cId.equals("725G51") 
 		|| cId.equals("725G54")
