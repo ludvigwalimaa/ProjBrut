@@ -6,14 +6,28 @@ public class ExaminationArea {
 	
 	private String cId;
 	private CourseTaskList ctl;
-	
+	private String liuID;
+		
 	public ExaminationArea(String cId){
 		this.cId = cId;
-		ctl = new CourseTaskList();
+		this.ctl = new CourseTaskList(cId);
 	}
 	
 	public CourseTaskList getCTL(){
 		return ctl;
+	}
+
+	public String getLiuID() {
+		return liuID;
+	}
+
+	public void setLiuID(String liuID) {
+		this.liuID = liuID;
+		ctl.setLiuID(liuID);
+	}
+	
+	public String toString(){
+		return cId + " - " + liuID + "\n";
 	}
 
 	

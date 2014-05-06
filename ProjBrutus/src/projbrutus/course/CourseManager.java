@@ -19,7 +19,7 @@ public class CourseManager {
 	
 	public CourseRoom getCourseRoom(String cID) {
 		CourseCatalogue cc = new CourseCatalogue();
-		cc.populateCourseRooms();
+		//cc.populateCourseRooms();
 		for(int i = 0; i<cc.getAllCourseRooms().size(); i++){
 			if(cID.equals(cc.getAllCourseRooms().get(i).getcId())){
 				CourseRoom cr = cc.getAllCourseRooms().get(i);
@@ -45,7 +45,7 @@ public class CourseManager {
 		course.setcId(cId);
 		course.setcName(cName);
 		
-	    course.setExaList(createExaminationArea());
+	    //course.setExaList(createExaminationArea());
 		
 		//skapa grupplista? ArrayList<Group> groupList
 		

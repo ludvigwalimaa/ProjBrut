@@ -11,52 +11,52 @@ public class CourseCatalogue {
 	
 	
 	
-	private ArrayList<CourseRoom> allCourseRooms = new ArrayList<CourseRoom>(); // HÃ¤r Ã¤r en databas fÃ¶r personers kursrum
+	public static ArrayList<CourseRoom> allCourseRooms = new ArrayList<CourseRoom>(); // HÃ¤r Ã¤r en databas fÃ¶r personers kursrum
 	
 	public CourseCatalogue(){
 		
 	}
 
-	public void populateCourseRooms(){
-		System.out.println("denne sysout ligger i populatecourserooms metoden");
-		ExaminationList exaList = new ExaminationList("725G51");
+//	public void populateCourseRooms(){
+//		System.out.println("denne sysout ligger i populatecourserooms metoden");
+//		ExaminationList exaList = new ExaminationList("725G51");
+//		
+//		GroupList groupList = new GroupList();
+//		ParticipantList participantList = new ParticipantList();
+//		CourseRoom a = new CourseRoom("725G51", "Databaser", exaList.getList(), groupList.getGroupList("725G51"), participantList.getParticipantList("725G51"));
+//		allCourseRooms.add(a);
 		
-		GroupList groupList = new GroupList();
-		ParticipantList participantList = new ParticipantList();
-		CourseRoom a = new CourseRoom("725G51", "Databaser", exaList.getList(), groupList.getGroupList("725G51"), participantList.getParticipantList("725G51"));
-		allCourseRooms.add(a);
+//		CourseRoom b = new CourseRoom("725G54", "Processer och IT", exaList.getList(), groupList.getGroupList("725G54"), participantList.getParticipantList("725G54"));
+//		allCourseRooms.add(b);
+//		
+//		CourseRoom c = new CourseRoom("725G56", "Kanonkurs", exaList.getList(), groupList.getGroupList("725G56"), participantList.getParticipantList("725G56"));
+//		allCourseRooms.add(c);
+//		
+//		CourseRoom d = new CourseRoom("725G44", "International Analys", exaList.getList(), groupList.getGroupList("725G44"), participantList.getParticipantList("725G44"));
+//		allCourseRooms.add(d);
+//		
+//		CourseRoom e = new CourseRoom("725G41", "Vem vet mest?", exaList.getList(), groupList.getGroupList("725G41"), participantList.getParticipantList("725G41"));
+//		allCourseRooms.add(e);
+//		
+//		CourseRoom f = new CourseRoom("725G64", "Filipkunskap", exaList.getList(), groupList.getGroupList("725G64"), participantList.getParticipantList("725G64"));
+//		allCourseRooms.add(f);
+//		
+//		CourseRoom g = new CourseRoom("725G26", "Datafest", exaList.getList(), groupList.getGroupList("725G26"), participantList.getParticipantList("725G26"));
+//		allCourseRooms.add(g);
+//		
+//		CourseRoom h = new CourseRoom("725G74", "All aboard the PCI express", exaList.getList(), groupList.getGroupList("725G74"), participantList.getParticipantList("725G74"));
+//		allCourseRooms.add(h);
+//		
+//		CourseRoom i = new CourseRoom("725G34", "Jordbruksvetenskap", exaList.getList(), groupList.getGroupList("725G34"), participantList.getParticipantList("725G34"));
+//		allCourseRooms.add(i);
+//		
+//		CourseRoom j = new CourseRoom("725G24", "Kanalanalys", exaList.getList(), groupList.getGroupList("725G24"), participantList.getParticipantList("725G24"));
+//		allCourseRooms.add(j);
+//		
+//		CourseRoom k = new CourseRoom("725G66", "Historia", exaList.getList(), groupList.getGroupList("725G66"), participantList.getParticipantList("725G66"));
+//		allCourseRooms.add(k);
 		
-		CourseRoom b = new CourseRoom("725G54", "Processer och IT", exaList.getList(), groupList.getGroupList("725G54"), participantList.getParticipantList("725G54"));
-		allCourseRooms.add(b);
-		
-		CourseRoom c = new CourseRoom("725G56", "Kanonkurs", exaList.getList(), groupList.getGroupList("725G56"), participantList.getParticipantList("725G56"));
-		allCourseRooms.add(c);
-		
-		CourseRoom d = new CourseRoom("725G44", "International Analys", exaList.getList(), groupList.getGroupList("725G44"), participantList.getParticipantList("725G44"));
-		allCourseRooms.add(d);
-		
-		CourseRoom e = new CourseRoom("725G41", "Vem vet mest?", exaList.getList(), groupList.getGroupList("725G41"), participantList.getParticipantList("725G41"));
-		allCourseRooms.add(e);
-		
-		CourseRoom f = new CourseRoom("725G64", "Filipkunskap", exaList.getList(), groupList.getGroupList("725G64"), participantList.getParticipantList("725G64"));
-		allCourseRooms.add(f);
-		
-		CourseRoom g = new CourseRoom("725G26", "Datafest", exaList.getList(), groupList.getGroupList("725G26"), participantList.getParticipantList("725G26"));
-		allCourseRooms.add(g);
-		
-		CourseRoom h = new CourseRoom("725G74", "All aboard the PCI express", exaList.getList(), groupList.getGroupList("725G74"), participantList.getParticipantList("725G74"));
-		allCourseRooms.add(h);
-		
-		CourseRoom i = new CourseRoom("725G34", "Jordbruksvetenskap", exaList.getList(), groupList.getGroupList("725G34"), participantList.getParticipantList("725G34"));
-		allCourseRooms.add(i);
-		
-		CourseRoom j = new CourseRoom("725G24", "Kanalanalys", exaList.getList(), groupList.getGroupList("725G24"), participantList.getParticipantList("725G24"));
-		allCourseRooms.add(j);
-		
-		CourseRoom k = new CourseRoom("725G66", "Historia", exaList.getList(), groupList.getGroupList("725G66"), participantList.getParticipantList("725G66"));
-		allCourseRooms.add(k);
-		
-	}
+//	}
 	
 	public ArrayList<CourseRoom> getAllCourseRooms(){
 		return allCourseRooms;
