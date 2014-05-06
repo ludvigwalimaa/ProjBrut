@@ -13,6 +13,8 @@ public class ExaminationList {
 	}
 	
 	public ArrayList<ExaminationArea> getList(){
+		System.out.println("CourseTaskList:");
+		System.out.println(this.exaList.get(0).getCTL().toString());
 		return exaList;
 	}
 

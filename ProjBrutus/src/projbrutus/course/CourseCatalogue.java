@@ -3,6 +3,7 @@ package projbrutus.course;
 import java.util.ArrayList;
 
 import projbrutus.course.examination.ExaminationList;
+import projbrutus.course.examination.task.CourseTaskList;
 import projbrutus.course.group.GroupList;
 import projbrutus.course.participant.ParticipantList;
 
@@ -18,7 +19,8 @@ public class CourseCatalogue {
 
 	public void populateCourseRooms(){
 		System.out.println("denne sysout ligger i populatecourserooms metoden");
-		ExaminationList exaList = new ExaminationList();
+		ExaminationList exaList = new ExaminationList("725G51");
+		
 		GroupList groupList = new GroupList();
 		ParticipantList participantList = new ParticipantList();
 		CourseRoom a = new CourseRoom("725G51", "Databaser", exaList.getList(), groupList.getGroupList("725G51"), participantList.getParticipantList("725G51"));
