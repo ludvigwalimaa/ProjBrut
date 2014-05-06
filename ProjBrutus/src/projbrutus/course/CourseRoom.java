@@ -31,6 +31,11 @@ public class CourseRoom {
 		
 	}
 
+	public String toString(){
+		String s = cId + " - " + cName + "\n" + exaList.toString() + "\n" + groupList.toString() + "\n" + participantList.toString();
+		return s;
+	}
+	
 	public String getcId() {
 		return cId;
 	}

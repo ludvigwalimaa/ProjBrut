@@ -23,7 +23,7 @@ public class CourseManager {
 		for(int i = 0; i<cc.getAllCourseRooms().size(); i++){
 			if(cID.equals(cc.getAllCourseRooms().get(i).getcId())){
 				CourseRoom cr = cc.getAllCourseRooms().get(i);
-				System.out.println(cc.getAllCourseRooms().get(i).getcId() + " " + cc.getAllCourseRooms().get(i).getcName());
+				System.out.println(cr.toString());
 				return cr;
 			}else{
 				
