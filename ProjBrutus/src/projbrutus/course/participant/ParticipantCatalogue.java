@@ -7,8 +7,8 @@ import projbrutus.person.Person;
 public class ParticipantCatalogue {
 
 
-	//ska anropa table bestående av liuid och kursid, matchar inskickad kursid mot table
-	//och returnerar arraylista med alla liuid som tillhär dettta kursid
+	//ska anropa table bestï¿½ende av liuid och kursid, matchar inskickad kursid mot table
+	//och returnerar arraylista med alla liuid som tillhï¿½r dettta kursid
 
 	public ArrayList<String> getParticipant(String cId){
 		ArrayList<String> pList = new ArrayList<String>();
