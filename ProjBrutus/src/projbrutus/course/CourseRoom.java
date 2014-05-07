@@ -33,7 +33,7 @@ public class CourseRoom {
 	}
 
 	public String toString(){
-		String s = cId + " - " + cName + " - " + liuID + ea.toString() + " " + g.toString() +  "\n";
+		String s = cId + " - " + cName + "\t| " + liuID + "\n";
 		return s;
 	}
 	public String getGroup(){
