@@ -194,6 +194,7 @@ public class Overblick {
 			
 		}else{
 			
+		FileManager fm = new FileManager();
 		
 		System.out.println("------");
 		System.out.println("0. Download material");
@@ -202,10 +203,10 @@ public class Overblick {
 		int chosenTask = in.nextInt();
 		switch (chosenTask) {
 		case 0:
-			System.out.println("Downloading material......DONE!");
+			fm.download();
 			break;
 		case 1:
-			System.out.println("Uploading material......Await your grade!");
+			fm.upload();
 			break;
 		}
 	}

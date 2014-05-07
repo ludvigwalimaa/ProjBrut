@@ -17,6 +17,10 @@ public class Test {
 		personTest(this.p);
 	}
 	
+	private void roomTest(CourseRoom cr){
+		
+	}
+	
 	private void personTest(Person p){
 		System.out.println("----Initializing persontest... -----");
 		if(p.getClass() == Teacher.class){
