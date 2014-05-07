@@ -9,7 +9,6 @@ import projbrutus.person.Teacher;
 
 public class Overblick {
 	Scanner in = new Scanner(System.in);
-	CourseList cl = new CourseList();
 	CourseManager cm;
 	Person p;
 

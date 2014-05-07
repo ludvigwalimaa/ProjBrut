@@ -10,11 +10,11 @@ public class Login {
 	String password;
 	
 	public Login() {
-		System.out.println("----Login LisamDeluxe-----");
-		System.out.print("Skriv in anvandarnamn: ");
+		System.out.println("----Login Project Brutus-----");
+		System.out.print("Usename(liuID): ");
 		liuID = in.nextLine();
 		
-		System.out.print("Skriv in losen: ");
+		System.out.print("Password: ");
 		password = in.nextLine();
 		
 		login.loginCheck(liuID, password);
