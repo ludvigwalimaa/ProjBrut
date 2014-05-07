@@ -162,20 +162,30 @@ public class Overblick {
 	private void manageTask(CourseTask ct) {
 		if(p.getClass() == Teacher.class){
 			System.out.println("-----");
-			System.out.println("0. Set grade 'G' ");
+			System.out.println("0. Set grade 'U' ");
+			System.out.println("1. Set grade 'K' ");
+			System.out.println("1. Set grade 'G' ");
 			System.out.println("1. Set grade 'VG' ");
+			
 			System.out.print("Choice:");
 			int chosenTask = in.nextInt();
 			switch (chosenTask) {
 			case 0:
+				System.out.println("Grade set to U!");
+				ct.setGrade("U");
+			case 1:
+				System.out.println("Grade set to K!");
+				ct.setGrade("K");
+			case 2:
 				System.out.println("Grade set to G!");
 				ct.setGrade("G");
 				break;
-			case 1:
+			case 3:
 				System.out.println("Grade set to VG!");
 				ct.setGrade("VG");
 				break;
 			}
+			
 			
 		}else{
 			
