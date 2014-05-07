@@ -173,9 +173,11 @@ public class Overblick {
 			case 0:
 				System.out.println("Grade set to U!");
 				ct.setGrade("U");
+				break;
 			case 1:
 				System.out.println("Grade set to K!");
 				ct.setGrade("K");
+				break;
 			case 2:
 				System.out.println("Grade set to G!");
 				ct.setGrade("G");
