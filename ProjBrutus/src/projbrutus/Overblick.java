@@ -52,6 +52,7 @@ public class Overblick {
 	}
 	
 	private void chooseTask(CourseRoom cr){
+		
 		System.out.print("Choose task: ");
 		int chosenTask = in.nextInt();
 		ArrayList<CourseTask> tasks = cr.getEa().getCTL().getTasks();
@@ -76,17 +77,45 @@ public class Overblick {
 	}
 
 	private void manageTask(CourseTask ct){
-		System.out.println("------");
-		System.out.println("0. Download material");
-		System.out.println("1. Upload material");
 		
-		int chosenTask = in.nextInt();
-		switch(chosenTask){
-		case 0: System.out.println("Downloading material......DONE!");
-		break;
-		case 1: System.out.println("Uploading material......Await your grade!");
-		break;
+		if (p.getAdmin() == 1) {
+			System.out.println("------");
+			System.out.println("0. Download material");
+			System.out.println("1. Upload material");
+			System.out.println("2. Set grade");
+		
+			
+			int chosenTask = in.nextInt();
+			switch(chosenTask){
+			case 0: System.out.println("Downloading material......DONE!");
+			break;
+			case 1: System.out.println("Uploading material......Await your grade!");
+			break;
+			case 2: System.out.println("set grade: ");
+			String grade = in.nextLine();
+			ct.setGrade(grade);
+			System.out.println("Grade set for " + ct.toString());
+			break;
+			}
+			
+			
+		} else {
+			System.out.println("------");
+			System.out.println("0. Download material");
+			System.out.println("1. Upload material");
+			
+			int chosenTask = in.nextInt();
+			switch(chosenTask){
+			case 0: System.out.println("Downloading material......DONE!");
+			break;
+			case 1: System.out.println("Uploading material......Await your grade!");
+			break;
+			}
 		}
+		
+		
+		
+		
 		
 	}
 }
