@@ -14,7 +14,7 @@ public class CourseTaskList {
 	public CourseTaskList(String cId){
 		this.cId = cId;
 		for(int i=0; i < cs.getDefaultCourseTaskListSize(); i++){
-			courseTaskList.add(new CourseTask(this.cId, "A default description"));
+			courseTaskList.add(new CourseTask(this.cId, "A default description", "awaiting review"));
 		}
 	}
 

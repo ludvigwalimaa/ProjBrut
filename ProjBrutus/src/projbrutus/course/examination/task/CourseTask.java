@@ -6,10 +6,12 @@ public class CourseTask {
 	
 	private String cId;
 	private String description;
+	private String grade;
 
-	public CourseTask(String cId, String description) {
+	public CourseTask(String cId, String description, String grade) {
 		this.setcId(cId);
 		this.setDescription(description);
+		this.setGrade(grade);
 	}
 
 	public String getDescription() {
@@ -30,6 +32,14 @@ public class CourseTask {
 	
 	public String toString(){
 		return description + " - " + cId;
+	}
+
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
 	}
 
 	
