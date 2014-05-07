@@ -31,7 +31,7 @@ public class CourseTask {
 	}
 	
 	public String toString(){
-		return description + " - " + cId;
+		return description + " - " + cId + " " + grade;
 	}
 
 	public String getGrade() {
