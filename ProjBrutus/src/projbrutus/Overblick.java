@@ -8,6 +8,7 @@ import projbrutus.course.CourseManager;
 import projbrutus.course.CourseRoom;
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.person.Person;
+import projbrutus.person.Teacher;
 
 public class Overblick {
 	Scanner in = new Scanner(System.in);
@@ -17,8 +18,14 @@ public class Overblick {
 
 	public Overblick(Person p) {
 		this.p = p;
-		createOverblick();
-		chooseCourse();
+		if(p.getClass() == Teacher.class){
+				
+		}else{
+			createOverblick();
+			chooseCourse();
+		}
+		
+		
 	}
 
 	private void createOverblick() {
@@ -78,28 +85,6 @@ public class Overblick {
 
 	private void manageTask(CourseTask ct){
 		
-		if (p.getAdmin() == 1) {
-			System.out.println("------");
-			System.out.println("0. Download material");
-			System.out.println("1. Upload material");
-			System.out.println("2. Set grade");
-		
-			
-			int chosenTask = in.nextInt();
-			switch(chosenTask){
-			case 0: System.out.println("Downloading material......DONE!");
-			break;
-			case 1: System.out.println("Uploading material......Await your grade!");
-			break;
-			case 2: System.out.println("set grade: ");
-			String grade = in.nextLine();
-			ct.setGrade(grade);
-			System.out.println("Grade set for " + ct.toString());
-			break;
-			}
-			
-			
-		} else {
 			System.out.println("------");
 			System.out.println("0. Download material");
 			System.out.println("1. Upload material");
@@ -117,5 +102,5 @@ public class Overblick {
 		
 		
 		
-	}
 }
+

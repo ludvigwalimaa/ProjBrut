@@ -14,13 +14,13 @@ public class PersonCatalogue {
 
 	private void fetchPersons() {
 		// Databas koppling till persondatabas.
-		Person a;
+
 		PCatalogue.add(new Person("gabol892", "Gabriel", "0123456789", "hej123"));
 		PCatalogue.add(new Person("filbr616", "Filip", "0123456789", "hej123"));
 		PCatalogue.add(new Person("ludwa930", "Ludvig", "0123456789", "hej123"));
 		PCatalogue.add(new Person("anka101", "Andreas", "0123456789", "hej123"));
-		PCatalogue.add(a = new Person("admin", "admin", "0123456789", "hej123"));
-		a.setAdmin(1);
+		PCatalogue.add(new Teacher("ivan", "ivan", "0123456789", "hej123"));
+
 		
 	}
 
