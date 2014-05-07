@@ -17,7 +17,7 @@ public class CourseManager {
 	}
 	
 	
-	public void fetchCourseRoom(CourseRoom cr) {
+	public CourseRoom fetchCourseRoom(CourseRoom cr) {
 		System.out.println("CourseRoom:" + cr.toString());
 
 		System.out.println("ExaminationsLista:");
@@ -32,6 +32,7 @@ public class CourseManager {
 		for(int i = 0; i < cr.getEa().getCTL().getTasks().size(); i++){
 			System.out.println("Task " + i + ". " + cr.getEa().getCTL().getTasks().get(i).toString());
 		}
+		return cr;
 		
 		
 	}

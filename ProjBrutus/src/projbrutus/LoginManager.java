@@ -43,9 +43,9 @@ public class LoginManager{
 //		g.addGroupMember(new Person("ludwa930", "Ludvig", "0123456789", "hej123"));
 //		g.addGroupMember(new Person("gabol892", "Gabriel", "0123456789", "hej123"));
 //	
-		createRoom("725G51", "Databaser");
+		createRoom("725G51", "Databaser"); // gabol892, ludwa930, anka101
 		
-		createRoom("725G34", "Historia");
+		createRoom("725G34", "Historia"); //ludwa930
 		
 		
 		
@@ -62,21 +62,33 @@ public class LoginManager{
 		ExaminationList exaList = new ExaminationList();
 		ExaminationArea ea;
 		ParticipantList participantList = new ParticipantList();
+		PersonCatalogue pc = new PersonCatalogue();
+		Person p;
+		Group g;
+		
 		GroupList groupList; //Skapar en databas över Grupper för en kurskod
 		groupList = new GroupList(cID);
-		groupList.populateDBgroupList(); 
-		Group g = groupList.getDBgroupList().get(0);
+		groupList.populateDBgroupList();  //Skapar 30 grupper
+		
+		
 		
 		
 		exaList = new ExaminationList(cID);
 		exaList.populateDBexaList();
+		
 		for(int i = 0; i < participantList.getParticipantList(cID).size(); i++){
 			String liuID = participantList.getParticipantList(cID).get(i).toString(); // Hämtar liuID
+			p = pc.getPerson(liuID);
+			
+			g = groupList.getDBgroupList().get(i); //Hämtar "i" gruppen i ArrayListan och sätter den till G
+			g.addGroupMember(p);
 			ea = exaList.getDBexaList().get(i);
 			ea.setGroupID(g.getgID());
+			
 			a = new CourseRoom(cID, cName, liuID, ea, g);
 			cc.allCourseRooms.add(a);
 		}
+		
 		
 	}
 	
