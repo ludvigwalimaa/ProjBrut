@@ -124,7 +124,15 @@ public class Overblick {
 		System.out.print("Choose task: ");
 		int chosenTask = in.nextInt();
 		ArrayList<CourseTask> tasks = cr.getEa().getCTL().getTasks();
-
+		
+		if ((chosenTask <= tasks.size()) && (chosenTask > -1 )) {
+			
+			System.out.println(tasks.get(chosenTask).toString());
+			manageTask(tasks.get(chosenTask));
+		} else {
+			System.out.println("choice does not exist..");
+		}
+/*
 		switch (chosenTask) {
 		case 0:
 			System.out.println(tasks.get(0).toString());
@@ -146,7 +154,9 @@ public class Overblick {
 			System.out.println(tasks.get(4).toString());
 			manageTask(tasks.get(0));
 			break;
-		}
+			}
+			*/
+		
 	}
 
 	private void manageTask(CourseTask ct) {
