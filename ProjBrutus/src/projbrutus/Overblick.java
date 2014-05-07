@@ -47,7 +47,7 @@ public class Overblick {
 	}
 
 	private void chooseTeacherCourse() {
-		System.out.print("Choice: ");
+		System.out.print("Choice (0-3): ");
 		ArrayList<CourseTask> ct;
 		int choice = in.nextInt();
 		switch (choice) {
@@ -79,7 +79,7 @@ public class Overblick {
 	}
 
 	private void chooseTeacherTask(ArrayList<CourseTask> ct) {
-		System.out.print("Choice: ");
+		System.out.print("Choice (0-4): ");
 		int choice = in.nextInt();
 		switch (choice) {
 		case 0: manageTask(ct.get(0));
@@ -106,7 +106,7 @@ public class Overblick {
 	private void chooseCourse() {
 		String chosenCourse;
 		CourseRoom cr;
-		System.out.print("Choice: ");
+		System.out.print("Choice('725GXX'): ");
 		chosenCourse = in.nextLine();
 		for (int i = 0; i < cl.getCourseList().size(); i++) {
 			if (chosenCourse.equals(cl.getCourseList().get(i).getcId())) {
@@ -121,7 +121,7 @@ public class Overblick {
 
 	private void chooseTask(CourseRoom cr) {
 
-		System.out.print("Choose task: ");
+		System.out.print("Choose task (0-4): ");
 		int chosenTask = in.nextInt();
 		ArrayList<CourseTask> tasks = cr.getEa().getCTL().getTasks();
 		
@@ -164,10 +164,10 @@ public class Overblick {
 			System.out.println("-----");
 			System.out.println("0. Set grade 'U' ");
 			System.out.println("1. Set grade 'K' ");
-			System.out.println("1. Set grade 'G' ");
-			System.out.println("1. Set grade 'VG' ");
+			System.out.println("2. Set grade 'G' ");
+			System.out.println("3. Set grade 'VG' ");
 			
-			System.out.print("Choice:");
+			System.out.print("Choice (0-3):");
 			int chosenTask = in.nextInt();
 			switch (chosenTask) {
 			case 0:
@@ -195,7 +195,7 @@ public class Overblick {
 		System.out.println("------");
 		System.out.println("0. Download material");
 		System.out.println("1. Upload material");
-
+		System.out.print("Choice: (0-1) ");
 		int chosenTask = in.nextInt();
 		switch (chosenTask) {
 		case 0:
