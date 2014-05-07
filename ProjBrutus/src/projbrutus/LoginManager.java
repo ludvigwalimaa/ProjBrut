@@ -44,14 +44,10 @@ public class LoginManager{
 //		g.addGroupMember(new Person("gabol892", "Gabriel", "0123456789", "hej123"));
 //	
 		createRoom("725G51", "Databaser"); // gabol892, ludwa930, anka101
-		
 		createRoom("725G34", "Historia"); //ludwa930
+
 		
-		
-		
-		
-				
-				
+					
 		
 
 	}
@@ -88,6 +84,7 @@ public class LoginManager{
 			a = new CourseRoom(cID, cName, liuID, ea, g);
 			cc.allCourseRooms.add(a);
 		}
+		
 		
 		
 	}

@@ -9,6 +9,7 @@ import projbrutus.course.CourseRoom;
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.person.Person;
 import projbrutus.person.Teacher;
+import projbrutus.testing.Test;
 
 public class Overblick {
 	Scanner in = new Scanner(System.in);
@@ -18,6 +19,7 @@ public class Overblick {
 
 	public Overblick(Person p) {
 		this.p = p;
+		
 		createOverblick();
 		if (p.getClass() == Teacher.class) {
 
@@ -53,6 +55,7 @@ public class Overblick {
 		switch (choice) {
 		case 0:
 			cm.allCourseRooms().get(0);
+			Test t = new Test(p, cm.allCourseRooms().get(0));
 			System.out.println(cm.allCourseRooms().get(0).toString());
 			ct = cm.showTasks(cm.allCourseRooms().get(0));
 			chooseTeacherTask(ct);
