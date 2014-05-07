@@ -6,6 +6,7 @@ public class Person {
 	private String name;
 	private String personNummer;
 	private String password;
+	private int admin = 0;
 
 	public Person(String liuID, String name, String personNummer, String password) {
 		setLiuID(liuID);
@@ -49,5 +50,13 @@ public class Person {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public int getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(int admin) {
+		this.admin = admin;
 	}
 }
