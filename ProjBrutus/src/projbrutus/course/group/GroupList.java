@@ -1,33 +1,38 @@
 package projbrutus.course.group;
 
 import java.util.ArrayList;
+
 import projbrutus.course.CourseStructure;
+import projbrutus.course.examination.ExaminationArea;
 
 public class GroupList {
 
-	private ArrayList<Group> groupList = new ArrayList<Group>();
+	private ArrayList<Group> DBgroupList = new ArrayList<Group>();
+	
 	private CourseStructure cs = new CourseStructure();
+	private String cId;
 	
-	public GroupList(){
-		
+	public GroupList(String cId){
+
 	}
 	
-	public ArrayList<Group> getGroupList(String cId) {
-		
-		//sql anrop till table �ver gruppID samt kursID f�r att
-		//h�mta alla grupper som tillh�r en kurs
-		return groupList;
-	}
-	
-	public ArrayList<Group> createGroupList(String cId) {
-		
-		//metod som skapar lista �ver grupper f�r en kurs
-		
-		for (int i = 0; i < cs.getDefaultGroupListSize(); i++) {
-		Group g = new Group(cId, Integer.toString(i));
-		groupList.add(g);
+	public void populateDBgroupList() {
+		cs = new CourseStructure();
+		for(int i = 0; i< cs.getDefaultGroupListSize() ;i++){
+			getDBgroupList().add(new Group(this.cId, i));
+			
 		}
-		return groupList;
+		
 	}
+
+	public ArrayList<Group> getDBgroupList() {
+		return DBgroupList;
+	}
+
+	public void setDBgroupList(ArrayList<Group> dBgroupList) {
+		DBgroupList = dBgroupList;
+	}
+	
+	
 	
 }

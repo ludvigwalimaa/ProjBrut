@@ -14,15 +14,15 @@ public class CourseRoom {
 	private String cId;
 	private String cName;
 	private ExaminationArea ea;
-	private ArrayList<Group> groupList;
+	private Group g;
 	private ArrayList<String> participantList;
 	private String liuID;
 	
-	public CourseRoom(String cId, String cName, String liuID, ExaminationArea ea){
+	public CourseRoom(String cId, String cName, String liuID, ExaminationArea ea, Group g){
 		this.cId = cId;
 		this.cName = cName;
 		this.setEa(ea);
-//		this.groupList = groupList;
+		this.g = g;
 //		this.participantList = participantList;
 		this.liuID = liuID;
 		
@@ -36,38 +36,24 @@ public class CourseRoom {
 		String s = cId + " - " + cName + "\n";
 		return s;
 	}
+	public String getGroup(){
+		return g.toString();
+	}
+	
+	public String getliuID(){
+		return liuID;
+	}
 	
 	public String getcId() {
 		return cId;
-	}
-
-	public void setcId(String cId) {
-		this.cId = cId;
 	}
 
 	public String getcName() {
 		return cName;
 	}
 
-	public void setcName(String cName) {
-		this.cName = cName;
-	}
-
-
-	public ArrayList<Group> getGroupList() {
-		return groupList;
-	}
-
-	public void setGroupList(ArrayList<Group> groupList) {
-		this.groupList = groupList;
-	}
-
 	public ArrayList<String> getParticipantList() {
 		return participantList;
-	}
-
-	public void setParticipantList(ArrayList<String> participantList) {
-		this.participantList = participantList;
 	}
 
 	public ExaminationArea getEa() {
@@ -77,6 +63,10 @@ public class CourseRoom {
 	public void setEa(ExaminationArea ea) {
 		this.ea = ea;
 	}
+
+
+
+
 	
 	
 

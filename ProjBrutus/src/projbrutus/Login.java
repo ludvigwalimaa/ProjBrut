@@ -10,7 +10,7 @@ public class Login {
 	String password;
 	
 	public Login() {
-		
+		System.out.println("----Login LisamDeluxe-----");
 		System.out.print("Skriv in anvandarnamn: ");
 		liuID = in.nextLine();
 		

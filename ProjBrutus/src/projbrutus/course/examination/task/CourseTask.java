@@ -29,7 +29,7 @@ public class CourseTask {
 	}
 	
 	public String toString(){
-		return cId + " - " + description + "\n";
+		return description + " - " + cId;
 	}
 
 	

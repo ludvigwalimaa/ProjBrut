@@ -7,8 +7,10 @@ import projbrutus.course.CourseRoom;
 import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.ExaminationList;
 import projbrutus.course.examination.task.CourseTaskList;
+import projbrutus.course.group.Group;
 import projbrutus.course.group.GroupList;
 import projbrutus.course.participant.ParticipantList;
+import projbrutus.person.Person;
 import projbrutus.person.PersonCatalogue;
 
 public class LoginManager{
@@ -20,52 +22,62 @@ public class LoginManager{
 		if(!PC.comparePersons(liuID, password)){
 			System.out.println("--- Login failed ---");
 		}else{
-			startUp(liuID);
-			//new Overblick(PC.getPerson(liuID));
+			startUp();
+			new Overblick(PC.getPerson(liuID));
 		}
-		
-//			boolean secure = false;
-//			
-//			if (ID.equals("admin") && pass.equals("admin")) {
-//				
-//				secure = true;
-//				
-//			}
-//			
-//			return secure;
-//		}
-		
 	}
 	
 
 	
-	private void startUp(String liuID){
-		System.out.println(liuID);
-		ExaminationList exaList = new ExaminationList("725G51"); //Skapar en databas över exalistor
-		exaList.populateDBexaList(); //Skapar alla ExaAreas i "DB" för en Kurskod
-		ExaminationArea ea = exaList.DBexaList.get(0); //Skapar ett exaArea för ludwa930.
-		ea.setLiuID("ludwa930");
+	private void startUp(){
+//		ExaminationList exaList = new ExaminationList("725G51"); //Skapar en databas över exalistor för en kurskod
+//		exaList.populateDBexaList(); //Skapar alla ExaAreas i "DB" för en Kurskod
+//		
+//		GroupList groupList = new GroupList("725G51"); //Skapar en databas över Grupper för en kurskod
+//		groupList.populateDBgroupList(); //Skapar alla grupper för kursen 725G51 och lägger de i en "DB.
 		
-		CourseTaskList ctl = ea.getCTL();
+//		ExaminationArea ea = exaList.DBexaList.get(0); //Skapar ett personligt exaArea för ludwa930 i kursen 725G51
+//		ea.setLiuID("ludwa930");
+
+//		Group g = groupList.DBgroupList.get(0);
+//		g.addGroupMember(new Person("ludwa930", "Ludvig", "0123456789", "hej123"));
+//		g.addGroupMember(new Person("gabol892", "Gabriel", "0123456789", "hej123"));
+//	
+		createRoom("725G51", "Databaser");
+		
+		createRoom("725G34", "Historia");
 		
 		
-		GroupList groupList = new GroupList();
-		ParticipantList participantList = new ParticipantList();
 		
+		
+				
+				
+		
+
+	}
+	
+	private void createRoom(String cID, String cName){
 		CourseCatalogue cc = new CourseCatalogue();
-		CourseRoom a = new CourseRoom("725G51", "Databaser", "ludwa930", ea);
-		cc.allCourseRooms.add(a);
+		CourseRoom a;
+		ExaminationList exaList = new ExaminationList();
+		ExaminationArea ea;
+		ParticipantList participantList = new ParticipantList();
+		GroupList groupList; //Skapar en databas över Grupper för en kurskod
+		groupList = new GroupList(cID);
+		groupList.populateDBgroupList(); 
+		Group g = groupList.getDBgroupList().get(0);
 		
-		System.out.println("Kursrummet:");
-		System.out.println(a.toString());
 		
-		System.out.println("ExaminationsLista:");
-		System.out.println("ExaminationsArea: " + a.getEa().toString());
+		exaList = new ExaminationList(cID);
+		exaList.populateDBexaList();
+		for(int i = 0; i < participantList.getParticipantList(cID).size(); i++){
+			String liuID = participantList.getParticipantList(cID).get(i).toString(); // Hämtar liuID
+			ea = exaList.getDBexaList().get(i);
+			ea.setGroupID(g.getgID());
+			a = new CourseRoom(cID, cName, liuID, ea, g);
+			cc.allCourseRooms.add(a);
+		}
 		
-		System.out.println("CourseTaskList: ");
-		System.out.println(a.getEa().getCTL().toString());
-		System.out.println("Tasks:");
-		System.out.println(a.getEa().getCTL().getTasks().toString());
 	}
 	
 

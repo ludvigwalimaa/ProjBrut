@@ -11,46 +11,38 @@ public class Overblick {
 	CourseList cl = new CourseList();
 	CourseManager cm = new CourseManager();
 	Person p;
-	int amountCourses;
-	
-	public Overblick(Person p){
+
+	public Overblick(Person p) {
 		this.p = p;
 		createOverblick();
 		chooseCourse();
 	}
-	
-	private void createOverblick(){
+
+	private void createOverblick() {
 		System.out.println("\n---- Overview -----");
-		loadCourses(p);
-		
+		loadPersonalCourses(p);
+
 	}
-	
-	private void loadCourses(Person p){
-		cl.populateCourseList(p); // Lägger till personens kurser i Courselistr (hårdkodat)
-		amountCourses = 0;
-		for(int i = 0; i<cl.getList().size(); i++){
-			System.out.println("* " + cl.getList().get(i).toString());
+
+	private void loadPersonalCourses(Person p) {
+		cl.populateCourseList(p); // Lägger till personens kurser i courseList
+		for (int i = 0; i < cl.getCourseList().size(); i++) {
+			System.out.println("* " + cl.getCourseList().get(i).toString());
 		}
-		
+
 	}
-	
-	private void chooseCourse(){
+
+	private void chooseCourse() {
 		String chosenCourse;
 		System.out.print("Choice: ");
 		chosenCourse = in.nextLine();
-		for(int i = 0; i<cl.getList().size(); i++){
-			if(chosenCourse.equals(cl.getList().get(i).toString())){
-				cm.getCourseRoom(chosenCourse);
-				System.out.println("Du valde kursen " + chosenCourse);
-				
-			}
-			else{
-				
+		for (int i = 0; i < cl.getCourseList().size(); i++) {
+			if (chosenCourse.equals(cl.getCourseList().get(i).getcId())) {
+				cm.fetchCourseRoom(cl.getCourseList().get(i));
+			} else {
+
 			}
 		}
 	}
 
 }
-		
-	
-

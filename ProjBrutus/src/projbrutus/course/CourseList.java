@@ -5,41 +5,26 @@ import java.util.ArrayList;
 import projbrutus.person.Person;
 
 public class CourseList {
-	
-	ArrayList<String> courseList = new ArrayList<String>();
-	
-	public void populateCourseList (Person p) {
-		
-		//Metod som h�mtar lista �ver alla kurser f�r inskickad person
-		//l�ses med samma table som anv�nds f�r h�mtning av deltagare i en kurs
-		
-		if(p.getLiudID().equals("gabol892")) {
-		courseList.add("725G51");
-		courseList.add("725G54");
-		courseList.add("725G56");
-		courseList.add("725G44");
-		} else if(p.getLiudID().equals("filbr616")) {
-		courseList.add("725G41");
-		courseList.add("725G64");
-		courseList.add("725G26");
-		courseList.add("725G74");
-		} else if (p.getLiudID().equals("ludwa930")){
-		courseList.add("725G51");
-		courseList.add("725G34");
-		courseList.add("725G26");
-		courseList.add("725G64");
-		} else if(p.getLiudID().equals("anka101")) {
-		courseList.add("725G51");
-		courseList.add("725G24");
-		courseList.add("725G66");
-		courseList.add("725G74");
-		} else {
-			courseList.add("funka inte ffs");
+
+	private ArrayList<CourseRoom> courseList = new ArrayList<CourseRoom>();
+
+	public CourseList() {
+
+	}
+
+	// Hämtar personens CourseRooms i allCourseRooms.
+	public void populateCourseList(Person p) {
+		String liuID = p.getLiudID();
+		CourseCatalogue cc = new CourseCatalogue();
+		for (int i = 0; i < cc.allCourseRooms.size(); i++) {
+			if (liuID.equals(cc.allCourseRooms.get(i).getliuID())) {
+				courseList.add(cc.allCourseRooms.get(i));
+			} else {
+			}
 		}
 	}
 	
-	public ArrayList<String> getList(){
+	public ArrayList<CourseRoom> getCourseList(){
 		return courseList;
 	}
-	
 }

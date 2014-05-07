@@ -17,50 +17,22 @@ public class CourseManager {
 	}
 	
 	
-	public CourseRoom getCourseRoom(String cID) {
-		CourseCatalogue cc = new CourseCatalogue();
-		//cc.populateCourseRooms();
-		for(int i = 0; i<cc.getAllCourseRooms().size(); i++){
-			if(cID.equals(cc.getAllCourseRooms().get(i).getcId())){
-				CourseRoom cr = cc.getAllCourseRooms().get(i);
-				System.out.println(cr.toString());
-				return cr;
-			}else{
-				
-			}
-		}
-		return null;
-	}
-	
-	public void createCourseRoom() {
-		
-		System.out.println("Mata in kursid");
-		
-		String cId = in.nextLine();
-		
-		System.out.println("Mata in kursnamn");
-		String cName = in.nextLine();
-		
-		CourseRoom course = new CourseRoom();
-		course.setcId(cId);
-		course.setcName(cName);
-		
-	    //course.setExaList(createExaminationArea());
-		
-		//skapa grupplista? ArrayList<Group> groupList
-		
-		//skapa deltagarlista? ArrayList<Person> participantList
- 
-		
-	}
-	
-	public ArrayList<ExaminationArea> createExaminationArea(){
-		
-		System.out.println("Skriv in lite latjogrejs");
-		
-		ArrayList<ExaminationArea> exaList = null;
+	public void fetchCourseRoom(CourseRoom cr) {
+		System.out.println("CourseRoom:" + cr.toString());
 
-		return exaList;
+		System.out.println("ExaminationsLista:");
+		System.out.println("ExaminationsArea: " + cr.getEa().toString());
+		
+		System.out.println("GroupList:");
+		System.out.println(cr.getGroup());
+		
+		System.out.println("CourseTaskList: ");
+		System.out.println(cr.getEa().getCTL().toString());
+		System.out.println("Tasks:");
+		for(int i = 0; i < cr.getEa().getCTL().getTasks().size(); i++){
+			System.out.println("Task " + i + ". " + cr.getEa().getCTL().getTasks().get(i).toString());
+		}
+		
 		
 	}
 	

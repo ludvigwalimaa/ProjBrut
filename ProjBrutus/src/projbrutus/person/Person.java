@@ -14,6 +14,10 @@ public class Person {
 		setPassword(password);
 		
 	}
+	
+	public String toString(){
+		return name + " - " + liuID;
+	}
 
 	public String getLiudID() {
 		return liuID;

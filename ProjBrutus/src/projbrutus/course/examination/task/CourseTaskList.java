@@ -9,6 +9,7 @@ public class CourseTaskList {
 	private ArrayList<CourseTask> courseTaskList = new ArrayList<CourseTask>();
 	
 	private String cId, liuID;
+	private int gID;
 	
 	public CourseTaskList(String cId){
 		this.cId = cId;
@@ -17,16 +18,16 @@ public class CourseTaskList {
 		}
 	}
 
-	public String getLiuID() {
-		return liuID;
+	public int getGroupID() {
+		return gID;
 	}
 
-	public void setLiuID(String liuID) {
-		this.liuID = liuID;
+	public void setGroupID(int gID) {
+		this.gID = gID;
 	}
 	
 	public String toString(){
-		return cId + " - " + liuID;
+		return cId + " - " + gID;
 	}
 	
 	public ArrayList<CourseTask> getTasks(){
