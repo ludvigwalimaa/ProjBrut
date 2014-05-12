@@ -13,16 +13,28 @@ import projbrutus.testing.Test;
 public class CourseManager {
 	
 	Scanner in = new Scanner(System.in);
-	CourseCatalogue cc = new CourseCatalogue();
+	CourseCatalogue cc;
 	CourseList cl = new CourseList();
 	Person p;
 	
 	public CourseManager(){
 		
 	}
-	public CourseManager(Person p){
+	public CourseManager(Person p, CourseCatalogue cc){
 		this.p = p;
-		
+		this.cc = cc;
+		checkPerson(p);
+	}
+	
+	private void checkPerson(Person p) {
+		if (p.getClass() == Teacher.class) {
+			System.out.println("\n---- Teacher Overview -----");
+			loadTeacherCourses(p);
+		} else {
+			System.out.println("\n---- Student Overview -----");
+			loadPersonalCourses(p);
+		}
+
 	}
 	
 	public void loadTeacherCourses(Person p) {
@@ -89,7 +101,7 @@ public class CourseManager {
 		for (int i = 0; i < cl.getCourseList().size(); i++) {
 			System.out.println("* " + cl.getCourseList().get(i).toString());
 		}
-
+		chooseCourse();
 	}
 
 	public void chooseCourse() {

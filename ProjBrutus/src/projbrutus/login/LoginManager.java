@@ -22,8 +22,9 @@ public class LoginManager{
 		if(!PC.comparePersons(liuID, password)){
 			System.out.println("--- Login failed ---");
 		}else{
-			startUp();
-			new Overblick(PC.getPerson(liuID));
+			CourseCatalogue cc = new CourseCatalogue();
+			startUp(cc);
+			new Overblick(PC.getPerson(liuID), cc);
 			
 			
 		}
@@ -31,8 +32,7 @@ public class LoginManager{
 	
 
 	
-	private void startUp(){
-		CourseCatalogue cc = new CourseCatalogue();
+	private void startUp(CourseCatalogue cc){
 		cc.createRoom("725G51", "Databaser"); // gabol892, ludwa930, anka101
 		cc.createRoom("725G34", "Historia"); //ludwa930
 

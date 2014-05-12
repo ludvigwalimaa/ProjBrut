@@ -2,6 +2,7 @@ package projbrutus.login;
 
 import java.util.Scanner;
 
+import projbrutus.course.CourseCatalogue;
 import projbrutus.course.CourseList;
 import projbrutus.course.CourseManager;
 import projbrutus.person.Person;
@@ -12,27 +13,8 @@ public class Overblick {
 	CourseManager cm;
 	Person p;
 
-	public Overblick(Person p) {
+	public Overblick(Person p, CourseCatalogue cc) {
 		this.p = p;
-		cm =  new CourseManager(p);
-		createOverblick();
-		if (p.getClass() == Teacher.class) {
-
-		} else {
-			cm.chooseCourse();
-		}
-
-	}
-
-	private void createOverblick() {
-
-		if (p.getClass() == Teacher.class) {
-			System.out.println("\n---- Teacher Overview -----");
-			cm.loadTeacherCourses(p);
-		} else {
-			System.out.println("\n---- Student Overview -----");
-			cm.loadPersonalCourses(p);
-		}
-
+		new CourseManager(p, cc);
 	}
 }
