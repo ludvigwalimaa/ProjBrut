@@ -1,4 +1,4 @@
-package projbrutus;
+package projbrutus.login;
 
 public class Main {
 

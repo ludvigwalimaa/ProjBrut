@@ -1,4 +1,4 @@
-package projbrutus;
+package projbrutus.login;
 
 import java.io.IOException;
 
