@@ -22,6 +22,7 @@ public class CourseManager {
 	}
 	public CourseManager(Person p){
 		this.p = p;
+		
 	}
 	
 	public void loadTeacherCourses(Person p) {
