@@ -22,8 +22,9 @@ public class LoginManager{
 		if(!PC.comparePersons(liuID, password)){
 			System.out.println("--- Login failed ---");
 		}else{
-			startUp();
 			new Overblick(PC.getPerson(liuID));
+			startUp();
+			
 		}
 	}
 	
