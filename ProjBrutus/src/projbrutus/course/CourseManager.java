@@ -18,7 +18,7 @@ public class CourseManager {
 	private Person p;
 	private ArrayList<CourseRoom> allCourseRooms;
 	private CourseRoom tmpCR;
-	private CourseTask tmpCT = new CourseTask();
+	private CourseTask tmpCT;
 
 
 	
@@ -56,6 +56,7 @@ public class CourseManager {
 		cl.printCourseList(p); //Skriver ut kurslistan
 		chooseCourse();
 		tmpCR.printCourseRoom();
+		tmpCT = new CourseTask();
 		tmpCT = tmpCT.chooseTask(p, tmpCR);
 		tmpCT.manageTask(p);
 		

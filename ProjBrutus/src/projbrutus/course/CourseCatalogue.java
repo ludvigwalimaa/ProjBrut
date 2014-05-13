@@ -40,9 +40,6 @@ public class CourseCatalogue {
 		groupList = new GroupList(cID);
 		groupList.populateDBgroupList();  //Skapar 30 grupper
 		
-		
-		
-		
 		exaList = new ExaminationList(cID);
 		exaList.populateDBexaList();
 		
