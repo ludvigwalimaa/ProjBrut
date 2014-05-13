@@ -1,8 +1,10 @@
 package projbrutus.course.examination.task;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import projbrutus.FileManager;
+import projbrutus.course.CourseRoom;
 import projbrutus.course.group.Group;
 import projbrutus.person.Person;
 import projbrutus.person.Teacher;
@@ -17,6 +19,10 @@ public class CourseTask {
 		this.setcId(cId);
 		this.setDescription(description);
 		this.setGrade(grade);
+	}
+	
+	public CourseTask(){
+		
 	}
 
 	public String getDescription() {
@@ -45,6 +51,41 @@ public class CourseTask {
 
 	public void setGrade(String grade) {
 		this.grade = grade;
+	}
+	
+	public CourseTask chooseTask(Person p, CourseRoom cr) {
+		
+		ArrayList<CourseTask> tmpCTL = cr.getEa().getCTL().getTasks();
+		if(p.getClass() == Teacher.class){
+			System.out.print("Choice (0-4): ");
+			int choice = in.nextInt();
+			switch (choice) {
+			case 0: return tmpCTL.get(0);
+			
+			case 1: return tmpCTL.get(1);
+
+			case 2: return tmpCTL.get(2);
+			
+			case 3: return tmpCTL.get(3);
+
+			case 4: return tmpCTL.get(4);
+
+			}
+		}
+		else{
+			System.out.print("Choose task (0-4): ");
+			int chosenTask = in.nextInt();
+//			ArrayList<CourseTask> tasks =  tmpCTL;
+			
+			if ((chosenTask <= tmpCTL.size()) && (chosenTask > -1 )) {
+				System.out.println("Task. " + chosenTask);
+				return tmpCTL.get(chosenTask);
+			} else {
+				System.out.println("choice does not exist..");
+			}
+		}
+		
+		return null;
 	}
 
 	public void manageTask(Person p) {

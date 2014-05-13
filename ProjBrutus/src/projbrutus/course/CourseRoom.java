@@ -10,6 +10,7 @@ import projbrutus.course.group.Group;
 import projbrutus.course.group.GroupList;
 import projbrutus.course.participant.ParticipantList;
 import projbrutus.person.Person;
+import projbrutus.person.Teacher;
 
 public class CourseRoom {
 	private Scanner in = new Scanner(System.in);
@@ -83,20 +84,17 @@ public class CourseRoom {
 		}
 
 	}
-
-	public CourseTask chooseTask() {
-		System.out.print("Choose task (0-4): ");
-		int chosenTask = in.nextInt();
-		ArrayList<CourseTask> tasks = getEa().getCTL().getTasks();
-		
-		if ((chosenTask <= tasks.size()) && (chosenTask > -1 )) {
-			System.out.println("Task. " + chosenTask);
-			return tasks.get(chosenTask);
-		} else {
-			System.out.println("choice does not exist..");
+	
+	public ArrayList<CourseTask> showTasks(){
+		System.out.println("CourseTaskList: ");
+		System.out.println(getEa().getCTL().toString());
+		System.out.println("Tasks:");
+		for(int i = 0; i < getEa().getCTL().getTasks().size(); i++){
+			System.out.println("Task " + i + ". " + getEa().getCTL().getTasks().get(i).toString());
 		}
-		return null;
+		return getEa().getCTL().getTasks();
 	}
+	
 
 	
 
