@@ -1,16 +1,18 @@
 package projbrutus.course;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.ExaminationList;
+import projbrutus.course.examination.task.CourseTask;
 import projbrutus.course.group.Group;
 import projbrutus.course.group.GroupList;
 import projbrutus.course.participant.ParticipantList;
 import projbrutus.person.Person;
 
 public class CourseRoom {
-	
+	private Scanner in = new Scanner(System.in);
 	private String cId;
 	private String cName;
 	private ExaminationArea ea;
@@ -82,6 +84,19 @@ public class CourseRoom {
 
 	}
 
+	public CourseTask chooseTask() {
+		System.out.print("Choose task (0-4): ");
+		int chosenTask = in.nextInt();
+		ArrayList<CourseTask> tasks = getEa().getCTL().getTasks();
+		
+		if ((chosenTask <= tasks.size()) && (chosenTask > -1 )) {
+			System.out.println("Task. " + chosenTask);
+			return tasks.get(chosenTask);
+		} else {
+			System.out.println("choice does not exist..");
+		}
+		return null;
+	}
 
 	
 

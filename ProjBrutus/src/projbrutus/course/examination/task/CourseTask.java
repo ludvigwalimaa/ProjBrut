@@ -1,9 +1,14 @@
 package projbrutus.course.examination.task;
 
+import java.util.Scanner;
+
+import projbrutus.FileManager;
 import projbrutus.course.group.Group;
+import projbrutus.person.Person;
+import projbrutus.person.Teacher;
 
 public class CourseTask {
-	
+	private Scanner in = new Scanner(System.in);
 	private String cId;
 	private String description;
 	private String grade;
@@ -40,6 +45,57 @@ public class CourseTask {
 
 	public void setGrade(String grade) {
 		this.grade = grade;
+	}
+
+	public void manageTask(Person p) {
+		
+		if(p.getClass() == Teacher.class){
+			System.out.println("-----");
+			System.out.println("0. Set grade 'U' ");
+			System.out.println("1. Set grade 'K' ");
+			System.out.println("2. Set grade 'G' ");
+			System.out.println("3. Set grade 'VG' ");
+			
+			System.out.print("Choice (0-3):");
+			int chosenTask = in.nextInt();
+			switch (chosenTask) {
+			case 0:
+				System.out.println("Grade set to U!");
+				setGrade("U");
+				break;
+			case 1:
+				System.out.println("Grade set to K!");
+				setGrade("K");
+				break;
+			case 2:
+				System.out.println("Grade set to G!");
+				setGrade("G");
+				break;
+			case 3:
+				System.out.println("Grade set to VG!");
+				setGrade("VG");
+				break;
+			}
+			
+			
+		}else{
+			
+		FileManager fm = new FileManager();
+		
+		System.out.println("------");
+		System.out.println("0. Download material");
+		System.out.println("1. Upload material");
+		System.out.print("Choice: (0-1) ");
+		int chosenTask = in.nextInt();
+		switch (chosenTask) {
+		case 0:
+			fm.download();
+			break;
+		case 1:
+			fm.upload();
+			break;
+		}
+	}
 	}
 
 	
