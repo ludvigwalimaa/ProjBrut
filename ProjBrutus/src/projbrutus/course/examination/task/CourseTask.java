@@ -58,18 +58,14 @@ public class CourseTask {
 		ArrayList<CourseTask> tmpCTL = cr.getEa().getCTL().getTasks();
 		if(p.getClass() == Teacher.class){
 			System.out.print("Choice (0-4): ");
-			int choice = in.nextInt();
-			switch (choice) {
-			case 0: return tmpCTL.get(0);
+			int chosenTask = in.nextInt();
+//			ArrayList<CourseTask> tasks =  tmpCTL;
 			
-			case 1: return tmpCTL.get(1);
-
-			case 2: return tmpCTL.get(2);
-			
-			case 3: return tmpCTL.get(3);
-
-			case 4: return tmpCTL.get(4);
-
+			if ((chosenTask <= tmpCTL.size()) && (chosenTask > -1 )) {
+				System.out.println("Task. " + chosenTask);
+				return tmpCTL.get(chosenTask);
+			} else {
+				System.out.println("choice does not exist..");
 			}
 		}
 		else{

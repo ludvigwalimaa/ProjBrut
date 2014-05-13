@@ -46,6 +46,7 @@ public class CourseManager {
 		cc.printCourseRooms();
 		chooseCourse();
 		tmpCR.showTasks();
+		tmpCT = new CourseTask();
 		tmpCT = tmpCT.chooseTask(p, tmpCR);	
 		tmpCT.manageTask(p);
 		tmpCR.showTasks();
