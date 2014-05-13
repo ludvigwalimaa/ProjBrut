@@ -42,8 +42,8 @@ public class CourseManager {
 	
 	private void loadTeacherCourses(Person p) {
 		cc.printCourseRooms();
-		chooseTeacherCourse();
-
+		chooseCourse();
+		tmpCT = tmpCR.chooseTask();
 
 	}
 	
@@ -51,16 +51,12 @@ public class CourseManager {
 		cl.populateCourseList(p); // Lägger till personens kurser i courseList
 		cl.printCourseList(p); //Skriver ut kurslistan
 		chooseCourse();
+		tmpCR.printCourseRoom();
 		tmpCT = tmpCR.chooseTask();
 		tmpCT.manageTask(p);
 	}
 
 	private void chooseCourse() {
-		tmpCR = cl.chooseCourse(p, allCourseRooms);
-		tmpCR.printCourseRoom();
-	}
-	
-	private void chooseTeacherCourse() {
 		tmpCR = cl.chooseCourse(p, allCourseRooms);
 	}
 	

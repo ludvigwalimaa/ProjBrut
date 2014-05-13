@@ -37,7 +37,6 @@ public class CourseList {
 	
 	public CourseRoom chooseCourse(Person p, ArrayList<CourseRoom> allCourseRooms){
 		CourseRoom cr = null;
-		
 		if (p.getClass() == Teacher.class) {
 			
 			System.out.print("Choice (0-3): ");
@@ -54,7 +53,7 @@ public class CourseList {
 				new Test(p, allCourseRooms.get(1));
 				System.out.println(allCourseRooms.get(1).toString());
 				
-				break;
+				return cr;
 			case 2:
 				cr = allCourseRooms.get(3);
 				new Test(p, allCourseRooms.get(2));
