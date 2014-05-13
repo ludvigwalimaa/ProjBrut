@@ -62,6 +62,14 @@ public class CourseCatalogue {
 		
 		
 	}
+
+	public void printCourseRooms(){
+		String s = "";
+		for(int i=0; i<getAllCourseRooms().size(); i++){
+			s = s + i + ". " + getAllCourseRooms().get(i).toString();
+		}
+		System.out.println(s);
+	}
 	
 
 

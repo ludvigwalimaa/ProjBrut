@@ -12,10 +12,12 @@ import projbrutus.testing.Test;
 
 public class CourseManager {
 	
-	Scanner in = new Scanner(System.in);
-	CourseCatalogue cc;
-	CourseList cl = new CourseList();
-	Person p;
+	private Scanner in = new Scanner(System.in);
+	private CourseCatalogue cc;
+	private CourseList cl = new CourseList();
+	private Person p;
+	private ArrayList<CourseRoom> allCourseRooms;
+	private CourseRoom tmpCR;
 	
 	public CourseManager(){
 		
@@ -23,9 +25,10 @@ public class CourseManager {
 	public CourseManager(Person p, CourseCatalogue cc){
 		this.p = p;
 		this.cc = cc;
+		this.allCourseRooms = cc.getAllCourseRooms();
 		checkPerson(p);
 	}
-	
+		
 	private void checkPerson(Person p) {
 		if (p.getClass() == Teacher.class) {
 			System.out.println("\n---- Teacher Overview -----");
@@ -38,9 +41,39 @@ public class CourseManager {
 	}
 	
 	public void loadTeacherCourses(Person p) {
-		System.out.println(this.toString());
+		cc.printCourseRooms();
 		chooseTeacherCourse();
 
+	}
+	
+	public void loadPersonalCourses(Person p) {
+		cl.populateCourseList(p); // Lägger till personens kurser i courseList
+		cl.printCourseList(p); //Skriver ut kurslistan
+		chooseCourse();
+		chooseTask(tmpCR);
+	}
+	
+	private void chooseTask(CourseRoom cr) {
+		System.out.print("Choose task (0-4): ");
+		int chosenTask = in.nextInt();
+		ArrayList<CourseTask> tasks = cr.getEa().getCTL().getTasks();
+		
+		if ((chosenTask <= tasks.size()) && (chosenTask > -1 )) {
+			
+			System.out.println(tasks.get(chosenTask).toString());
+			manageTask(tasks.get(chosenTask));
+		} else {
+			System.out.println("choice does not exist..");
+		}
+	}
+	
+
+	
+	
+	
+	public void chooseCourse() {
+		tmpCR = cl.chooseCourse(p);
+		tmpCR.printCourseRoom();
 	}
 	
 	private void chooseTeacherCourse() {
@@ -49,31 +82,31 @@ public class CourseManager {
 		int choice = in.nextInt();
 		switch (choice) {
 		case 0:
-			this.allCourseRooms().get(0);
-			new Test(p, this.allCourseRooms().get(0));
-			System.out.println(this.allCourseRooms().get(0).toString());
-			ct = this.showTasks(this.allCourseRooms().get(0));
+			allCourseRooms.get(0);
+			new Test(p, allCourseRooms.get(0));
+			System.out.println(allCourseRooms.get(0).toString());
+			ct = this.showTasks(allCourseRooms.get(0));
 			chooseTeacherTask(ct);
 			break;
 		case 1:
-			this.allCourseRooms().get(1);
-			new Test(p, this.allCourseRooms().get(1));
-			System.out.println(this.allCourseRooms().get(1).toString());
-			ct = this.showTasks(this.allCourseRooms().get(1));
+			allCourseRooms.get(1);
+			new Test(p, allCourseRooms.get(1));
+			System.out.println(allCourseRooms.get(1).toString());
+			ct = this.showTasks(allCourseRooms.get(1));
 			chooseTeacherTask(ct);
 			break;
 		case 2:
-			this.allCourseRooms().get(3);
-			new Test(p, this.allCourseRooms().get(2));
-			System.out.println(this.allCourseRooms().get(2).toString());
-			ct = this.showTasks(this.allCourseRooms().get(2));
+			allCourseRooms.get(3);
+			new Test(p, allCourseRooms.get(2));
+			System.out.println(allCourseRooms.get(2).toString());
+			ct = this.showTasks(allCourseRooms.get(2));
 			chooseTeacherTask(ct);
 			break;
 		case 3:
-			this.allCourseRooms().get(3);
-			new Test(p, this.allCourseRooms().get(3));
-			System.out.println(this.allCourseRooms().get(3).toString());
-			ct = this.showTasks(this.allCourseRooms().get(3));
+			allCourseRooms.get(3);
+			new Test(p, allCourseRooms.get(3));
+			System.out.println(allCourseRooms.get(3).toString());
+			ct = this.showTasks(allCourseRooms.get(3));
 			chooseTeacherTask(ct);
 			break;
 		}
@@ -149,107 +182,6 @@ public class CourseManager {
 	}
 	}
 	
-	
-	
-	public void loadPersonalCourses(Person p) {
-		cl.populateCourseList(p); // Lägger till personens kurser i courseList
-		for (int i = 0; i < cl.getCourseList().size(); i++) {
-			System.out.println("* " + cl.getCourseList().get(i).toString());
-		}
-		chooseCourse();
-	}
-
-	public void chooseCourse() {
-		String chosenCourse;
-		CourseRoom cr;
-		System.out.print("Choice('725GXX'): ");
-		chosenCourse = in.nextLine();
-		for (int i = 0; i < cl.getCourseList().size(); i++) {
-			if (chosenCourse.equals(cl.getCourseList().get(i).getcId())) {
-				cr = this.fetchCourseRoom(cl.getCourseList().get(i));
-				chooseTask(cr);
-
-			} else {
-
-			}
-		}
-	}
-
-	private void chooseTask(CourseRoom cr) {
-		
-		System.out.print("Choose task (0-4): ");
-		int chosenTask = in.nextInt();
-		ArrayList<CourseTask> tasks = cr.getEa().getCTL().getTasks();
-		
-		if ((chosenTask <= tasks.size()) && (chosenTask > -1 )) {
-			
-			System.out.println(tasks.get(chosenTask).toString());
-			manageTask(tasks.get(chosenTask));
-		} else {
-			System.out.println("choice does not exist..");
-		}
-/*
-		switch (chosenTask) {
-		case 0:
-			System.out.println(tasks.get(0).toString());
-			manageTask(tasks.get(0));
-			break;
-		case 1:
-			System.out.println(tasks.get(1).toString());
-			manageTask(tasks.get(0));
-			break;
-		case 2:
-			System.out.println(tasks.get(2).toString());
-			manageTask(tasks.get(0));
-			break;
-		case 3:
-			System.out.println(tasks.get(3).toString());
-			manageTask(tasks.get(0));
-			break;
-		case 4:
-			System.out.println(tasks.get(4).toString());
-			manageTask(tasks.get(0));
-			break;
-			}
-			*/
-		
-	}
-	
-
-	
-	public ArrayList<CourseRoom> allCourseRooms(){
-		ArrayList<CourseRoom> acr = cc.getAllCourseRooms();
-		return acr;
-	}
-	
-	public String toString(){
-		String s = "";
-		for(int i=0; i<cc.getAllCourseRooms().size(); i++){
-			s = s + i + ". " + cc.getAllCourseRooms().get(i).toString();
-		}
-		return s;
-	}
-	
-	
-	public CourseRoom fetchCourseRoom(CourseRoom cr) {
-		System.out.println("CourseRoom:" + cr.toString());
-
-		System.out.println("ExaminationsLista:");
-		System.out.println("ExaminationsArea: " + cr.getEa().toString());
-		
-		System.out.println("GroupList:");
-		System.out.println(cr.getGroup());
-		
-		System.out.println("CourseTaskList: ");
-		System.out.println(cr.getEa().getCTL().toString());
-		System.out.println("Tasks:");
-		for(int i = 0; i < cr.getEa().getCTL().getTasks().size(); i++){
-			System.out.println("Task " + i + ". " + cr.getEa().getCTL().getTasks().get(i).toString());
-		}
-		return cr;
-		
-		
-	}
 	
 	public ArrayList<CourseTask> showTasks(CourseRoom cr){
 		System.out.println("CourseTaskList: ");

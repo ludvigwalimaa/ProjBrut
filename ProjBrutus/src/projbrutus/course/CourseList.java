@@ -1,11 +1,13 @@
 package projbrutus.course;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import projbrutus.person.Person;
 
 public class CourseList {
 
+	private Scanner in = new Scanner(System.in);
 	private ArrayList<CourseRoom> courseList = new ArrayList<CourseRoom>();
 
 	public CourseList() {
@@ -22,6 +24,30 @@ public class CourseList {
 			} else {
 			}
 		}
+	}
+	
+	public void printCourseList(Person p){
+		for (int i = 0; i < getCourseList().size(); i++) {
+			System.out.println("* " + getCourseList().get(i).toString());
+		}
+	}
+	
+	public CourseRoom chooseCourse(Person p){
+		String chosenCourse;
+		System.out.print("Choice('725GXX'): ");
+		chosenCourse = in.nextLine();
+		CourseRoom cr = null;
+		for (int i = 0; i < getCourseList().size(); i++) {
+			if (chosenCourse.equals(getCourseList().get(i).getcId())) {
+				cr = getCourseList().get(i);
+				return cr;
+
+			} else {
+
+			}
+		}
+		return cr;
+		
 	}
 	
 	public ArrayList<CourseRoom> getCourseList(){

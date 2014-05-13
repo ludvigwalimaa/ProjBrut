@@ -63,11 +63,26 @@ public class CourseRoom {
 	public void setEa(ExaminationArea ea) {
 		this.ea = ea;
 	}
-
-
-
-
 	
+	public void printCourseRoom() {
+		System.out.println("CourseRoom:" + toString());
+
+		System.out.println("ExaminationsLista:");
+		System.out.println("ExaminationsArea: " + getEa().toString());
+		
+		System.out.println("GroupList:");
+		System.out.println(getGroup());
+		
+		System.out.println("CourseTaskList: ");
+		System.out.println(getEa().getCTL().toString());
+		System.out.println("Tasks:");
+		for(int i = 0; i < getEa().getCTL().getTasks().size(); i++){
+			System.out.println("Task " + i + ". " + getEa().getCTL().getTasks().get(i).toString());
+		}
+
+	}
+
+
 	
 
 }
