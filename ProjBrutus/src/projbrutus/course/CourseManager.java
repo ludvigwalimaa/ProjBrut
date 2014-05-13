@@ -96,71 +96,10 @@ public class CourseManager {
 		}
 	}
 
-	public void loadPersonalCourses(Person p) {
-		cl.populateCourseList(p); // Lägger till personens kurser i courseList
-		for (int i = 0; i < cl.getCourseList().size(); i++) {
-			System.out.println("* " + cl.getCourseList().get(i).toString());
-		}
-		chooseCourse();
-	}
-
-	public void chooseCourse() {
-		String chosenCourse;
-		CourseRoom cr;
-		System.out.print("Choice('725GXX'): ");
-		chosenCourse = in.nextLine();
-		for (int i = 0; i < cl.getCourseList().size(); i++) {
-			if (chosenCourse.equals(cl.getCourseList().get(i).getcId())) {
-				cr = this.fetchCourseRoom(cl.getCourseList().get(i));
-				chooseTask(cr);
-
-			} else {
-
-			}
-		}
-	}
-
-	private void chooseTask(CourseRoom cr) {
-
-		System.out.print("Choose task (0-4): ");
-		int chosenTask = in.nextInt();
-		ArrayList<CourseTask> tasks = cr.getEa().getCTL().getTasks();
-		
-		if ((chosenTask <= tasks.size()) && (chosenTask > -1 )) {
-			
-			System.out.println(tasks.get(chosenTask).toString());
-			manageTask(tasks.get(chosenTask));
-		} else {
-			System.out.println("choice does not exist..");
-		}
-/*
-		switch (chosenTask) {
-		case 0:
-			System.out.println(tasks.get(0).toString());
-			manageTask(tasks.get(0));
-			break;
-		case 1:
-			System.out.println(tasks.get(1).toString());
-			manageTask(tasks.get(0));
-			break;
-		case 2:
-			System.out.println(tasks.get(2).toString());
-			manageTask(tasks.get(0));
-			break;
-		case 3:
-			System.out.println(tasks.get(3).toString());
-			manageTask(tasks.get(0));
-			break;
-		case 4:
-			System.out.println(tasks.get(4).toString());
-			manageTask(tasks.get(0));
-			break;
-			}
-			*/
-		
-	}
 
 	private void manageTask(CourseTask ct) {
+		
+		
 		if(p.getClass() == Teacher.class){
 			System.out.println("-----");
 			System.out.println("0. Set grade 'U' ");
@@ -209,6 +148,74 @@ public class CourseManager {
 		}
 	}
 	}
+	
+	
+	
+	public void loadPersonalCourses(Person p) {
+		cl.populateCourseList(p); // Lägger till personens kurser i courseList
+		for (int i = 0; i < cl.getCourseList().size(); i++) {
+			System.out.println("* " + cl.getCourseList().get(i).toString());
+		}
+		chooseCourse();
+	}
+
+	public void chooseCourse() {
+		String chosenCourse;
+		CourseRoom cr;
+		System.out.print("Choice('725GXX'): ");
+		chosenCourse = in.nextLine();
+		for (int i = 0; i < cl.getCourseList().size(); i++) {
+			if (chosenCourse.equals(cl.getCourseList().get(i).getcId())) {
+				cr = this.fetchCourseRoom(cl.getCourseList().get(i));
+				chooseTask(cr);
+
+			} else {
+
+			}
+		}
+	}
+
+	private void chooseTask(CourseRoom cr) {
+		
+		System.out.print("Choose task (0-4): ");
+		int chosenTask = in.nextInt();
+		ArrayList<CourseTask> tasks = cr.getEa().getCTL().getTasks();
+		
+		if ((chosenTask <= tasks.size()) && (chosenTask > -1 )) {
+			
+			System.out.println(tasks.get(chosenTask).toString());
+			manageTask(tasks.get(chosenTask));
+		} else {
+			System.out.println("choice does not exist..");
+		}
+/*
+		switch (chosenTask) {
+		case 0:
+			System.out.println(tasks.get(0).toString());
+			manageTask(tasks.get(0));
+			break;
+		case 1:
+			System.out.println(tasks.get(1).toString());
+			manageTask(tasks.get(0));
+			break;
+		case 2:
+			System.out.println(tasks.get(2).toString());
+			manageTask(tasks.get(0));
+			break;
+		case 3:
+			System.out.println(tasks.get(3).toString());
+			manageTask(tasks.get(0));
+			break;
+		case 4:
+			System.out.println(tasks.get(4).toString());
+			manageTask(tasks.get(0));
+			break;
+			}
+			*/
+		
+	}
+	
+
 	
 	public ArrayList<CourseRoom> allCourseRooms(){
 		ArrayList<CourseRoom> acr = cc.getAllCourseRooms();
