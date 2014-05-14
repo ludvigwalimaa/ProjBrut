@@ -29,19 +29,19 @@ public class CourseCatalogue {
 	public void createRoom(String cID, String cName){
 		CourseStructure cs = new CourseStructure();
 		CourseRoom cr;
-		ExaminationList exaList = new ExaminationList();
+		ExaminationList exaList;
 		ExaminationArea ea;
 		ParticipantCatalogue ppc = new ParticipantCatalogue(cID);
 		PersonCatalogue pc = new PersonCatalogue();
 		Person p;
 		Group g;
 		
+		exaList = new ExaminationList(cID, cs.getDefaultExaminationAreaSize(), cs.getDefaultCourseTaskListSize());
+		exaList.populateDBexaList();
+		
 		GroupList groupList; //Skapar en databas över Grupper för en kurskod
 		groupList = new GroupList(cID, cs.getDefaultGroupListSize());
 		groupList.populateDBgroupList();  //Skapar 30 grupper
-		
-		exaList = new ExaminationList(cID, cs.getDefaultExaminationAreaSize(), cs.getDefaultCourseTaskListSize());
-		exaList.populateDBexaList();
 		
 		for(int i = 0; i < ppc.getParticipants().size(); i++){
 			String liuID = ppc.getParticipants().get(i).toString(); // Hämtar liuID
