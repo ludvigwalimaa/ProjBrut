@@ -9,18 +9,19 @@ public class GroupList {
 
 	private ArrayList<Group> DBgroupList = new ArrayList<Group>();
 	
-	private CourseStructure cs = new CourseStructure();
-	private String cId;
-	
-	public GroupList(String cId){
 
+	private String cId;
+	private int GLsize;
+	
+	public GroupList(String cId, int GLsize){
+		this.cId = cId;
+		this.GLsize = GLsize;
 	}
 	
 	public void populateDBgroupList() {
-		cs = new CourseStructure();
-		for(int i = 0; i< cs.getDefaultGroupListSize() ;i++){
+		for(int i = 0; i< GLsize ;i++){
 			getDBgroupList().add(new Group(this.cId, i));
-			
+			System.out.println(i);
 		}
 		
 	}

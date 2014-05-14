@@ -7,10 +7,11 @@ public class ExaminationArea {
 	private String cId;
 	private CourseTaskList ctl;
 	private int gID;
+
 		
-	public ExaminationArea(String cId){
+	public ExaminationArea(String cId, int courseTaskSize){
 		this.cId = cId;
-		this.ctl = new CourseTaskList(cId);
+		this.ctl = new CourseTaskList(cId, courseTaskSize);
 	}
 	
 	public CourseTaskList getCTL(){

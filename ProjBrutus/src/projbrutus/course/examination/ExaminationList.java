@@ -11,14 +11,16 @@ public class ExaminationList {
 	
 	private ArrayList<ExaminationArea> DBexaList = new ArrayList<ExaminationArea>();
 	
-	
-	//private ArrayList<ExaminationArea> exaList = new ArrayList<ExaminationArea>();
 	private String cId;
 	private String liuID;
 	private CourseStructure cs;
+	private int exaAreaSize;
+	private int courseTaskSize;
 	
-	public ExaminationList(String cId){
+	public ExaminationList(String cId, int exaAreaSize, int courseTaskSize){
 		this.cId = cId;
+		this.exaAreaSize = exaAreaSize;
+		this.courseTaskSize = courseTaskSize;
 	}
 	public ExaminationList(){
 
@@ -27,10 +29,8 @@ public class ExaminationList {
 	//Skapar 30st ExaArea för kursrummet.
 	public void populateDBexaList(){
 		cs = new CourseStructure();
-		for(int i = 0; i< cs.getDefaultExaminationAreaSize() ;i++){
-			ExaminationArea ea = new ExaminationArea(this.cId);
-			getDBexaList().add(new ExaminationArea(this.cId));
-			
+		for(int i = 0; i< exaAreaSize ;i++){
+			getDBexaList().add(new ExaminationArea(this.cId, courseTaskSize));
 		}
 	}
 	

@@ -5,15 +5,15 @@ import projbrutus.course.CourseStructure;
 
 public class CourseTaskList {
 	
-	private CourseStructure cs = new CourseStructure();
+
 	private ArrayList<CourseTask> courseTaskList = new ArrayList<CourseTask>();
 	
 	private String cId, liuID;
-	private int gID;
+	private int gID, courseTaskSize;
 	
-	public CourseTaskList(String cId){
+	public CourseTaskList(String cId, int courseTaskSize){
 		this.cId = cId;
-		for(int i=0; i < cs.getDefaultCourseTaskListSize(); i++){
+		for(int i=0; i < courseTaskSize; i++){
 			courseTaskList.add(new CourseTask(this.cId, "A default description", "awaiting review"));
 		}
 	}

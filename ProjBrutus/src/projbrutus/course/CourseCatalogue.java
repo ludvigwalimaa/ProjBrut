@@ -28,7 +28,9 @@ public class CourseCatalogue {
 	
 	public void createRoom(String cID, String cName){
 		//CourseCatalogue cc = new CourseCatalogue();
-		CourseRoom a;
+		CourseStructure cs = new CourseStructure();
+		
+		CourseRoom cr;
 		ExaminationList exaList = new ExaminationList();
 		ExaminationArea ea;
 		ParticipantList participantList = new ParticipantList();
@@ -37,10 +39,10 @@ public class CourseCatalogue {
 		Group g;
 		
 		GroupList groupList; //Skapar en databas över Grupper för en kurskod
-		groupList = new GroupList(cID);
+		groupList = new GroupList(cID, cs.getDefaultGroupListSize());
 		groupList.populateDBgroupList();  //Skapar 30 grupper
 		
-		exaList = new ExaminationList(cID);
+		exaList = new ExaminationList(cID, cs.getDefaultExaminationAreaSize(), cs.getDefaultCourseTaskListSize());
 		exaList.populateDBexaList();
 		
 		for(int i = 0; i < participantList.getParticipantList(cID).size(); i++){
@@ -52,8 +54,8 @@ public class CourseCatalogue {
 			ea = exaList.getDBexaList().get(i);
 			ea.setGroupID(g.getgID());
 			
-			a = new CourseRoom(cID, cName, liuID, ea, g);
-			addRoom(a);
+			cr = new CourseRoom(cID, cName, liuID, ea, g);
+			addRoom(cr);
 			
 		}
 	}
