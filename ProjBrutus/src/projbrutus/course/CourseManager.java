@@ -23,8 +23,12 @@ public class CourseManager {
 	public CourseManager(Person p, CourseCatalogue cc){
 		this.p = p;
 		this.cc = cc;
-		this.allCourseRooms = cc.getAllCourseRooms();
+		getAllCourseRooms();
 		checkPerson(p);
+	}
+	
+	private void getAllCourseRooms(){
+		this.allCourseRooms = cc.getAllCourseRooms();
 	}
 		
 	private void checkPerson(Person p) {

@@ -14,24 +14,26 @@ import projbrutus.person.PersonCatalogue;
 
 public class LoginManager{
 	
+	private PersonCatalogue PC = new PersonCatalogue();
 	
 	public void loginCheck(String liuID, String password) {
-		
-		PersonCatalogue PC = new PersonCatalogue();
+		comparePersons(liuID, password, PC);
+	}
+	
+	private void comparePersons(String liuID, String password, PersonCatalogue PC){
 		if(!PC.comparePersons(liuID, password)){
 			System.out.println("--- Login failed ---");
 		}else{
 			CourseCatalogue cc = new CourseCatalogue();
-			startUp(cc);
+			createRoom(cc);
 			new Overblick(PC.getPerson(liuID), cc);
 			
 			
 		}
 	}
-	
 
 	
-	private void startUp(CourseCatalogue cc){
+	private void createRoom(CourseCatalogue cc){
 		cc.createRoom("725G51", "Databaser"); // gabol892, ludwa930, anka101
 		cc.createRoom("725G34", "Historia"); //ludwa930
 

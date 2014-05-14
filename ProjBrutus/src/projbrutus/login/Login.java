@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 public class Login {
 	
-	Scanner in = new Scanner(System.in);
-	LoginManager login = new LoginManager();
-	String liuID;
-	String password;
+	private Scanner in = new Scanner(System.in);
+	private LoginManager login = new LoginManager();
+	private String liuID;
+	private String password;
 	
 	public Login() {
 		System.out.println("----Login Project Brutus-----");
@@ -17,8 +17,13 @@ public class Login {
 		System.out.print("Password: ");
 		password = in.nextLine();
 		
-		login.loginCheck(liuID, password);
+		loginCheck(liuID, password);
 		
+		
+	}
+	
+	private void loginCheck(String liuID, String password){
+		login.loginCheck(liuID, password);
 	}
 
 }
