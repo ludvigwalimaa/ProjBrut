@@ -48,7 +48,7 @@ public class CourseManager {
 	}
 	
 	private void loadPersonalCourses(Person p) {
-		cl.populateCourseList(p); // Lägger till personens kurser i courseList
+		cl.populateCourseList(p, cc); // Lägger till personens kurser i courseList
 		cl.printCourseList(p); //Skriver ut kurslistan
 		chooseCourse();
 		tmpCR.printCourseRoom();
