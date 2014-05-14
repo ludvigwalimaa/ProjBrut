@@ -130,14 +130,20 @@ public class CourseTask {
 		int chosenTask = in.nextInt();
 		switch (chosenTask) {
 		case 0:
-			fm.download();
+			download(fm);
 			break;
 		case 1:
-			fm.upload();
+			upload(fm);
 			break;
 		}
 	}
 	}
 
+	private void upload(FileManager fm){
+		fm.upload();
+	}
 	
+	private void download(FileManager fm){
+		fm.download();
+	}
 }

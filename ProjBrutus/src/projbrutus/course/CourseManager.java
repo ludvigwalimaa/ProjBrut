@@ -1,14 +1,9 @@
 package projbrutus.course;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import projbrutus.FileManager;
 import projbrutus.course.examination.task.CourseTask;
-import projbrutus.course.examination.task.CourseTaskList;
 import projbrutus.person.Person;
 import projbrutus.person.Teacher;
-import projbrutus.testing.Test;
 
 
 public class CourseManager {
@@ -48,7 +43,7 @@ public class CourseManager {
 		tmpCR.showTasks();
 		tmpCT = new CourseTask();
 		tmpCT = tmpCT.chooseTask(p, tmpCR);	
-		tmpCT.manageTask(p);
+		manageTask(tmpCT, p);
 		tmpCR.showTasks();
 	}
 	
@@ -59,7 +54,12 @@ public class CourseManager {
 		tmpCR.printCourseRoom();
 		tmpCT = new CourseTask();
 		tmpCT = tmpCT.chooseTask(p, tmpCR);
-		tmpCT.manageTask(p);
+		manageTask(tmpCT, p);
+		
+	}
+	
+	private void manageTask(CourseTask ct, Person p){
+		ct.manageTask(p);
 		
 	}
 
