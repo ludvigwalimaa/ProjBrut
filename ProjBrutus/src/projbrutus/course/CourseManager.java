@@ -15,7 +15,7 @@ public class CourseManager {
 	private CourseRoom tmpCR;
 	private CourseTask tmpCT;
 
-
+	//jag är en kommentar
 	
 	public CourseManager(){
 		
