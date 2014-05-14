@@ -1,12 +1,15 @@
 package projbrutus.course;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.person.Person;
 import projbrutus.person.Teacher;
 
 
 public class CourseManager {
+	private Scanner in = new Scanner(System.in);
 	
 	private CourseCatalogue cc;
 	private CourseList cl = new CourseList();
@@ -44,15 +47,32 @@ public class CourseManager {
 	private void loadTeacherCourses(Person p) {
 		cc.printCourseRooms();
 		chooseCourse();
+		
+		boolean loopGrading = true;
+		while (loopGrading) {
+			
 		tmpCR.showTasks();
 		tmpCT = new CourseTask();
 		tmpCT = tmpCT.chooseTask(p, tmpCR);	
 		manageTask(tmpCT, p);
 		tmpCR.showTasks();
+		
+		System.out.println("\nPress 0 to grade another task, 1 to finish");
+		System.out.println("choice: ");
+		
+		int moreGrade = in.nextInt();
+		switch (moreGrade) {
+		case 0:
+			break;
+		case 1:
+			loopGrading = false;
+			break;
+		}
+		}
 	}
 	
 	private void loadPersonalCourses(Person p) {
-		
+		cl = new CourseList();
 		cl.populateCourseList(p, cc); // Lägger till personens kurser i courseList
 		cl.printCourseList(p); //Skriver ut kurslistan
 		chooseCourse();
