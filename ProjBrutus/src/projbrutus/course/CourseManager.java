@@ -15,7 +15,7 @@ public class CourseManager {
 	private CourseRoom tmpCR;
 	private CourseTask tmpCT;
 
-	//jag är en kommentar
+	//jag ï¿½r en kommentar
 	
 	public CourseManager(){
 		
@@ -23,7 +23,6 @@ public class CourseManager {
 	public CourseManager(Person p, CourseCatalogue cc){
 		this.p = p;
 		this.cc = cc;
-		//syso
 		this.allCourseRooms = cc.getAllCourseRooms();
 		checkPerson(p);
 	}
