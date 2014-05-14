@@ -9,7 +9,7 @@ import projbrutus.person.Teacher;
 public class CourseManager {
 	
 	private CourseCatalogue cc;
-	private CourseList cl;
+	private CourseList cl = new CourseList();
 	private Person p;
 	private ArrayList<CourseRoom> allCourseRooms;
 	private CourseRoom tmpCR;
@@ -52,7 +52,7 @@ public class CourseManager {
 	}
 	
 	private void loadPersonalCourses(Person p) {
-		cl = new CourseList();
+		
 		cl.populateCourseList(p, cc); // Lägger till personens kurser i courseList
 		cl.printCourseList(p); //Skriver ut kurslistan
 		chooseCourse();
