@@ -7,7 +7,7 @@ import projbrutus.course.examination.ExaminationList;
 import projbrutus.course.examination.task.CourseTaskList;
 import projbrutus.course.group.Group;
 import projbrutus.course.group.GroupList;
-import projbrutus.course.participant.ParticipantList;
+import projbrutus.course.participant.ParticipantCatalogue;
 import projbrutus.person.Person;
 import projbrutus.person.PersonCatalogue;
 
@@ -27,13 +27,11 @@ public class CourseCatalogue {
 	}
 	
 	public void createRoom(String cID, String cName){
-		//CourseCatalogue cc = new CourseCatalogue();
 		CourseStructure cs = new CourseStructure();
-		
 		CourseRoom cr;
 		ExaminationList exaList = new ExaminationList();
 		ExaminationArea ea;
-		ParticipantList participantList = new ParticipantList();
+		ParticipantCatalogue ppc = new ParticipantCatalogue(cID);
 		PersonCatalogue pc = new PersonCatalogue();
 		Person p;
 		Group g;
@@ -45,8 +43,8 @@ public class CourseCatalogue {
 		exaList = new ExaminationList(cID, cs.getDefaultExaminationAreaSize(), cs.getDefaultCourseTaskListSize());
 		exaList.populateDBexaList();
 		
-		for(int i = 0; i < participantList.getParticipantList(cID).size(); i++){
-			String liuID = participantList.getParticipantList(cID).get(i).toString(); // Hämtar liuID
+		for(int i = 0; i < ppc.getParticipants().size(); i++){
+			String liuID = ppc.getParticipants().get(i).toString(); // Hämtar liuID
 			p = pc.getPerson(liuID);
 			
 			g = groupList.getDBgroupList().get(i); //Hämtar "i" gruppen i ArrayListan och sätter den till G
@@ -56,7 +54,6 @@ public class CourseCatalogue {
 			
 			cr = new CourseRoom(cID, cName, liuID, ea, g);
 			addRoom(cr);
-			
 		}
 	}
 	

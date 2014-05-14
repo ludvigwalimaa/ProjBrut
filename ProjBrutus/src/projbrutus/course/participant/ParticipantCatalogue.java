@@ -6,14 +6,15 @@ import projbrutus.person.Person;
 
 public class ParticipantCatalogue {
 
-
+	private ArrayList<String> pList = new ArrayList<String>();
 	//ska anropa table best�ende av liuid och kursid, matchar inskickad kursid mot table
 	//och returnerar arraylista med alla liuid som tillh�r dettta kursid
 
-	public ArrayList<String> getParticipant(String cId){
-		ArrayList<String> pList = new ArrayList<String>();
-
-
+	public ParticipantCatalogue(String cId){
+		populatePL(cId);
+	}
+	
+	public void populatePL (String cId){
 		if(cId.equals("725G51")) {
 			pList.add("gabol892");
 			pList.add("ludwa930");
@@ -46,12 +47,11 @@ public class ParticipantCatalogue {
 			pList.add("no participats");
 		}
 
-
-
-
-		return pList;
 	}
 
+	public ArrayList<String> getParticipants(){
+		return pList;
+	}
 
 
 

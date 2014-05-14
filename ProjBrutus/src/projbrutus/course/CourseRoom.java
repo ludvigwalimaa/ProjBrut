@@ -8,7 +8,6 @@ import projbrutus.course.examination.ExaminationList;
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.course.group.Group;
 import projbrutus.course.group.GroupList;
-import projbrutus.course.participant.ParticipantList;
 import projbrutus.person.Person;
 import projbrutus.person.Teacher;
 

@@ -21,7 +21,6 @@ public class GroupList {
 	public void populateDBgroupList() {
 		for(int i = 0; i< GLsize ;i++){
 			getDBgroupList().add(new Group(this.cId, i));
-			System.out.println(i);
 		}
 		
 	}
