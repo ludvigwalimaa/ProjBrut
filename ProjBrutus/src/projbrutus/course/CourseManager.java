@@ -23,6 +23,7 @@ public class CourseManager {
 	public CourseManager(Person p, CourseCatalogue cc){
 		this.p = p;
 		this.cc = cc;
+		//syso
 		this.allCourseRooms = cc.getAllCourseRooms();
 		checkPerson(p);
 	}
@@ -49,7 +50,7 @@ public class CourseManager {
 	
 	private void loadPersonalCourses(Person p) {
 		cl = new CourseList();
-		cl.populateCourseList(p); // Lägger till personens kurser i courseList
+		cl.populateCourseList(p, cc); // Lägger till personens kurser i courseList
 		cl.printCourseList(p); //Skriver ut kurslistan
 		chooseCourse();
 		tmpCR.printCourseRoom();

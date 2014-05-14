@@ -18,9 +18,9 @@ public class CourseList {
 	}
 
 	// HÃ¤mtar personens CourseRooms i allCourseRooms.
-	public void populateCourseList(Person p) {
+	public void populateCourseList(Person p, CourseCatalogue cc) {
 		String liuID = p.getLiudID();
-		CourseCatalogue cc = new CourseCatalogue();
+		//CourseCatalogue cc = new CourseCatalogue(); tog bort denna för annars skapar vi ny kurskatalog igen, med alla rum etc etc
 		for (int i = 0; i < cc.allCourseRooms.size(); i++) {
 			if (liuID.equals(cc.allCourseRooms.get(i).getliuID())) {
 				courseList.add(cc.allCourseRooms.get(i));
