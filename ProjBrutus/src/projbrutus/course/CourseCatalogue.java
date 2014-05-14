@@ -27,7 +27,7 @@ public class CourseCatalogue {
 	}
 	
 	public void createRoom(String cID, String cName){
-		CourseCatalogue cc = new CourseCatalogue();
+		//CourseCatalogue cc = new CourseCatalogue();
 		CourseRoom a;
 		ExaminationList exaList = new ExaminationList();
 		ExaminationArea ea;
@@ -53,11 +53,13 @@ public class CourseCatalogue {
 			ea.setGroupID(g.getgID());
 			
 			a = new CourseRoom(cID, cName, liuID, ea, g);
-			cc.allCourseRooms.add(a);
+			addRoom(a);
+			
 		}
-		
-		
-		
+	}
+	
+	private void addRoom(CourseRoom cr){
+		allCourseRooms.add(cr);
 	}
 
 	public void printCourseRooms(){
