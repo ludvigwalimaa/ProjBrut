@@ -55,9 +55,13 @@ public class CourseTask {
 	
 	public CourseTask chooseTask(Person p, CourseRoom cr) {
 		
+		
 		ArrayList<CourseTask> tmpCTL = cr.getEa().getCTL().getTasks();
+		int numberOfTasks = tmpCTL.size() - 1;
+		
 		if(p.getClass() == Teacher.class){
-			System.out.print("Choice (0-4): ");
+			
+			System.out.print("Choice (0-" + numberOfTasks + "): ");
 			int chosenTask = in.nextInt();
 //			ArrayList<CourseTask> tasks =  tmpCTL;
 			
@@ -69,7 +73,7 @@ public class CourseTask {
 			}
 		}
 		else{
-			System.out.print("Choose task (0-4): ");
+			System.out.print("Choice (0-" + numberOfTasks + "): ");
 			int chosenTask = in.nextInt();
 //			ArrayList<CourseTask> tasks =  tmpCTL;
 			
