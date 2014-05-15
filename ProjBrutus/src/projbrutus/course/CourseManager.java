@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import projbrutus.course.examination.task.CourseTask;
+import projbrutus.course.examination.task.CourseTaskList;
 import projbrutus.person.Person;
 import projbrutus.person.Teacher;
 
@@ -17,6 +18,7 @@ public class CourseManager {
 	private ArrayList<CourseRoom> allCourseRooms;
 	private CourseRoom tmpCR;
 	private CourseTask tmpCT;
+	private CourseTaskList tmpCTL;
 
 	//jag �r en kommentar
 	
@@ -55,8 +57,7 @@ public class CourseManager {
 		tmpCT = new CourseTask();
 		tmpCT = tmpCT.chooseTask(p, tmpCR);	
 		manageTask(tmpCT, p);
-		
-		tmpCR.setAllGrades(); // Sätter VG-betygen för att kunna testa snabbare.
+
 		tmpCR.showTasks();
 		if(tmpCR.gradesLeft()){
 		System.out.println("\nPress 0 to grade another task, 1 to finish");
@@ -91,12 +92,14 @@ public class CourseManager {
 	}
 	
 	private void manageTask(CourseTask ct, Person p){
-		ct.manageTask(p);
+		System.out.println("GradeSys : " + tmpCTL.getGradeSys());
+		ct.manageTask(p, tmpCTL.getGradeSys());
 		
 	}
 
 	private void chooseCourse() {
 		tmpCR = cl.chooseCourse(p, allCourseRooms);
+		tmpCTL = tmpCR.getEa().getCTL();
 	}
 	
 

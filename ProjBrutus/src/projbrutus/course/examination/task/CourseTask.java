@@ -86,35 +86,12 @@ public class CourseTask {
 		return null;
 	}
 
-	public void manageTask(Person p) {
-		
+	public void manageTask(Person p, int gradesys) {
 		if(p.getClass() == Teacher.class){
-			
-			System.out.println("-----");
-			System.out.println("0. Set grade 'U' ");
-			System.out.println("1. Set grade 'K' ");
-			System.out.println("2. Set grade 'G' ");
-			System.out.println("3. Set grade 'VG' ");
-			
-			System.out.print("Choice (0-3):");
-			int chosenTask = in.nextInt();
-			switch (chosenTask) {
-			case 0:
-				System.out.println("Grade set to U!");
-				setGrade("U");
-				break;
-			case 1:
-				System.out.println("Grade set to K!");
-				setGrade("K");
-				break;
-			case 2:
-				System.out.println("Grade set to G!");
-				setGrade("G");
-				break;
-			case 3:
-				System.out.println("Grade set to VG!");
-				setGrade("VG");
-				break;
+			if(gradesys == 1)
+			setVGGrade();
+			else{
+				setNumberGrade();
 			}
 			
 			
@@ -136,6 +113,71 @@ public class CourseTask {
 			break;
 		}
 	}
+	}
+	
+	private void setNumberGrade() {
+		System.out.println("-----");
+		System.out.println("1. Set grade '1' ");
+		System.out.println("2. Set grade '2' ");
+		System.out.println("3. Set grade '3' ");
+		System.out.println("4. Set grade '4' ");
+		System.out.println("5. Set grade '5' ");
+		
+		System.out.print("Choice (0-3):");
+		int chosenTask = in.nextInt();
+		switch (chosenTask) {
+		case 1:
+			System.out.println("Grade set to 1!");
+			setGrade("1");
+			break;
+		case 2:
+			System.out.println("Grade set to 2!");
+			setGrade("2");
+			break;
+		case 3:
+			System.out.println("Grade set to 3!");
+			setGrade("3");
+			break;
+		case 4:
+			System.out.println("Grade set to 4!");
+			setGrade("4");
+			break;
+		case 5:
+			System.out.println("Grade set to 5!");
+			setGrade("5");
+			break;
+		}
+		
+	}
+
+	private void setVGGrade(){
+		System.out.println("-----");
+		System.out.println("0. Set grade 'U' ");
+		System.out.println("1. Set grade 'K' ");
+		System.out.println("2. Set grade 'G' ");
+		System.out.println("3. Set grade 'VG' ");
+		
+		System.out.print("Choice (0-3):");
+		int chosenTask = in.nextInt();
+		switch (chosenTask) {
+		case 0:
+			System.out.println("Grade set to U!");
+			setGrade("U");
+			break;
+		case 1:
+			System.out.println("Grade set to K!");
+			setGrade("K");
+			break;
+		case 2:
+			System.out.println("Grade set to G!");
+			setGrade("G");
+			break;
+		case 3:
+			System.out.println("Grade set to VG!");
+			setGrade("VG");
+			break;
+		}
+		
 	}
 
 	private void upload(FileManager fm){

@@ -106,10 +106,18 @@ public class CourseRoom {
 		}
 		return false;
 	}
-	public void setAllGrades(){
+	
+	public void setAllVGGrades(){
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
 			ctl.get(i).setGrade("G");
+		}
+	}
+	
+	public void setAllNumberGrades(){
+		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
+		for(int i= 0; i < ctl.size(); i++){
+			ctl.get(i).setGrade("3");
 		}
 	}
 
@@ -134,8 +142,10 @@ public class CourseRoom {
 			choice = in.nextInt();
 			switch(choice){
 			case 1: ctl.setGradeSys(1);
+					setAllVGGrades();
 				break;
 			case 2: ctl.setGradeSys(2);
+					setAllNumberGrades();
 				break;
 			}
 		}
