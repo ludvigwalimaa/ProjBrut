@@ -1,13 +1,18 @@
 package projbrutus.adapter;
 
+import projbrutus.course.examination.task.CourseTaskList;
+
+
 public interface SetGradeAdapter {
 	
 	
-	int grade = 0;
+//	void countGrade(CourseTaskList ctl);
+//	
+//	void calcGrade();
+//	
+//	int getGrade();
 	
-	void printGrade(int newValue){
-		grade = newValue;
-	}
-	
-
+	String postGrade(CourseTaskList ctl);
 }
+
+

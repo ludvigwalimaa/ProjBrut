@@ -3,6 +3,7 @@ package projbrutus.course;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import projbrutus.adapter.VGSetGradeAdapter;
 import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.ExaminationList;
 import projbrutus.course.examination.task.CourseTask;
@@ -110,7 +111,7 @@ public class CourseRoom {
 	public void setAllVGGrades(){
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
-			ctl.get(i).setGrade("G");
+			ctl.get(i).setGrade("VG");
 		}
 	}
 	
@@ -124,7 +125,9 @@ public class CourseRoom {
 	public void calcGrade() {
 		CourseTaskList ctl = ea.getCTL();
 		if(ctl.getGradeSys() == 1){
-			CalcVGGrade cvg = new CalcVGGrade(ctl);
+			VGSetGradeAdapter vsg = new VGSetGradeAdapter(ctl);
+			System.out.println(vsg.postGrade(ctl));
+
 		}else{
 			System.out.println("Här ska det skickas till 'NumberGrades.class' och räknas ut ");
 		}
