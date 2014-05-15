@@ -90,11 +90,11 @@ public class CourseTask {
 		if(p.getClass() == Teacher.class){
 			if(gradesys == 1)
 			setVGGrade();
-			else{
-				setNumberGrade();
+			else if(gradesys == 2){
+			setNumberGrade();
+			}else{
+				System.out.println("Error! No such grade system");
 			}
-			
-			
 		}else{
 			
 		FileManager fm = new FileManager();

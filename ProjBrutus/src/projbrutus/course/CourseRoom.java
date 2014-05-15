@@ -124,7 +124,7 @@ public class CourseRoom {
 	public void calcGrade() {
 		CourseTaskList ctl = ea.getCTL();
 		if(ctl.getGradeSys() == 1){
-			System.out.println("Här ska det skickas till 'VGGrades.class' och räknas ut ");
+			CalcVGGrade cvg = new CalcVGGrade(ctl);
 		}else{
 			System.out.println("Här ska det skickas till 'NumberGrades.class' och räknas ut ");
 		}
