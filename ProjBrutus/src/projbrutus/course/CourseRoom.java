@@ -6,6 +6,7 @@ import java.util.Scanner;
 import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.ExaminationList;
 import projbrutus.course.examination.task.CourseTask;
+import projbrutus.course.examination.task.CourseTaskList;
 import projbrutus.course.group.Group;
 import projbrutus.course.group.GroupList;
 import projbrutus.person.Person;
@@ -92,6 +93,52 @@ public class CourseRoom {
 			System.out.println("Task " + i + ". " + getEa().getCTL().getTasks().get(i).toString());
 		}
 		return getEa().getCTL().getTasks();
+	}
+	
+	
+
+	public boolean gradesLeft() {
+		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
+		for(int i= 0; i < ctl.size(); i++){
+			if(ctl.get(i).getGrade().equals("awaiting review")){
+				return true;
+			}
+		}
+		return false;
+	}
+	public void setAllGrades(){
+		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
+		for(int i= 0; i < ctl.size(); i++){
+			ctl.get(i).setGrade("G");
+		}
+	}
+
+	public void calcGrade() {
+		CourseTaskList ctl = ea.getCTL();
+		if(ctl.getGradeSys() == 1){
+			System.out.println("Här ska det skickas till 'VGGrades.class' och räknas ut ");
+		}else{
+			System.out.println("Här ska det skickas till 'NumberGrades.class' och räknas ut ");
+		}
+		
+	}
+	
+	public void setGradeSys(){
+		CourseTaskList ctl = ea.getCTL();
+		if(ctl.getGradeSys() == 0){
+			System.out.println("Is this a VG-system or a Number-system?");
+			System.out.println("1. VG-system");
+			System.out.println("2. Number-system");
+			int choice = 0;
+			System.out.print("Choice: ");
+			choice = in.nextInt();
+			switch(choice){
+			case 1: ctl.setGradeSys(1);
+				break;
+			case 2: ctl.setGradeSys(2);
+				break;
+			}
+		}
 	}
 	
 

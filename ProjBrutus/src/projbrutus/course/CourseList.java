@@ -36,7 +36,6 @@ public class CourseList {
 	}
 	
 	public CourseRoom chooseCourse(Person p, ArrayList<CourseRoom> allCourseRooms){
-		System.out.println("hejsan");
 		CourseRoom cr = null;
 		if (p.getClass() == Teacher.class) {
 			
@@ -90,4 +89,6 @@ public class CourseList {
 	public ArrayList<CourseRoom> getCourseList(){
 		return courseList;
 	}
+
+
 }

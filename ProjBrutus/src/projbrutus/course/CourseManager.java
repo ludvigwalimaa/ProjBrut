@@ -50,15 +50,17 @@ public class CourseManager {
 		
 		boolean loopGrading = true;
 		while (loopGrading) {
-			
+		tmpCR.setGradeSys();
 		tmpCR.showTasks();
 		tmpCT = new CourseTask();
 		tmpCT = tmpCT.chooseTask(p, tmpCR);	
 		manageTask(tmpCT, p);
-		tmpCR.showTasks();
 		
+		tmpCR.setAllGrades(); // Sätter VG-betygen för att kunna testa snabbare.
+		tmpCR.showTasks();
+		if(tmpCR.gradesLeft()){
 		System.out.println("\nPress 0 to grade another task, 1 to finish");
-		System.out.println("choice: ");
+		System.out.print("Choice: ");
 		
 		int moreGrade = in.nextInt();
 		switch (moreGrade) {
@@ -67,7 +69,12 @@ public class CourseManager {
 		case 1:
 			loopGrading = false;
 			break;
+		}}else{
+			loopGrading = false;
+			System.out.println("Grading Done!");
+			tmpCR.calcGrade();
 		}
+		
 		}
 	}
 	

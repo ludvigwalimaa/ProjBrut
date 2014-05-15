@@ -1,15 +1,15 @@
 package projbrutus.course.examination.task;
 
 import java.util.ArrayList;
-import projbrutus.course.CourseStructure;
 
 public class CourseTaskList {
 	
 
 	private ArrayList<CourseTask> courseTaskList = new ArrayList<CourseTask>();
 	
-	private String cId, liuID;
-	private int gID, courseTaskSize;
+	private String cId;
+	private int gID;
+	private int gradeSys; // 1 = VG , 2 = Number
 	
 	public CourseTaskList(String cId, int courseTaskSize){
 		this.cId = cId;
@@ -32,6 +32,14 @@ public class CourseTaskList {
 	
 	public ArrayList<CourseTask> getTasks(){
 		return courseTaskList;
+	}
+
+	public int getGradeSys() {
+		return gradeSys;
+	}
+
+	public void setGradeSys(int gradeSys) {
+		this.gradeSys = gradeSys;
 	}
 	
 	
