@@ -20,7 +20,6 @@ public class CourseList {
 	// Hämtar personens CourseRooms i allCourseRooms.
 	public void populateCourseList(Person p, CourseCatalogue cc) {
 		String liuID = p.getLiudID();
-		//CourseCatalogue cc = new CourseCatalogue(); tog bort denna f�r annars skapar vi ny kurskatalog igen, med alla rum etc etc
 		for (int i = 0; i < cc.allCourseRooms.size(); i++) {
 			if (liuID.equals(cc.allCourseRooms.get(i).getliuID())) {
 				courseList.add(cc.allCourseRooms.get(i));
@@ -67,7 +66,7 @@ public class CourseList {
 				return cr;
 			}
 			
-		}else{ // if Student
+		}else{ // if not Teacher.class
 		String chosenCourse;
 		System.out.print("Choice('725GXX'): ");
 		chosenCourse = in.nextLine();

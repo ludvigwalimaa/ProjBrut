@@ -20,7 +20,6 @@ public class CourseManager {
 	private CourseTask tmpCT;
 	private CourseTaskList tmpCTL;
 
-	//jag �r en kommentar
 	
 	public CourseManager(){
 		

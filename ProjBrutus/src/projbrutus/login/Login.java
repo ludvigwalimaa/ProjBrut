@@ -2,6 +2,8 @@ package projbrutus.login;
 
 import java.util.Scanner;
 
+import projbrutus.Database.DBconn;
+
 public class Login {
 	
 	private Scanner in = new Scanner(System.in);

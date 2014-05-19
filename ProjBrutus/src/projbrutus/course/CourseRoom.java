@@ -136,6 +136,14 @@ public class CourseRoom {
 		
 	}
 	
+	/* 
+	 * Den här metoden fungerar som vår Factory.
+	 * Metoden sker då CourseTaskListan inte har ett valt GradeSystem. 
+	 * Valet kan Teacher-klassen göra 1 gång per CourseTaskList. (Alltså 1 gång per kursrum).
+	 * Valet kommer därefter att vara statiskt. 
+	 * Den här metoden tillåter läraren att rätta kurser med olika GradeSystem beroende på om eleven går FilFak eller TekFak. 
+	 * GradeSystemet är alltså inte knutet till kurskoden utan kan väljas manuellt.
+	 */
 	public void setGradeSys(){
 		CourseTaskList ctl = ea.getCTL();
 		if(ctl.getGradeSys() == 0){
@@ -153,6 +161,8 @@ public class CourseRoom {
 					setAllNumberGrades();
 				break;
 			}
+		}else{
+			//Teachern har redan valt ett GradeSystem. 
 		}
 	}
 	

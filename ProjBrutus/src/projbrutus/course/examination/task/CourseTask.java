@@ -98,7 +98,6 @@ public class CourseTask {
 		}else{
 			
 		FileManager fm = new FileManager();
-		
 		System.out.println("------");
 		System.out.println("0. Download material");
 		System.out.println("1. Upload material");
