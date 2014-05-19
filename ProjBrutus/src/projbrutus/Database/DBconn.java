@@ -58,12 +58,13 @@ public class DBconn {
 	                course = result.getString("Course");
 	                courseTask = result.getString("CourseTask");
 	                grade = result.getString("Grade");
+	                System.out.println("hämtat från databasen " + course + " " + courseTask + " " + grade);
 	            }
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 	        
-	        System.out.println("hämtat från databasen " + course + " " + courseTask + " " + grade);
+	        
 	        return liuId;
 	    }
 	 
