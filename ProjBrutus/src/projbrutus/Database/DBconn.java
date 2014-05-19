@@ -47,7 +47,7 @@ public class DBconn {
 		 String grade = "";
 
 	        try {
-	            stat = con.prepareStatement("select * from Betyg where LiuID = '" + liuId + "'");
+	            stat = con.prepareStatement("select * from Betyg where LiuID = '" + liuId + "' order by CourseTask ASC");
 	            result = stat.executeQuery();
 	            
 	            
