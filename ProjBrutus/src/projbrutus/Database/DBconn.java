@@ -23,7 +23,7 @@ public class DBconn {
 			String admin = "dod1307";
 			String pw = "hej123";
 			this.con = DriverManager.getConnection(host, admin, pw);
-			// System.out.println("Har kontakt med databasen!");
+			System.out.println("Connection open!");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			System.out.println("Fel! Kan inte kontakta databasen..");
@@ -34,6 +34,7 @@ public class DBconn {
 	public void closeConnection(){
 		try {
 			this.con.close();
+			System.out.println("Connection closed!");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
