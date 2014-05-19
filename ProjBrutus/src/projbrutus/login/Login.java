@@ -13,6 +13,7 @@ public class Login {
 	
 	public Login() {
 		DBconn dbcon = new DBconn();
+		dbcon.getCourseTask("gabol892");
 		dbcon.closeConnection();
 		System.out.println("----Login Project Brutus-----");
 		System.out.print("Usename(liuID): ");

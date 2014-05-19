@@ -19,7 +19,7 @@ public class DBconn {
 	public void startConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String host = "jdbc:mysql://mysql.iei.liu.se/dod1307_Projekt";
+			String host = "jdbc:mysql://mysql.iei.liu.se/dod1307_725G51";
 			String admin = "dod1307";
 			String pw = "hej123";
 			this.con = DriverManager.getConnection(host, admin, pw);
@@ -40,6 +40,31 @@ public class DBconn {
 			e.printStackTrace();
 		}
 	}
-	
+	 public String getCourseTask(String liuId) {
+
+		 String course = "";
+		 String courseTask = "";
+		 String grade = "";
+
+	        try {
+	            stat = con.prepareStatement("select * from Betyg where LiuID = '" + liuId + "'");
+	            result = stat.executeQuery();
+	            
+	            
+	            
+
+	            //  select Användare.Användarlösen from Användare where Användarinlogg = '" + name + "'
+	            while (result.next()) {
+	                course = result.getString("Course");
+	                courseTask = result.getString("CourseTask");
+	                grade = result.getString("Grade");
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        System.out.println("hämtat från databasen " + course + " " + courseTask + " " + grade);
+	        return liuId;
+	    }
+	 
 	
 }
