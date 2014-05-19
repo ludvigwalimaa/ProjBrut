@@ -9,8 +9,6 @@ public class VGSetGradeAdapter implements SetGradeAdapter {
 	
 	public VGSetGradeAdapter(CourseTaskList ctl){
 		//countGrade(ctl);  /* Här skulle man eventuellt kunna räkna ut ett betyg */
-		postGrade(ctl);
-		
 	}
 	
 	private void countGrade(CourseTaskList ctl){
@@ -20,6 +18,7 @@ public class VGSetGradeAdapter implements SetGradeAdapter {
 	public void postGrade(CourseTaskList ctl)
 	  {
 		DBconn dbcon = new DBconn();
+		dbcon.startConnection();
 		dbcon.postGrade(ctl);
 	  }
 

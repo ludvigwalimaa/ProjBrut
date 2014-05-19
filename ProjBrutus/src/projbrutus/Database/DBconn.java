@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import projbrutus.course.examination.task.CourseTask;
 import projbrutus.course.examination.task.CourseTaskList;
 
 public class DBconn {
@@ -15,7 +16,7 @@ public class DBconn {
 	private ResultSet result;
 
 	public DBconn() {
-		startConnection();
+		
 	}
 
 	public void startConnection() {
@@ -71,7 +72,10 @@ public class DBconn {
 	    }
 
 	public void postGrade(CourseTaskList ctl) {
-		//Posta till DB
+		for(int i=0; i< ctl.getTasks().size(); i++){
+			CourseTask ct = ctl.getTasks().get(i);
+			
+		}
 		
 	}
 	 
