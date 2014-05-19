@@ -16,12 +16,20 @@ public class VGSetGradeAdapter implements SetGradeAdapter {
 		//System.out.println("Räknar ut grade...");
 	}
 	
-	public void postGrade(CourseTaskList ctl, String liuID)
+	public void calcGrade(CourseTaskList ctl, String liuID)
 	  {
 //		DBconn dbcon = new DBconn();
 //		dbcon.startConnection();
 //		dbcon.postGrade(ctl, liuID);
 	  }
+
+
+	public String postGrade() {
+		String s = "..Recieved by VGSetGradeAdapter!";
+		return s;
+	
+		
+	}
 
 
 

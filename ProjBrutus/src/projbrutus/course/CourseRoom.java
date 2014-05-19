@@ -133,11 +133,13 @@ public class CourseRoom {
 		CourseTaskList ctl = ea.getCTL();
 		if(ctl.getGradeSys() == 1){
 			VGSetGradeAdapter vsg = new VGSetGradeAdapter();
-			vsg.postGrade(ctl, liuID);
+			System.out.println("Sending to adapter..");
+			System.out.println(vsg.postGrade());
 
 		}else{
 			NumberSetGradeAdapter nsg = new NumberSetGradeAdapter();
-			nsg.postGrade(ctl, liuID);
+			System.out.println("Sending to adapter..");
+			System.out.println(nsg.postGrade());
 		}
 		
 	}
