@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DBconn {
 
@@ -27,6 +28,15 @@ public class DBconn {
 			ex.printStackTrace();
 			System.out.println("Fel! Kan inte kontakta databasen..");
 
+		}
+	}
+	
+	public void closeConnection(){
+		try {
+			this.con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
