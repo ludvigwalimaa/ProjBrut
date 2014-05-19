@@ -105,10 +105,10 @@ public class CourseTask {
 		System.out.print("Choice: (0-1) ");
 		int chosenTask = in.nextInt();
 		switch (chosenTask) {
-		case 0:
+		case 1:
 			download(fm);
 			break;
-		case 1:
+		case 2:
 			upload(fm);
 			break;
 		}
@@ -123,7 +123,7 @@ public class CourseTask {
 		System.out.println("4. Set grade '4' ");
 		System.out.println("5. Set grade '5' ");
 		
-		System.out.print("Choice (0-3):");
+		System.out.print("Choice (1-5):");
 		int chosenTask = in.nextInt();
 		switch (chosenTask) {
 		case 1:

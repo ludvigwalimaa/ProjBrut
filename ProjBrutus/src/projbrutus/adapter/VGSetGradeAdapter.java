@@ -7,12 +7,14 @@ import projbrutus.course.examination.task.CourseTaskList;
 public class VGSetGradeAdapter implements SetGradeAdapter {
 	
 	public VGSetGradeAdapter(CourseTaskList ctl){
+		//countGrade(ctl)  /* Här skulle man eventuellt kunna räkna ut ett betyg */
 		postGrade(ctl);
-		//countGrade(ctl);
+		
 	}
 	
-	
-
+	private void countGrade(CourseTaskList ctl){
+		//System.out.println("Räknar ut grade...");
+	}
 	
 	public String postGrade(CourseTaskList ctl)
 	  {
@@ -24,7 +26,7 @@ public class VGSetGradeAdapter implements SetGradeAdapter {
 		
 	//Simulera att det externa systemet har anropats och 
 	//returnerat att det var något fel med de data som skickades. 
-		String transactionOutcome = "Invalid data";
+		String transactionOutcome = "Sending to VGSetGrade....Invalid data";
 	    return transactionOutcome;
 	  }
 

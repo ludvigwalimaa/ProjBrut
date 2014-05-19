@@ -3,6 +3,7 @@ package projbrutus.course;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import projbrutus.adapter.NumberSetGradeAdapter;
 import projbrutus.adapter.VGSetGradeAdapter;
 import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.ExaminationList;
@@ -129,7 +130,8 @@ public class CourseRoom {
 			System.out.println(vsg.postGrade(ctl));
 
 		}else{
-			System.out.println("Här ska det skickas till 'NumberGrades.class' och räknas ut ");
+			NumberSetGradeAdapter nsg = new NumberSetGradeAdapter(ctl);
+			System.out.println(nsg.postGrade(ctl));
 		}
 		
 	}
@@ -141,7 +143,7 @@ public class CourseRoom {
 			System.out.println("1. VG-system");
 			System.out.println("2. Number-system");
 			int choice = 0;
-			System.out.print("Choice: ");
+			System.out.print("Choice(1-2): ");
 			choice = in.nextInt();
 			switch(choice){
 			case 1: ctl.setGradeSys(1);
