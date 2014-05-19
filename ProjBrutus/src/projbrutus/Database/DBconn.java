@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import projbrutus.course.examination.task.CourseTaskList;
+
 public class DBconn {
 
 	private Connection con;
@@ -53,12 +55,12 @@ public class DBconn {
 	            
 	            
 
-	            //  select Användare.Användarlösen from Användare where Användarinlogg = '" + name + "'
+	            //  select Anvï¿½ndare.Anvï¿½ndarlï¿½sen from Anvï¿½ndare where Anvï¿½ndarinlogg = '" + name + "'
 	            while (result.next()) {
 	                course = result.getString("Course");
 	                courseTask = result.getString("CourseTask");
 	                grade = result.getString("Grade");
-	                System.out.println("hämtat från databasen " + course + " " + courseTask + " " + grade);
+	                System.out.println("hï¿½mtat frï¿½n databasen " + course + " " + courseTask + " " + grade);
 	            }
 	        } catch (Exception e) {
 	            e.printStackTrace();
@@ -67,6 +69,11 @@ public class DBconn {
 	        
 	        return liuId;
 	    }
+
+	public void postGrade(CourseTaskList ctl) {
+		//Posta till DB
+		
+	}
 	 
-	//kommentarkklarkhej
+
 }

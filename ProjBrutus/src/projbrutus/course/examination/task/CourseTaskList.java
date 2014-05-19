@@ -2,6 +2,8 @@ package projbrutus.course.examination.task;
 
 import java.util.ArrayList;
 
+import projbrutus.person.Person;
+
 public class CourseTaskList {
 	
 

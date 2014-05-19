@@ -1,5 +1,6 @@
 package projbrutus.adapter;
 
+import projbrutus.Database.DBconn;
 import projbrutus.course.examination.task.CourseTaskList;
 
 
@@ -7,7 +8,7 @@ import projbrutus.course.examination.task.CourseTaskList;
 public class VGSetGradeAdapter implements SetGradeAdapter {
 	
 	public VGSetGradeAdapter(CourseTaskList ctl){
-		//countGrade(ctl)  /* Här skulle man eventuellt kunna räkna ut ett betyg */
+		//countGrade(ctl);  /* Här skulle man eventuellt kunna räkna ut ett betyg */
 		postGrade(ctl);
 		
 	}
@@ -16,18 +17,10 @@ public class VGSetGradeAdapter implements SetGradeAdapter {
 		//System.out.println("Räknar ut grade...");
 	}
 	
-	public String postGrade(CourseTaskList ctl)
+	public void postGrade(CourseTaskList ctl)
 	  {
-	//Här ska innehållet i CourseTaskList göras om till det format som krävs av det externa systemet.
-		
-	//Här etableras kontakt med det externa systemet //
-		
-	//Här skickas innehållet i CourseTaskList över till det externa systemet //
-		
-	//Simulera att det externa systemet har anropats och 
-	//returnerat att det var något fel med de data som skickades. 
-		String transactionOutcome = "Sending to VGSetGrade....Invalid data";
-	    return transactionOutcome;
+		DBconn dbcon = new DBconn();
+		dbcon.postGrade(ctl);
 	  }
 
 

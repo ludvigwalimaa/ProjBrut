@@ -127,11 +127,11 @@ public class CourseRoom {
 		CourseTaskList ctl = ea.getCTL();
 		if(ctl.getGradeSys() == 1){
 			VGSetGradeAdapter vsg = new VGSetGradeAdapter(ctl);
-			System.out.println(vsg.postGrade(ctl));
+			vsg.postGrade(ctl);
 
 		}else{
 			NumberSetGradeAdapter nsg = new NumberSetGradeAdapter(ctl);
-			System.out.println(nsg.postGrade(ctl));
+			nsg.postGrade(ctl);
 		}
 		
 	}

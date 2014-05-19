@@ -13,18 +13,18 @@ public class NumberSetGradeAdapter implements SetGradeAdapter {
 		//System.out.println("Räknar ut grade...");
 	}
 	
-	public String postGrade(CourseTaskList ctl) 
+	public void postGrade(CourseTaskList ctl) 
 	 {
-	//Här ska innehållet i CourseTaskList göras om till det format som krävs av det externa systemet.
-		
-	//Här etableras kontakt med det externa systemet //
-		
-	//Här skickas innehållet i CourseTaskList över till det externa systemet //
-		
-	//Simulera att det externa systemet har anropats och 
-	//returnerat att det var något fel med de data som skickades. 
-		String transactionOutcome = "Sending to NumberSetGrade....Invalid data";
-	    return transactionOutcome;
+//	//Här ska innehållet i CourseTaskList göras om till det format som krävs av det externa systemet.
+//		
+//	//Här etableras kontakt med det externa systemet //
+//		
+//	//Här skickas innehållet i CourseTaskList över till det externa systemet //
+//		
+//	//Simulera att det externa systemet har anropats och 
+//	//returnerat att det var något fel med de data som skickades. 
+//		String transactionOutcome = "Sending to NumberSetGrade....Invalid data";
+//	    return transactionOutcome;
 	  }
 
 
