@@ -66,5 +66,5 @@ public class DBconn {
 	        return liuId;
 	    }
 	 
-	
+	//kommentar
 }
