@@ -1,6 +1,7 @@
 package projbrutus.adapter;
 
 import projbrutus.course.examination.task.CourseTaskList;
+import projbrutus.person.Person;
 
 
 public interface SetGradeAdapter {
@@ -12,7 +13,7 @@ public interface SetGradeAdapter {
 //	
 //	int getGrade();
 	
-	void postGrade(CourseTaskList ctl);
+	void postGrade(CourseTaskList ctl, String liuID);
 }
 
 

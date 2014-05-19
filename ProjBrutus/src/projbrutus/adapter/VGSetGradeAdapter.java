@@ -2,12 +2,13 @@ package projbrutus.adapter;
 
 import projbrutus.Database.DBconn;
 import projbrutus.course.examination.task.CourseTaskList;
+import projbrutus.person.Person;
 
 
 
 public class VGSetGradeAdapter implements SetGradeAdapter {
 	
-	public VGSetGradeAdapter(CourseTaskList ctl){
+	public VGSetGradeAdapter(){
 		//countGrade(ctl);  /* Här skulle man eventuellt kunna räkna ut ett betyg */
 	}
 	
@@ -15,11 +16,11 @@ public class VGSetGradeAdapter implements SetGradeAdapter {
 		//System.out.println("Räknar ut grade...");
 	}
 	
-	public void postGrade(CourseTaskList ctl)
+	public void postGrade(CourseTaskList ctl, String liuID)
 	  {
-		DBconn dbcon = new DBconn();
-		dbcon.startConnection();
-		dbcon.postGrade(ctl);
+//		DBconn dbcon = new DBconn();
+//		dbcon.startConnection();
+//		dbcon.postGrade(ctl, liuID);
 	  }
 
 

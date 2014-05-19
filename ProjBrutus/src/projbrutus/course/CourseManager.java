@@ -47,7 +47,7 @@ public class CourseManager {
 	
 	private void loadTeacherCourses(Person p) {
 		cc.printCourseRooms();
-		chooseCourse();
+		this.chooseCourse();
 		
 		boolean loopGrading = true;
 		while (loopGrading) {
@@ -72,7 +72,7 @@ public class CourseManager {
 		}}else{
 			loopGrading = false;
 			System.out.println("Grading Done!");
-			tmpCR.calcGrade();
+			tmpCR.calcGrade(tmpCR.getliuID());
 		}
 		
 		}
@@ -98,6 +98,7 @@ public class CourseManager {
 
 	private void chooseCourse() {
 		tmpCR = cl.chooseCourse(p, allCourseRooms);
+		
 		tmpCTL = tmpCR.getEa().getCTL();
 	}
 	

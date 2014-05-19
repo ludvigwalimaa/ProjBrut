@@ -54,7 +54,7 @@ public class CourseList {
 				
 				return cr;
 			case 2:
-				cr = allCourseRooms.get(3);
+				cr = allCourseRooms.get(2);
 				new Test(p, allCourseRooms.get(2));
 				System.out.println(allCourseRooms.get(2).toString());
 		

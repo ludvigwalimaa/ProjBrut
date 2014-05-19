@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.course.examination.task.CourseTaskList;
+import projbrutus.person.Person;
 
 public class DBconn {
 
@@ -71,11 +72,28 @@ public class DBconn {
 	        return liuId;
 	    }
 
-	public void postGrade(CourseTaskList ctl) {
+	public void postGrade(CourseTaskList ctl, String liuID) {
 		for(int i=0; i< ctl.getTasks().size(); i++){
 			CourseTask ct = ctl.getTasks().get(i);
+			String cId = ct.getcId();
+			int task = i;
+			String grade = ct.getGrade();
+			String query = "UPDATE Betyg SET Grade='" + grade + "' WHERE LiuID='" + liuID + "' AND Course='" + cId + "' AND CourseTask ='" + task + "'"; 
+			System.out.println(query);
+			try {
+				stat = con.prepareStatement(query);
+				stat.executeUpdate();	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
-		}
+			
+		}	
+	}
+	
+	public ResultSet getTasks(){
+		return result;
 		
 	}
 	 

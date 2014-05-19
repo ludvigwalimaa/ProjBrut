@@ -109,6 +109,9 @@ public class CourseRoom {
 		return false;
 	}
 	
+	/* Den här metoden ska egentligen inte finnas
+	 * den är till för att man som Teacher ska slippa rätta 5 moment under testkörning.
+	 */
 	public void setAllVGGrades(){
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
@@ -116,6 +119,9 @@ public class CourseRoom {
 		}
 	}
 	
+	/* Den här metoden ska egentligen inte finnas
+	 * den är till för att man ska slippa rätta 5 moment under testkörning.
+	 */
 	public void setAllNumberGrades(){
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
@@ -123,15 +129,15 @@ public class CourseRoom {
 		}
 	}
 
-	public void calcGrade() {
+	public void calcGrade(String liuID) {
 		CourseTaskList ctl = ea.getCTL();
 		if(ctl.getGradeSys() == 1){
-			VGSetGradeAdapter vsg = new VGSetGradeAdapter(ctl);
-			vsg.postGrade(ctl);
+			VGSetGradeAdapter vsg = new VGSetGradeAdapter();
+			vsg.postGrade(ctl, liuID);
 
 		}else{
-			NumberSetGradeAdapter nsg = new NumberSetGradeAdapter(ctl);
-			nsg.postGrade(ctl);
+			NumberSetGradeAdapter nsg = new NumberSetGradeAdapter();
+			nsg.postGrade(ctl, liuID);
 		}
 		
 	}
@@ -146,6 +152,7 @@ public class CourseRoom {
 	 */
 	public void setGradeSys(){
 		CourseTaskList ctl = ea.getCTL();
+		System.out.println(ea.getCTL().toString());
 		if(ctl.getGradeSys() == 0){
 			System.out.println("Is this a VG-system or a Number-system?");
 			System.out.println("1. VG-system");
