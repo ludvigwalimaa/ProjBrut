@@ -62,9 +62,10 @@ public class DBconn {
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
+	        
 	        System.out.println("hämtat från databasen " + course + " " + courseTask + " " + grade);
 	        return liuId;
 	    }
 	 
-	//kommentarkklark
+	//kommentarkklarkhej
 }
