@@ -12,16 +12,16 @@ public class VGSetGradeAdapter implements SetGradeAdapter {
 		//countGrade(ctl);  /* Här skulle man eventuellt kunna räkna ut ett betyg */
 	}
 	
-	private void countGrade(CourseTaskList ctl){
-		//System.out.println("Räknar ut grade...");
-	}
-	
-	public void calcGrade(CourseTaskList ctl, String liuID)
-	  {
-//		DBconn dbcon = new DBconn();
-//		dbcon.startConnection();
-//		dbcon.postGrade(ctl, liuID);
-	  }
+//	private void countGrade(CourseTaskList ctl){
+//		//System.out.println("Räknar ut grade...");
+//	}
+//	
+//	public void calcGrade(CourseTaskList ctl, String liuID)
+//	  {
+////		DBconn dbcon = new DBconn();
+////		dbcon.startConnection();
+////		dbcon.postGrade(ctl, liuID);
+//	  }
 
 
 	public String postGrade() {

@@ -13,7 +13,7 @@ public interface SetGradeAdapter {
 //	
 //	int getGrade();
 	
-	void calcGrade(CourseTaskList ctl, String liuID);
+//	void calcGrade(CourseTaskList ctl, String liuID);
 	
 	String postGrade();
 }

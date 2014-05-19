@@ -11,25 +11,19 @@ public class NumberSetGradeAdapter implements SetGradeAdapter {
 		
 	}
 	
-	private void countGrade(CourseTaskList ctl, Person p){
-		//System.out.println("Räknar ut grade...");
-	}
-	
 
 	public String postGrade() {
 		String s = "..Recieved by NumberSetGradeAdapter!";
-		return s;
-
-		
+		return s;	
 	}
 
-	@Override
-	public void calcGrade(CourseTaskList ctl, String liuID) {
-//		DBconn dbcon = new DBconn();
-//		dbcon.startConnection();
-//		dbcon.postGrade(ctl, liuID);
-		
-	}
+//	@Override
+//	public void calcGrade(CourseTaskList ctl, String liuID) {
+////		DBconn dbcon = new DBconn();
+////		dbcon.startConnection();
+////		dbcon.postGrade(ctl, liuID);
+//		
+//	}
 
 
 

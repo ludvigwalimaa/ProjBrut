@@ -72,11 +72,17 @@ public class CourseManager {
 		}}else{
 			loopGrading = false;
 			System.out.println("Grading Done!");
-			tmpCR.calcGrade(tmpCR.getliuID());
+			calcGrade();
+			
 		}
 		
 		}
 	}
+	
+	private void calcGrade(){
+		tmpCR.calcGrade(tmpCR.getliuID());
+	}
+	
 	
 	private void loadPersonalCourses(Person p) {
 		cl = new CourseList();

@@ -113,6 +113,7 @@ public class CourseRoom {
 	 * den är till för att man som Teacher ska slippa rätta 5 moment under testkörning.
 	 */
 	public void setAllVGGrades(){
+		System.out.println("*** Setting VG-grades for all tasks ***");
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
 			ctl.get(i).setGrade("VG");
@@ -123,6 +124,7 @@ public class CourseRoom {
 	 * den är till för att man ska slippa rätta 5 moment under testkörning.
 	 */
 	public void setAllNumberGrades(){
+		System.out.println("*** Setting Number-grades for all tasks ***");
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
 			ctl.get(i).setGrade("3");
