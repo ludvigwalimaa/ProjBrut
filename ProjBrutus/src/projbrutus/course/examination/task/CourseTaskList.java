@@ -9,7 +9,7 @@ public class CourseTaskList {
 	
 	private String cId;
 	private int gID;
-	private int gradeSys; // 1 = VG , 2 = Number
+	private int gradeSys; // 1 = VG , 2 = Number  0 = undecided
 	
 	public CourseTaskList(String cId, int courseTaskSize){
 		this.cId = cId;
