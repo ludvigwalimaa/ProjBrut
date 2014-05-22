@@ -28,7 +28,6 @@ public class CourseRoom {
 		this.cName = cName;
 		this.setEa(ea);
 		this.g = g;
-//		this.participantList = participantList;
 		this.liuID = liuID;
 		
 	}
