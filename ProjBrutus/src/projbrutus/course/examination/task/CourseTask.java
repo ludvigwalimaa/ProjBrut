@@ -104,10 +104,10 @@ public class CourseTask {
 		System.out.print("Choice: (0-1) ");
 		int chosenTask = in.nextInt();
 		switch (chosenTask) {
-		case 1:
+		case 0:
 			download(fm);
 			break;
-		case 2:
+		case 1:
 			upload(fm);
 			break;
 		}

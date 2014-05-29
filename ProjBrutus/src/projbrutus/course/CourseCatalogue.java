@@ -15,7 +15,7 @@ public class CourseCatalogue {
 	
 	
 	
-	public static ArrayList<CourseRoom> allCourseRooms = new ArrayList<CourseRoom>(); // HÃ¤r Ã¤r en databas fÃ¶r personers kursrum
+	public ArrayList<CourseRoom> allCourseRooms = new ArrayList<CourseRoom>(); // HÃ¤r Ã¤r en databas fÃ¶r personers kursrum
 	
 	public CourseCatalogue(){
 		
