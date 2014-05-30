@@ -6,12 +6,16 @@ public class FileManager {
 		
 	}
 
-	public void download(){
-		System.out.println("Downloading material......DONE!");
+	
+	public void handIn(){
+		System.out.println("\nChoose material to hand in from file: ");
+		System.out.println("**Student chosing material from file**");
+		System.out.println("Chosen material handed in...!");
 	}
 	
-	public void upload(){
-		System.out.println("Uploading material......DONE!");
+	public void chooseFile(){
+		
+		
 	}
 }
 

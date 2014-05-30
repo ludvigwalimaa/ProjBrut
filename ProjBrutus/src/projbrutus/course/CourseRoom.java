@@ -175,6 +175,34 @@ public class CourseRoom {
 			//Teachern har redan valt ett GradeSystem. 
 		}
 	}
+
+	public CourseTask chooseTaskStudent(int choice) {
+		ArrayList<CourseTask> tmpCTL = getEa().getCTL().getTasks();
+		int numberOfTasks = tmpCTL.size() - 1;
+		System.out.println("Choice (0-" + numberOfTasks + "): ");
+		System.out.println("** Student chose task " + choice +" **");
+		if ((choice <= tmpCTL.size()) && (choice > -1 )) {
+			return tmpCTL.get(choice);
+		} else {
+			System.out.println("choice does not exist..");
+		}
+		return null;
+	}
+	
+	public CourseTask chooseTaskTeacher(int choice){
+		ArrayList<CourseTask> tmpCTL = getEa().getCTL().getTasks();
+		int numberOfTasks = tmpCTL.size() - 1;
+		
+		System.out.println("Choice (0-" + numberOfTasks + "): ");
+		System.out.println("** Teacher chose task " + choice +" **");
+			if ((choice <= tmpCTL.size()) && (choice > -1 )) {
+				System.out.println("Task. " + choice);
+				return tmpCTL.get(choice);
+			} else {
+				System.out.println("choice does not exist..");
+			}
+		return null;
+	}
 	
 
 	

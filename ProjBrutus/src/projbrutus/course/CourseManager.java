@@ -3,6 +3,7 @@ package projbrutus.course;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import projbrutus.FileManager;
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.course.examination.task.CourseTaskList;
 import projbrutus.person.Person;
@@ -11,9 +12,9 @@ import projbrutus.person.Teacher;
 
 public class CourseManager {
 	private Scanner in = new Scanner(System.in);
-	
 	private CourseCatalogue cc;
 	private CourseList cl = new CourseList();
+	private FileManager fm = new FileManager();
 	private Person p;
 	private ArrayList<CourseRoom> allCourseRooms;
 	private CourseRoom tmpCR;
@@ -41,21 +42,21 @@ public class CourseManager {
 			loadTeacherCourses(p);
 		} else {
 			System.out.println("\n---- Student Overview -----");
-			loadPersonalCourses(p);
+			loadStudentCourses(p);
 		}
 	}
 	
 	private void loadTeacherCourses(Person p) {
 		cc.printCourseRooms();
-		this.chooseCourse();
+		chooseCourseTeacher(0); //Hårdkodat val av kursrum (courseroom)
 		
 		boolean loopGrading = true;
 		while (loopGrading) {
-		tmpCR.setGradeSys();
+//		tmpCR.setGradeSys(); Den här metoden tillhör INL3
+		tmpCR.setAllVGGrades(); //Sätter alla grades till VG för test-syfte.
 		tmpCR.showTasks();
-		tmpCT = new CourseTask();
-		tmpCT = tmpCT.chooseTask(p, tmpCR);	
-		manageTask(tmpCT, p);
+		chooseTaskTeacher(0); //Hårdkodat val av kursmoment (courseTask)
+
 
 		tmpCR.showTasks();
 		if(tmpCR.gradesLeft()){
@@ -71,43 +72,55 @@ public class CourseManager {
 			break;
 		}}else{
 			loopGrading = false;
+
 			System.out.println("Grading Done!");
-			calcGrade();
+//			Används i INL3
+//			calcGrade();
 			
 		}
 		
 		}
 	}
 	
-	private void calcGrade(){
+	private void calcGrade(){ //Används i INL3
 		tmpCR.calcGrade(tmpCR.getliuID());
 	}
 	
 	
-	private void loadPersonalCourses(Person p) {
+	private void loadStudentCourses(Person p) {
 		cl = new CourseList();
 		cl.populateCourseList(p, cc); // Lägger till personens kurser i courseList
 		cl.printCourseList(p); //Skriver ut kurslistan
-		chooseCourse();
+		chooseCourseStudent("725G51"); //Hårdkodat en kurskod
 		tmpCR.printCourseRoom();
-		tmpCT = new CourseTask();
-		tmpCT = tmpCT.chooseTask(p, tmpCR);
-		manageTask(tmpCT, p);
+		chooseTaskStudent(0); //Hårdkodat val av kursmoment (courseTask)
+		tmpCR.printCourseRoom();
 		
 	}
 	
-	private void manageTask(CourseTask ct, Person p){
-		System.out.println("GradeSys : " + tmpCTL.getGradeSys());
-		ct.manageTask(p, tmpCTL.getGradeSys());
-		
-	}
 
-	private void chooseCourse() {
-		tmpCR = cl.chooseCourse(p, allCourseRooms);
+	
+
+
+	private void chooseCourseTeacher(int choice) {
+		tmpCR = cl.chooseCourseTeacher(choice ,p, allCourseRooms);
 		
-		tmpCTL = tmpCR.getEa().getCTL();
 	}
 	
+	private void chooseCourseStudent(String cId){
+		tmpCR = cl.chooseCourseStudent(cId); 
+	}
+	
+	private void chooseTaskTeacher(int choice) {
+		tmpCT = tmpCR.chooseTaskTeacher(choice);
+		tmpCT.manageTaskTeacher();
+		
+	}
+	
+	private void chooseTaskStudent(int choice){
+		tmpCT = tmpCR.chooseTaskStudent(choice);
+		tmpCT.manageTaskStudent(fm);
+	}
 
 
 }

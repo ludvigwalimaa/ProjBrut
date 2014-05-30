@@ -34,13 +34,10 @@ public class CourseList {
 		}
 	}
 	
-	public CourseRoom chooseCourse(Person p, ArrayList<CourseRoom> allCourseRooms){
+	public CourseRoom chooseCourseTeacher(int choice, Person p, ArrayList<CourseRoom> allCourseRooms){
 		CourseRoom cr = null;
-		if (p.getClass() == Teacher.class) {
-			
-			System.out.print("Choice (0-3): ");
-			ArrayList<CourseTask> ct;
-			int choice = in.nextInt();
+			System.out.println("Choice (0-3): ");
+			System.out.println("** Teacher chose course 0 **");
 			switch (choice) {
 			case 0:
 				cr = allCourseRooms.get(0);
@@ -65,25 +62,30 @@ public class CourseList {
 				System.out.println(allCourseRooms.get(3).toString());
 				return cr;
 			}
+			return cr;
 			
-		}else{ // if not Teacher.class
-		String chosenCourse;
-		System.out.print("Choice('725GXX'): ");
-		chosenCourse = in.nextLine();
-		
+		}
+
+	
+	public CourseRoom chooseCourseStudent(String cId){
+		CourseRoom cr = null;
+		System.out.println("Choice('725GXX'): ");
+		System.out.println("** Student chose course: " + cId + " **");
 		for (int i = 0; i < getCourseList().size(); i++) {
-			if (chosenCourse.equals(getCourseList().get(i).getcId())) {
+			if (cId.equals(getCourseList().get(i).getcId())) {
 				cr = getCourseList().get(i);
 				return cr;
 
 			} else {
 
 			}
-		}}
-		
-		return cr;
-		
+		}
+		return cr;	
 	}
+		
+		
+	
+
 	
 	public ArrayList<CourseRoom> getCourseList(){
 		return courseList;
