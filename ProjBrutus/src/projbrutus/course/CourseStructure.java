@@ -10,7 +10,7 @@ public class CourseStructure {
 		
 	}
 
-	public int getDefaultGroupListSize() {
+	public int getDefaultGLSize() {
 		return defaultGroupListSize;
 	}
 
@@ -19,7 +19,7 @@ public class CourseStructure {
 	}
 
 
-	public int getDefaultCourseTaskListSize() {
+	public int getDefaultCTLSize() {
 		return defaultCourseTaskListSize;
 	}
 
@@ -27,7 +27,7 @@ public class CourseStructure {
 		this.defaultCourseTaskListSize = defaultCourseTaskListSize;
 	}
 
-	public int getDefaultExaminationAreaSize() {
+	public int getDefaultExaAreaSize() {
 		return defaultExaminationAreaSize;
 	}
 

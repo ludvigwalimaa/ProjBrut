@@ -1,5 +1,6 @@
 package projbrutus.course.examination;
 
+import projbrutus.course.CourseStructure;
 import projbrutus.course.examination.task.CourseTaskList;
 
 public class ExaminationArea {
@@ -9,9 +10,9 @@ public class ExaminationArea {
 	private int gID;
 
 		
-	public ExaminationArea(String cId, int courseTaskSize){
+	public ExaminationArea(String cId, CourseStructure cs){
 		this.cId = cId;
-		this.ctl = new CourseTaskList(cId, courseTaskSize);
+		this.ctl = new CourseTaskList(cId, cs);
 	}
 	
 	public CourseTaskList getCTL(){

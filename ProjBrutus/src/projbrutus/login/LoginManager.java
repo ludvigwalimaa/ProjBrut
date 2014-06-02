@@ -25,7 +25,7 @@ public class LoginManager{
 			System.out.println("--- Login failed ---");
 		}else{
 			CourseCatalogue cc = new CourseCatalogue();
-			createRoom(cc);
+			createRoom(cc, PC);
 			new Overblick(PC.getPerson(liuID), cc);
 			
 			
@@ -33,9 +33,9 @@ public class LoginManager{
 	}
 
 	
-	private void createRoom(CourseCatalogue cc){
-		cc.createRoom("725G51", "Databaser"); // gabol892, ludwa930, anka101
-		cc.createRoom("725G34", "Historia"); //ludwa930
+	private void createRoom(CourseCatalogue cc, PersonCatalogue PC){
+		cc.createRoom("725G51", "Databaser", PC); // gabol892, ludwa930, anka101
+		cc.createRoom("725G34", "Historia", PC); //ludwa930
 
 		
 					

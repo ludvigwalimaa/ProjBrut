@@ -2,21 +2,25 @@ package projbrutus.course.examination.task;
 
 import java.util.ArrayList;
 
+import projbrutus.course.CourseStructure;
 import projbrutus.person.Person;
 
 public class CourseTaskList {
 	
 
-	private ArrayList<CourseTask> courseTaskList = new ArrayList<CourseTask>();
+	private ArrayList<CourseTask> DBctList = new ArrayList<CourseTask>();
 	
 	private String cId;
 	private int gID;
 	private int gradeSys; // 1 = VG , 2 = Number  0 = undecided
+	private int ctSize;
 	
-	public CourseTaskList(String cId, int courseTaskSize){
+	public CourseTaskList(String cId, CourseStructure cs){
 		this.cId = cId;
-		for(int i=0; i < courseTaskSize; i++){
-			courseTaskList.add(new CourseTask(this.cId, "A default description", "awaiting review"));
+		this.ctSize = cs.getDefaultCTLSize();
+		for(int i=0; i < ctSize; i++){
+			CourseTask ct = new CourseTask(this.cId, "A default description", "awaiting review");
+			DBctList.add(ct);
 		}
 	}
 
@@ -33,7 +37,7 @@ public class CourseTaskList {
 	}
 	
 	public ArrayList<CourseTask> getTasks(){
-		return courseTaskList;
+		return DBctList;
 	}
 
 	public int getGradeSys() {

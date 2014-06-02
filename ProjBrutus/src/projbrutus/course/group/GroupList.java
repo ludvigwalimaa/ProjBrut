@@ -13,14 +13,15 @@ public class GroupList {
 	private String cId;
 	private int GLsize;
 	
-	public GroupList(String cId, int GLsize){
+	public GroupList(String cId, CourseStructure cs){
 		this.cId = cId;
-		this.GLsize = GLsize;
+		this.GLsize = cs.getDefaultGLSize();
 	}
 	
 	public void populateDBgroupList() {
 		for(int i = 0; i< GLsize ;i++){
-			getDBgroupList().add(new Group(this.cId, i));
+			Group g = new Group(this.cId, i); //
+			DBgroupList.add(g);
 		}
 		
 	}

@@ -26,21 +26,21 @@ public class CourseCatalogue {
 		
 	}
 	
-	public void createRoom(String cID, String cName){
+	public void createRoom(String cID, String cName, PersonCatalogue pc){
 		CourseStructure cs = new CourseStructure();
 		CourseRoom cr;
-		ExaminationList exaList;
+		ExaminationList eaL;
 		ExaminationArea ea;
 		ParticipantCatalogue ppc = new ParticipantCatalogue(cID);
-		PersonCatalogue pc = new PersonCatalogue();
 		Person p;
 		Group g;
 		
-		exaList = new ExaminationList(cID, cs.getDefaultExaminationAreaSize(), cs.getDefaultCourseTaskListSize());
-		exaList.populateDBexaList();
+		eaL = new ExaminationList(cID, cs);
+		eaL.populateDBexaList();
 		
-		GroupList groupList; //Skapar en databas över Grupper för en kurskod
-		groupList = new GroupList(cID, cs.getDefaultGroupListSize());
+		//Skapar en databas över Grupper för en kurskod
+
+		GroupList groupList = new GroupList(cID, cs);
 		groupList.populateDBgroupList();  //Skapar 30 grupper
 		
 		for(int i = 0; i < ppc.getParticipants().size(); i++){
@@ -49,7 +49,7 @@ public class CourseCatalogue {
 			
 			g = groupList.getDBgroupList().get(i); //Hämtar "i" gruppen i ArrayListan och sätter den till G
 			g.addGroupMember(p);
-			ea = exaList.getDBexaList().get(i);
+			ea = eaL.getDBexaList().get(i);
 			ea.setGroupID(g.getgID());
 			
 			cr = new CourseRoom(cID, cName, liuID, ea, g);
