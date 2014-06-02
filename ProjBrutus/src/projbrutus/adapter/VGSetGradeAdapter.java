@@ -1,9 +1,5 @@
 package projbrutus.adapter;
 
-import projbrutus.Database.DBconn;
-import projbrutus.course.examination.task.CourseTaskList;
-import projbrutus.person.Person;
-
 
 
 public class VGSetGradeAdapter implements SetGradeAdapter {

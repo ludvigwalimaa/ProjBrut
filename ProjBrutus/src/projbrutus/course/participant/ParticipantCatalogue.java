@@ -2,8 +2,6 @@ package projbrutus.course.participant;
 
 import java.util.ArrayList;
 
-import projbrutus.person.Person;
-
 public class ParticipantCatalogue {
 
 	private ArrayList<String> pList = new ArrayList<String>();

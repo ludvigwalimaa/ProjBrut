@@ -3,8 +3,6 @@ package projbrutus.course.examination;
 import java.util.ArrayList;
 
 import projbrutus.course.CourseStructure;
-import projbrutus.course.examination.task.CourseTaskList;
-import projbrutus.course.group.Group;
 
 
 public class ExaminationList {

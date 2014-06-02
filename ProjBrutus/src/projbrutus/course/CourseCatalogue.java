@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.ExaminationList;
-import projbrutus.course.examination.task.CourseTaskList;
-import projbrutus.course.group.Group;
-import projbrutus.course.group.GroupList;
 import projbrutus.course.participant.ParticipantCatalogue;
 import projbrutus.person.Person;
 import projbrutus.person.PersonCatalogue;
@@ -33,26 +30,18 @@ public class CourseCatalogue {
 		ExaminationArea ea;
 		ParticipantCatalogue ppc = new ParticipantCatalogue(cID);
 		Person p;
-		Group g;
 		
 		eaL = new ExaminationList(cID, cs);
 		eaL.populateDBexaList();
-		
-		//Skapar en databas över Grupper för en kurskod
-
-		GroupList groupList = new GroupList(cID, cs);
-		groupList.populateDBgroupList();  //Skapar 30 grupper
 		
 		for(int i = 0; i < ppc.getParticipants().size(); i++){
 			String liuID = ppc.getParticipants().get(i).toString(); // Hämtar liuID
 			p = pc.getPerson(liuID);
 			
-			g = groupList.getDBgroupList().get(i); //Hämtar "i" gruppen i ArrayListan och sätter den till G
-			g.addGroupMember(p);
 			ea = eaL.getDBexaList().get(i);
-			ea.setGroupID(g.getgID());
+			ea.setliuID(liuID);
 			
-			cr = new CourseRoom(cID, cName, liuID, ea, g);
+			cr = new CourseRoom(cID, cName, liuID, ea);
 			addRoom(cr);
 		}
 	}

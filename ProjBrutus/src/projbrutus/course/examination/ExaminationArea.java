@@ -7,7 +7,7 @@ public class ExaminationArea {
 	
 	private String cId;
 	private CourseTaskList ctl;
-	private int gID;
+	private String liuID;
 
 		
 	public ExaminationArea(String cId, CourseStructure cs){
@@ -19,17 +19,17 @@ public class ExaminationArea {
 		return ctl;
 	}
 
-	public int getLiuID() {
-		return gID;
+	public String getLiuID() {
+		return liuID;
 	}
 
-	public void setGroupID(int gID) {
-		this.gID = gID;
-		ctl.setGroupID(gID);
+	public void setliuID(String liuID) {
+		this.liuID = liuID;
+		ctl.setliuID(liuID);
 	}
 	
 	public String toString(){
-		return cId + " - " + gID + "\n";
+		return cId + " - " + liuID + "\n";
 	}
 
 	

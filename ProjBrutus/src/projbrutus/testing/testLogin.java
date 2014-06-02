@@ -1,9 +1,5 @@
 package projbrutus.testing;
 
-import java.util.ArrayList;
-
-import projbrutus.course.examination.task.CourseTask;
-
 public class testLogin {
 
 	/*

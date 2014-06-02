@@ -1,15 +1,6 @@
 package projbrutus.login;
 
-import java.io.IOException;
-
 import projbrutus.course.CourseCatalogue;
-import projbrutus.course.CourseRoom;
-import projbrutus.course.examination.ExaminationArea;
-import projbrutus.course.examination.ExaminationList;
-import projbrutus.course.examination.task.CourseTaskList;
-import projbrutus.course.group.Group;
-import projbrutus.course.group.GroupList;
-import projbrutus.person.Person;
 import projbrutus.person.PersonCatalogue;
 
 public class LoginManager{

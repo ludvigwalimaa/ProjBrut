@@ -1,8 +1,5 @@
 package projbrutus.adapter;
 
-import projbrutus.course.examination.task.CourseTaskList;
-import projbrutus.person.Person;
-
 
 public interface SetGradeAdapter {
 	

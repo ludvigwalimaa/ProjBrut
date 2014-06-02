@@ -1,16 +1,11 @@
 package projbrutus.course;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import projbrutus.course.examination.task.CourseTask;
 import projbrutus.person.Person;
-import projbrutus.person.Teacher;
 import projbrutus.testing.Test;
 
 public class CourseList {
 
-	private Scanner in = new Scanner(System.in);
 	private ArrayList<CourseRoom> courseList = new ArrayList<CourseRoom>();
 
 	public CourseList() {

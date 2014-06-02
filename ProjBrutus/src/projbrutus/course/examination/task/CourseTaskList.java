@@ -3,7 +3,6 @@ package projbrutus.course.examination.task;
 import java.util.ArrayList;
 
 import projbrutus.course.CourseStructure;
-import projbrutus.person.Person;
 
 public class CourseTaskList {
 	
@@ -11,7 +10,7 @@ public class CourseTaskList {
 	private ArrayList<CourseTask> DBctList = new ArrayList<CourseTask>();
 	
 	private String cId;
-	private int gID;
+	private String liuID;
 	private int gradeSys; // 1 = VG , 2 = Number  0 = undecided
 	private int ctSize;
 	
@@ -24,16 +23,16 @@ public class CourseTaskList {
 		}
 	}
 
-	public int getGroupID() {
-		return gID;
+	public String getliuID() {
+		return liuID;
 	}
 
-	public void setGroupID(int gID) {
-		this.gID = gID;
+	public void setliuID(String liuID) {
+		this.liuID = liuID;
 	}
 	
 	public String toString(){
-		return cId + " - " + gID;
+		return cId + " - " + liuID;
 	}
 	
 	public ArrayList<CourseTask> getTasks(){

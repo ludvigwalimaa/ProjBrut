@@ -5,9 +5,6 @@ import java.util.Scanner;
 
 import projbrutus.FileManager;
 import projbrutus.course.CourseRoom;
-import projbrutus.course.group.Group;
-import projbrutus.person.Person;
-import projbrutus.person.Teacher;
 
 public class CourseTask {
 	private Scanner in = new Scanner(System.in);

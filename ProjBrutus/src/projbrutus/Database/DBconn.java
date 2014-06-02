@@ -8,7 +8,6 @@ import java.sql.SQLException;
 
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.course.examination.task.CourseTaskList;
-import projbrutus.person.Person;
 
 public class DBconn {
 
