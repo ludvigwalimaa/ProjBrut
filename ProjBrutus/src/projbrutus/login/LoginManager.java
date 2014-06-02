@@ -17,7 +17,7 @@ public class LoginManager{
 		}else{
 			CourseCatalogue cc = new CourseCatalogue();
 			createRoom(cc, PC);
-			new Overblick(PC.getPerson(liuID), cc);
+			new Overview(PC.getPerson(liuID), cc);
 			
 			
 		}

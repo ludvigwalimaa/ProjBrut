@@ -29,26 +29,22 @@ public class CourseCatalogue {
 		ExaminationList eaL;
 		ExaminationArea ea;
 		ParticipantCatalogue ppc = new ParticipantCatalogue(cID);
-		Person p;
+		int ppcSize = ppc.getPPCSize();
+
 		
 		eaL = new ExaminationList(cID, cs);
 		eaL.populateDBexaList();
 		
-		for(int i = 0; i < ppc.getParticipants().size(); i++){
+		for(int i = 0; i < ppcSize; i++){
 			String liuID = ppc.getParticipants().get(i).toString(); // Hämtar liuID
-			p = pc.getPerson(liuID);
-			
 			ea = eaL.getDBexaList().get(i);
 			ea.setliuID(liuID);
 			
 			cr = new CourseRoom(cID, cName, liuID, ea);
-			addRoom(cr);
+			allCourseRooms.add(cr);
 		}
 	}
 	
-	private void addRoom(CourseRoom cr){
-		allCourseRooms.add(cr);
-	}
 
 	public void printCourseRooms(){
 		String s = "";

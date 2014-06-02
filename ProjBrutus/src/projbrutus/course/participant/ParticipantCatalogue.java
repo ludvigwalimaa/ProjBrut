@@ -51,6 +51,10 @@ public class ParticipantCatalogue {
 	public ArrayList<String> getParticipants(){
 		return pList;
 	}
+	
+	public int getPPCSize(){
+		return pList.size();
+	}
 
 
 
