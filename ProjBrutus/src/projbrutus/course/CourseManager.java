@@ -48,6 +48,7 @@ public class CourseManager {
 	private void loadTeacherCourses(Person p) {
 
 		cc.printCourseRooms();
+		getAllCourseRooms();
 		chooseCourseTeacher(0); //Hårdkodat val av kursrum (courseroom)
 		
 //		boolean loopGrading = true;
@@ -93,16 +94,13 @@ public class CourseManager {
 		chooseCourseStudent("725G51"); //Hårdkodat en kurskod
 		tmpCR.printCourseRoom();
 		chooseTaskStudent(0); //Hårdkodat val av kursmoment (courseTask)
+		System.out.println("\n** Skriver ut kursrummet igen för att se statusförändring **");
 		tmpCR.printCourseRoom();
 		
 	}
 	
 
-	
-
-
 	private void chooseCourseTeacher(int choice) {
-		getAllCourseRooms();
 		tmpCR = cl.chooseCourseTeacher(choice ,p, allCourseRooms);
 		
 	}
@@ -113,13 +111,13 @@ public class CourseManager {
 	
 	private void chooseTaskTeacher(int choice) {
 		tmpCT = tmpCR.chooseTaskTeacher(choice);
-		tmpCT.manageTaskTeacher();
+		tmpCT.setGradeTeacher(3); //Sätter grade till VG - hårdkodat
 		
 	}
 	
 	private void chooseTaskStudent(int choice){
 		tmpCT = tmpCR.chooseTaskStudent(choice);
-		tmpCT.manageTaskStudent(fm);
+		tmpCT.handIn(fm, "C:/Document/file.pdf");
 	}
 
 

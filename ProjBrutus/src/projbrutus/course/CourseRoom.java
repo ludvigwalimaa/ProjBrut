@@ -186,6 +186,7 @@ public class CourseRoom {
 		
 		System.out.println("Choice (0-" + numberOfTasks + "): ");
 		System.out.println("** Teacher chose task " + choice +" **");
+		System.out.println("** Downloading file...DONE! **");
 			if ((choice <= tmpCTL.size()) && (choice > -1 )) {
 				System.out.println("Task. " + choice);
 				return tmpCTL.get(choice);

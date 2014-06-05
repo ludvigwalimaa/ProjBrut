@@ -24,6 +24,11 @@ public class ExaminationList {
 
 	}
 	
+	public ExaminationArea getExaArea(int i){
+		return DBexaList.get(i);
+	}
+	
+	
 	//Skapar 30st ExaArea för kursrummet.
 	public void populateDBexaList(){
 		for(int i = 0; i< exaAreaSize ;i++){

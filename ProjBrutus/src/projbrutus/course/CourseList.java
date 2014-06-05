@@ -14,6 +14,7 @@ public class CourseList {
 
 	// Hämtar personens CourseRooms i allCourseRooms.
 	public void populateCourseList(Person p, CourseCatalogue cc) {
+		//Metoden letar reda på en p's kursrum, kan ses som en query till en databas där man hämtar en persons kursrum. 
 		String liuID = p.getLiudID();
 		for (int i = 0; i < cc.allCourseRooms.size(); i++) {
 			if (liuID.equals(cc.allCourseRooms.get(i).getliuID())) {

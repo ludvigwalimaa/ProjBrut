@@ -1,6 +1,7 @@
 package projbrutus.login;
 
 import projbrutus.course.CourseCatalogue;
+import projbrutus.person.Person;
 import projbrutus.person.PersonCatalogue;
 
 public class LoginManager{
@@ -8,16 +9,17 @@ public class LoginManager{
 	private PersonCatalogue PC = new PersonCatalogue();
 	
 	public void loginCheck(String liuID, String password) {
-		comparePersons(liuID, password, PC);
+		authenticate(liuID, password, PC);
 	}
 	
-	private void comparePersons(String liuID, String password, PersonCatalogue PC){
-		if(!PC.comparePersons(liuID, password)){
+	private void authenticate(String liuID, String password, PersonCatalogue PC){
+		if(PC.authenticate(liuID, password) == null){
 			System.out.println("--- Login failed ---");
 		}else{
+			Person p = PC.authenticate(liuID, password);
 			CourseCatalogue cc = new CourseCatalogue();
 			createRoom(cc, PC);
-			new Overview(PC.getPerson(liuID), cc);
+			new Overview(p, cc);
 			
 			
 		}

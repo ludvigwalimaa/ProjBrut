@@ -11,6 +11,7 @@ public class CourseTask {
 	private String cId;
 	private String description;
 	private String grade;
+	private String filepath; //I den här variabeln kommer vi att spara sökvägen till den inlämnade filen. 
 
 	public CourseTask(String cId, String description, String grade) {
 		this.setcId(cId);
@@ -66,13 +67,21 @@ public class CourseTask {
 		return null;
 	}
 
-	public void manageTaskStudent(FileManager fm){
-		fm.handIn(); //Här ska det egentligen skickas in en vald fil i IAD heter den chosenFile.
+	public void handIn(FileManager fm, String filepath){
+		this.filepath = filepath;
+		fm.handIn(this.filepath); //Här ska det egentligen skickas in en vald fil i IAD heter den File.
 		this.setGrade("Handed in");  //Status update i IAD. Ändrar Grade för att Teachern ska se att man lämnat in en uppgift.
-		
+		System.out.println("** Filepath: " + this.getFilepath() + " **");
 	}
 
-	public void manageTaskTeacher() {
+	public void downloadFile(FileManager fm){
+		String filepath = this.getFilepath();
+		fm.downloadFile(filepath);
+	}
+
+
+	
+	public void setGradeTeacher(int choice){
 		
 //		Nedanstående som är kommenterat tillhör INL3
 		
@@ -86,11 +95,6 @@ public class CourseTask {
 //				System.out.println("Error! No such grade system");
 //			}
 		
-			setGradeTeacher(3);  //Hårdkodat ett betyg som teachern bestämmer.
-	}
-
-	
-	private void setGradeTeacher(int choice){
 		System.out.println("-----");
 		System.out.println("0. Set grade 'U' ");
 		System.out.println("1. Set grade 'K' ");
@@ -183,6 +187,14 @@ public class CourseTask {
 			break;
 		}
 		
+	}
+
+	public String getFilepath() {
+		return filepath;
+	}
+
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
 	}
 
 //	private void upload(FileManager fm){

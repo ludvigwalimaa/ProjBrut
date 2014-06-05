@@ -36,10 +36,9 @@ public class CourseCatalogue {
 		eaL.populateDBexaList();
 		
 		for(int i = 0; i < ppcSize; i++){
-			String liuID = ppc.getParticipants().get(i).toString(); // Hämtar liuID
-			ea = eaL.getDBexaList().get(i);
+			ea = eaL.getExaArea(i);
+			String liuID = ppc.getliuID(i); // Hämtar liuID
 			ea.setliuID(liuID);
-			
 			cr = new CourseRoom(cID, cName, liuID, ea);
 			allCourseRooms.add(cr);
 		}

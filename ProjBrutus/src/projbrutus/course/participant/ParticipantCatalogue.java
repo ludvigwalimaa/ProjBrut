@@ -5,11 +5,15 @@ import java.util.ArrayList;
 public class ParticipantCatalogue {
 
 	private ArrayList<String> pList = new ArrayList<String>();
-	//ska anropa table best�ende av liuid och kursid, matchar inskickad kursid mot table
+	//ska anropa table i databas best�ende av liuid och kursid, matchar inskickad kursid mot table
 	//och returnerar arraylista med alla liuid som tillh�r dettta kursid
 
 	public ParticipantCatalogue(String cId){
 		populatePL(cId);
+	}
+	
+	public String getliuID(int i){
+		return this.getParticipants().get(i).toString();
 	}
 	
 	//add
