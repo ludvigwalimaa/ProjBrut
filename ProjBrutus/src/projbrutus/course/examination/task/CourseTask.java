@@ -124,6 +124,7 @@ public class CourseTask {
 		
 	}
 	
+	//Kommer användas i INL3
 	private void setNumberGrade() {
 		System.out.println("-----");
 		System.out.println("1. Set grade '1' ");
@@ -159,6 +160,7 @@ public class CourseTask {
 		
 	}
 
+	//Kommer användas i INL3
 	private void setVGGrade(){
 		System.out.println("-----");
 		System.out.println("0. Set grade 'U' ");

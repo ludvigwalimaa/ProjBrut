@@ -20,8 +20,6 @@ public class LoginManager{
 			CourseCatalogue cc = new CourseCatalogue();
 			createRoom(cc, PC);
 			new Overview(p, cc);
-			
-			
 		}
 	}
 
