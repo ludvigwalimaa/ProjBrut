@@ -2,7 +2,6 @@ package projbrutus.course;
 
 public class CourseStructure {
 	
-	private int defaultGroupListSize = 30;
 	private int defaultExaminationAreaSize = 30;
 	private int defaultCourseTaskListSize = 5;
 	
@@ -10,20 +9,11 @@ public class CourseStructure {
 		
 	}
 
-	public int getDefaultGLSize() {
-		return defaultGroupListSize;
-	}
-
-	public void setDefaultGroupListSize(int defaultGroupListSize) {
-		this.defaultGroupListSize = defaultGroupListSize;
-	}
-
-
 	public int getDefaultCTLSize() {
 		return defaultCourseTaskListSize;
 	}
 
-	public void setDefaultCourseTaskListSize(int defaultCourseTaskListSize) {
+	public void setDefaultCTLSize(int defaultCourseTaskListSize) {
 		this.defaultCourseTaskListSize = defaultCourseTaskListSize;
 	}
 
@@ -31,7 +21,7 @@ public class CourseStructure {
 		return defaultExaminationAreaSize;
 	}
 
-	public void setDefaultExaminationAreaSize(int defaultExaminationAreaSize) {
+	public void setDefaultExaAreaSize(int defaultExaminationAreaSize) {
 		this.defaultExaminationAreaSize = defaultExaminationAreaSize;
 	}
 
