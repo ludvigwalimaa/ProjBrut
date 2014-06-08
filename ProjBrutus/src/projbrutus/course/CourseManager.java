@@ -75,9 +75,10 @@ public class CourseManager {
 
 			System.out.println("Grading Done!");
 //			Används i INL3
-			calcGrade();
 			System.out.println("\n** Printing Tasks **");
 			tmpCR.showTasks();
+			calcGrade();
+			
 			
 		}
 	}
