@@ -87,7 +87,7 @@ public class CourseRoom {
 	public boolean gradesLeft() {
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
-			if(ctl.get(i).getGrade().equals("awaiting review")){
+			if(ctl.get(i).getGrade().equals("Handed in")){
 				return true;
 			}
 		}
