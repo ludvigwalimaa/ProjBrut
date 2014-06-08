@@ -50,32 +50,28 @@ public class CourseManager {
 		cc.printCourseRooms();
 		getAllCourseRooms();
 		chooseCourseTeacher(0); //Hårdkodat val av kursrum (courseroom)
-		
-//		boolean loopGrading = true;
-//		while (loopGrading) {
 		tmpCR.setGradeSys(); //Den här metoden tillhör INL3
-		
 		tmpCR.printCourseRoom();
-		tmpCR.setAllVGGrades(); //Sätter alla grades till VG för test-syfte.
-		//tmpCR.showTasks();
+		boolean loopGrading = true;
+		while (loopGrading) {
 		chooseTaskTeacher(0); //Hårdkodat val av kursmoment (courseTask)
-
-
 		
-//		if(tmpCR.gradesLeft()){
-//		System.out.println("\nPress 0 to grade another task, 1 to finish");
-//		System.out.print("Choice: ");
-//		
-//		int moreGrade = 0; //Hårdkodat val av om man har grades kvar
-//		System.out.println("Satt moreGrade till 0");
-//		switch (moreGrade) {
-//		case 0:
-//			break;
-//		case 1:
-//			loopGrading = false;
-//			break;
-//		}}else{
-//			loopGrading = false;
+		if(tmpCR.gradesLeft()){
+		System.out.println("\nPress 0 to grade another task, 1 to finish");
+		System.out.println("Choice: ");
+		
+		int moreGrade = 0; //Hårdkodat val av om man har grades kvar
+		System.out.println("** Teacher chose to grade another task **");
+		switch (moreGrade) {
+		case 0:
+			tmpCR.showTasks();
+			tmpCR.setAllVGGrades(); //Sätter alla grades till VG för test-syfte.
+			break;
+		case 1:
+			loopGrading = false;
+			break;
+		}}else{
+			loopGrading = false;
 
 			System.out.println("Grading Done!");
 //			Används i INL3
@@ -84,7 +80,8 @@ public class CourseManager {
 			tmpCR.showTasks();
 			
 		}
-		
+	}
+	}	
 
 
 	

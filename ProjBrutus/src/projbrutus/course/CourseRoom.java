@@ -98,7 +98,7 @@ public class CourseRoom {
 	 * den är till för att man som Teacher ska slippa rätta 5 moment under testkörning.
 	 */
 	public void setAllVGGrades(){
-		System.out.println("** Setting VG-grades for all tasks **");
+		System.out.println("** Setting VG-grades for all tasks **\n");
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
 			ctl.get(i).setGrade("VG");
