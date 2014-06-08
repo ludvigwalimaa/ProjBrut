@@ -128,7 +128,6 @@ public class CourseRoom {
 			System.out.println("Sending to adapter..");
 			System.out.println(nsg.postGrade());
 		}
-		
 	}
 	
 	/* 
