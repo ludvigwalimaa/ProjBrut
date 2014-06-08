@@ -60,16 +60,10 @@ public class CourseRoom {
 	}
 	
 	public void printCourseRoom() {
+		System.out.println("** Brutus printing courseroom **\n");
 		System.out.println("CourseRoom:" + toString());
-
-		System.out.println("ExaminationsLista:");
 		System.out.println("ExaminationsArea: " + getEa().toString());
-		
-		System.out.println("LiuID:");
-		System.out.println(getEa().getLiuID());
-		
-		System.out.println("CourseTaskList: ");
-		System.out.println(getEa().getCTL().toString());
+		System.out.println("CourseTaskList: " + getEa().getCTL().toString());
 		System.out.println("Tasks:");
 		for(int i = 0; i < getEa().getCTL().getTasks().size(); i++){
 			System.out.println("Task " + i + ". " + getEa().getCTL().getTasks().get(i).toString());
@@ -78,8 +72,9 @@ public class CourseRoom {
 	}
 	
 	public ArrayList<CourseTask> showTasks(){
-		System.out.println("CourseTaskList: ");
-		System.out.println(getEa().getCTL().toString());
+//		System.out.println("CourseTaskList: ");
+//		System.out.println(getEa().getCTL().toString());
+
 		System.out.println("Tasks:");
 		for(int i = 0; i < getEa().getCTL().getTasks().size(); i++){
 			System.out.println("Task " + i + ". " + getEa().getCTL().getTasks().get(i).toString());
@@ -103,7 +98,7 @@ public class CourseRoom {
 	 * den är till för att man som Teacher ska slippa rätta 5 moment under testkörning.
 	 */
 	public void setAllVGGrades(){
-		System.out.println("*** Setting VG-grades for all tasks ***");
+		System.out.println("** Setting VG-grades for all tasks **");
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
 			ctl.get(i).setGrade("VG");
@@ -146,20 +141,18 @@ public class CourseRoom {
 	 */
 	public void setGradeSys(){
 		CourseTaskList ctl = ea.getCTL();
-		System.out.println(ea.getCTL().toString());
 		if(ctl.getGradeSys() == 0){
-			System.out.println("Is this a VG-system or a Number-system?");
+			System.out.println("** First time grading CR.. must choose a gradesystem **");
+			System.out.println("Grade with a VG-system or a Number-system?");
 			System.out.println("1. VG-system");
 			System.out.println("2. Number-system");
-			int choice = 0;
-			System.out.print("Choice(1-2): ");
-			choice = in.nextInt();
+			int choice = 1; //Hårdkodar choice till VG-system
+			System.out.println("Choice(1-2): ");
+			System.out.println("** Teacher chose VG-system ** ");
 			switch(choice){
 			case 1: ctl.setGradeSys(1);
-					setAllVGGrades();
 				break;
 			case 2: ctl.setGradeSys(2);
-					setAllNumberGrades();
 				break;
 			}
 		}else{

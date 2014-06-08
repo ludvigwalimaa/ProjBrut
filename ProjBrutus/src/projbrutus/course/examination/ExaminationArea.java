@@ -29,7 +29,7 @@ public class ExaminationArea {
 	}
 	
 	public String toString(){
-		return cId + " - " + liuID + "\n";
+		return cId + " - " + liuID;
 	}
 
 	

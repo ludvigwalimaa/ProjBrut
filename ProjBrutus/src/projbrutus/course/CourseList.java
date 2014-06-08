@@ -38,7 +38,6 @@ public class CourseList {
 			case 0:
 				cr = allCourseRooms.get(0);
 				new Test(p, allCourseRooms.get(0));
-				System.out.println(allCourseRooms.get(0).toString());
 				return cr;
 			case 1:
 				cr = allCourseRooms.get(1);

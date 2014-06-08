@@ -53,18 +53,21 @@ public class CourseManager {
 		
 //		boolean loopGrading = true;
 //		while (loopGrading) {
-//		tmpCR.setGradeSys(); Den här metoden tillhör INL3
+		tmpCR.setGradeSys(); //Den här metoden tillhör INL3
+		
+		tmpCR.printCourseRoom();
 		tmpCR.setAllVGGrades(); //Sätter alla grades till VG för test-syfte.
-		tmpCR.showTasks();
+		//tmpCR.showTasks();
 		chooseTaskTeacher(0); //Hårdkodat val av kursmoment (courseTask)
 
 
-		tmpCR.showTasks();
+		
 //		if(tmpCR.gradesLeft()){
 //		System.out.println("\nPress 0 to grade another task, 1 to finish");
 //		System.out.print("Choice: ");
 //		
-//		int moreGrade = in.nextInt();
+//		int moreGrade = 0; //Hårdkodat val av om man har grades kvar
+//		System.out.println("Satt moreGrade till 0");
 //		switch (moreGrade) {
 //		case 0:
 //			break;
@@ -76,12 +79,14 @@ public class CourseManager {
 
 			System.out.println("Grading Done!");
 //			Används i INL3
-//			calcGrade();
+			calcGrade();
+			System.out.println("\n** Printing Tasks **");
+			tmpCR.showTasks();
 			
 		}
 		
-//		}
-//	}
+
+
 	
 	private void calcGrade(){ //Används i INL3
 		tmpCR.calcGrade(tmpCR.getliuID());
@@ -111,7 +116,7 @@ public class CourseManager {
 	
 	private void chooseTaskTeacher(int choice) {
 		tmpCT = tmpCR.chooseTaskTeacher(choice);
-		tmpCT.setGradeTeacher(3); //Sätter grade till VG - hårdkodat
+		tmpCT.setGradeTeacher(3); //Hårdkodat - Sätter grade till VG
 		
 	}
 	
