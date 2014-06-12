@@ -72,11 +72,11 @@ public class CourseManager {
 			break;
 		}}else{
 			loopGrading = false;
-
 			System.out.println("Grading Done!");
 //			Anv√§nds i INL3
 			System.out.println("\n** Printing Tasks **");
 			tmpCR.showTasks();
+			//Den h‰r sker n‰r det inte finns fler Tasks att r‰tta.
 			calcGrade();
 			
 			
