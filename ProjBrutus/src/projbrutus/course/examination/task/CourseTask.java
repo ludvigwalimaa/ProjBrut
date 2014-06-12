@@ -67,15 +67,18 @@ public class CourseTask {
 		return null;
 	}
 
-	public void handIn(FileManager fm, String filepath){
-		this.filepath = filepath;
-		fm.handIn(this.filepath); //Här ska det egentligen skickas in en vald fil i IAD heter den File.
+	public void handIn(FileManager fm){
+		System.out.println("Choose file to hand in: ");
+		filepath = "C:/Document/file.pdf"; // H�rdkodat in en filepath
+		System.out.println("** Student chose file: " + filepath + " **");
+		fm.handIn(filepath); //Här ska det egentligen skickas in en vald fil i IAD heter den File.
 		this.setGrade("Handed in");  //Status update i IAD. Ändrar Grade för att Teachern ska se att man lämnat in en uppgift.
-		System.out.println("** Filepath: " + this.getFilepath() + " **");
 	}
 
 	public void downloadFile(FileManager fm){
-		String filepath = this.getFilepath();
+		System.out.println("Download files? (y/n): ");
+		filepath = "files/725G51/gabol892/files.zip"; // H�rdkodat in en filepath
+		System.out.println("** Teacher chose 'y' to download the file: " + filepath + " **");
 		fm.downloadFile(filepath);
 	}
 
