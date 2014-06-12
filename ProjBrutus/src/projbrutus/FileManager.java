@@ -10,8 +10,6 @@ public class FileManager {
 
 	
 	public void handIn(String filepath){
-		System.out.println("\nChoose material to hand in from file: ");
-		System.out.println("**Student chosing material from file**");
 		System.out.println("Chosen material handed in...!");
 	}
 	

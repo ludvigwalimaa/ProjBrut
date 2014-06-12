@@ -72,11 +72,11 @@ public class CourseManager {
 			break;
 		}}else{
 			loopGrading = false;
-
 			System.out.println("Grading Done!");
 //			AnvÃ¤nds i INL3
 			System.out.println("\n** Printing Tasks **");
 			tmpCR.showTasks();
+			//Den här sker när det inte finns fler Tasks att rätta.
 			calcGrade();
 			
 			
@@ -117,13 +117,15 @@ public class CourseManager {
 	
 	private void chooseTaskTeacher(int choice) {
 		tmpCT = tmpCR.chooseTaskTeacher(choice);
+		tmpCT.downloadFile(fm);
 		tmpCT.setGradeTeacher(3); //HÃ¥rdkodat - SÃ¤tter grade till VG
 		
 	}
 	
 	private void chooseTaskStudent(int choice){
 		tmpCT = tmpCR.chooseTaskStudent(choice);
-		tmpCT.handIn(fm, "C:/Document/file.pdf");
+		// gör inmatnting för student, hårdkodad, visa i consol
+		tmpCT.handIn(fm);
 	}
 
 
