@@ -76,7 +76,8 @@ public class CourseManager {
 //			AnvÃ¤nds i INL3
 			System.out.println("\n** Printing Tasks **");
 			tmpCR.showTasks();
-			//Den här sker när det inte finns fler Tasks att rätta.
+			//Den hï¿½r sker nï¿½r det inte finns fler Tasks att rï¿½tta.
+			//hej
 			calcGrade();
 			
 			
@@ -124,7 +125,7 @@ public class CourseManager {
 	
 	private void chooseTaskStudent(int choice){
 		tmpCT = tmpCR.chooseTaskStudent(choice);
-		// gör inmatnting för student, hårdkodad, visa i consol
+		// gï¿½r inmatnting fï¿½r student, hï¿½rdkodad, visa i consol
 		tmpCT.handIn(fm);
 	}
 
