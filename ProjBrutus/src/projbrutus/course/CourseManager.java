@@ -50,7 +50,7 @@ public class CourseManager {
 		cc.printCourseRooms();
 		getAllCourseRooms();
 		chooseCourseTeacher(0); //Hårdkodat val av kursrum (courseroom)
-		tmpCR.setGradeSys(); //Den här metoden tillhör INL3
+		setGradeSys(); //Den här metoden tillhör INL3
 		tmpCR.printCourseRoom();
 		boolean loopGrading = true;
 		while (loopGrading) {
@@ -85,7 +85,9 @@ public class CourseManager {
 	}
 	}	
 
-
+	private void setGradeSys(){
+		tmpCR.setGradeSys();
+	}
 	
 	private void calcGrade(){ //Används i INL3
 		tmpCR.calcGrade(tmpCR.getliuID());
