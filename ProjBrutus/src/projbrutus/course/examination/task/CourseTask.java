@@ -69,7 +69,7 @@ public class CourseTask {
 
 	public void handIn(FileManager fm){
 		System.out.println("Choose file to hand in: ");
-		filepath = "C:/Document/file.pdf"; // H�rdkodat in en filepath
+		filepath = "C:/Document/files.zip"; // H�rdkodat in en filepath
 		System.out.println("** Student chose file: " + filepath + " **");
 		fm.handIn(filepath); //Här ska det egentligen skickas in en vald fil i IAD heter den File.
 		this.setGrade("Handed in");  //Status update i IAD. Ändrar Grade för att Teachern ska se att man lämnat in en uppgift.
