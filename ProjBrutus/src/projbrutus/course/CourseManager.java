@@ -77,7 +77,6 @@ public class CourseManager {
 			System.out.println("\n** Printing Tasks **");
 			tmpCR.showTasks();
 			//Den h�r sker n�r det inte finns fler Tasks att r�tta.
-			//hej
 			calcGrade();
 			
 			
