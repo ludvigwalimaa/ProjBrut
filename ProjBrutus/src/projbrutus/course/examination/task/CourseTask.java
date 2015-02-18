@@ -1,27 +1,87 @@
 package projbrutus.course.examination.task;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import projbrutus.FileManager;
 import projbrutus.course.CourseRoom;
+import projbrutus.observer.Observer;
+import projbrutus.observer.Subject;
 
-public class CourseTask {
+public class CourseTask implements Subject {
 	private Scanner in = new Scanner(System.in);
 	private String cId;
 	private String description;
 	private String grade;
 	private String filepath; //I den här variabeln kommer vi att spara sökvägen till den inlämnade filen. 
 
+	//MyTopic
+	private List<Observer> observers;
+    private String message;
+    private boolean changed;
+    private final Object MUTEX= new Object();
+	
+	
 	public CourseTask(String cId, String description, String grade) {
 		this.setcId(cId);
 		this.setDescription(description);
 		this.setGrade(grade);
+		
+		this.observers=new ArrayList<Observer>();
 	}
 	
 	public CourseTask(){
 		
 	}
+	
+	@Override
+    public void register(Observer obj) {
+        if(obj == null) throw new NullPointerException("Null Observer");
+        synchronized (MUTEX) {
+        if(!observers.contains(obj)) observers.add(obj);
+        }
+    }
+ 
+    @Override
+    public void unregister(Observer obj) {
+        synchronized (MUTEX) {
+        observers.remove(obj);
+        }
+    }
+ 
+    @Override
+    public void notifyObservers() {
+        List<Observer> observersLocal = null;
+        //synchronization is used to make sure any observer registered after message is received is not notified
+        synchronized (MUTEX) {
+            if (!changed)
+                return;
+            observersLocal = new ArrayList<Observer>(this.observers);
+            this.changed=false;
+        }
+        for (Observer obj : observersLocal) {
+            obj.update();
+        }
+ 
+    }
+ 
+    @Override
+    public Object getUpdate(Observer obj) {
+        return this.message;
+    }
+     
+    //method to post message to the topic
+    public void postMessage(String msg){
+        System.out.println("Teachern har rättat en task:"+msg);
+        this.message=msg;
+        this.changed=true;
+        notifyObservers();
+    }
+	
+    
+    
+	
 
 	public String getDescription() {
 		return description;
@@ -49,6 +109,8 @@ public class CourseTask {
 
 	public void setGrade(String grade) {
 		this.grade = grade;
+		
+		
 	}
 	
 	public CourseTask chooseTaskTeacher(CourseRoom cr) {
@@ -69,7 +131,7 @@ public class CourseTask {
 
 	public void handIn(FileManager fm){
 		System.out.println("Choose file to hand in: ");
-		filepath = "C:/Document/files.zip"; // H�rdkodat in en filepath
+		filepath = "C:/Document/files.zip"; // H�rdkodat in en filepath
 		System.out.println("** Student chose file: " + filepath + " **");
 		fm.handIn(filepath); //Här ska det egentligen skickas in en vald fil i IAD heter den File.
 		this.setGrade("Handed in");  //Status update i IAD. Ändrar Grade för att Teachern ska se att man lämnat in en uppgift.
@@ -77,7 +139,7 @@ public class CourseTask {
 
 	public void downloadFile(FileManager fm){
 		System.out.println("Download files? (y/n): ");
-		filepath = "files/725G51/gabol892/files.zip"; // H�rdkodat in en filepath
+		filepath = "files/725G51/gabol892/files.zip"; // H�rdkodat in en filepath
 		System.out.println("** Teacher chose 'y' to download the file: " + filepath + " **");
 		fm.downloadFile(filepath);
 	}
@@ -122,10 +184,16 @@ public class CourseTask {
 		case 3:
 			System.out.println("Grade set to VG!");
 			setGrade("VG");
+			postMessage("VG");
+			notifyObservers(); //är det denna som ska användas när man ska uppdatera observern (courseroom) om att
+			//det finns nytt betyg inrapporterat
 			break;
 		}
 		
 	}
+	
+	
+	
 	
 	//Kommer användas i INL3
 	private void setNumberGrade() {
@@ -201,6 +269,8 @@ public class CourseTask {
 	public void setFilepath(String filepath) {
 		this.filepath = filepath;
 	}
+
+	
 
 //	private void upload(FileManager fm){
 //		fm.upload();

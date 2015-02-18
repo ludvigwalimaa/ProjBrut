@@ -8,8 +8,10 @@ import projbrutus.adapter.VGSetGradeAdapter;
 import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.course.examination.task.CourseTaskList;
+import projbrutus.observer.Observer;
+import projbrutus.observer.Subject;
 
-public class CourseRoom {
+public class CourseRoom implements Observer {
 	private Scanner in = new Scanner(System.in);
 	private String cId;
 	private String cName;
@@ -17,17 +19,49 @@ public class CourseRoom {
 	private ArrayList<String> participantList;
 	private String liuID;
 	
-	public CourseRoom(String cId, String cName, String liuID, ExaminationArea ea){
+	//MyTopicSubscriber
+	private String courseGrade;
+	private String name;
+	private Subject topic;
+	
+	public CourseRoom(String cId, String cName, String liuID, ExaminationArea ea, String nm){
 		this.cId = cId;
 		this.cName = cName;
 		this.setEa(ea);
 		this.liuID = liuID;
+		this.name=nm;
 		
 	}
 	
 	public CourseRoom(){
 		
 	}
+	
+	@Override
+    public void update() {
+        String msg = (String) topic.getUpdate(this);
+        if(msg == null){
+            System.out.println(name+":: Inget inrapporterat betyg");
+        }else{
+        	System.out.println(name+":: Inrapporterat betyg:"+msg);
+        	for(int i = 0; i>ea.getCTL().getTasks().size(); i++){
+        		if(ea.getCTL().getTasks().get(i).getGrade() == "Handed in"){
+        			System.out.println("Ej betyg på alla tasks");
+        		}else{
+        			System.out.println("Alla uppgifter inlämnade");
+        		}
+        		
+        	}
+        }
+        
+        
+        
+    }
+ 
+    @Override
+    public void setSubject(Subject sub) {
+        this.topic=sub;
+    }
 
 	public String toString(){
 		String s = cId + " - " + cName + "\t| " + liuID + "\n";
@@ -122,6 +156,7 @@ public class CourseRoom {
 			VGSetGradeAdapter vsg = new VGSetGradeAdapter();
 			System.out.println("Sending to adapter..");
 			System.out.println(vsg.postGrade());
+			
 
 		}else{
 			NumberSetGradeAdapter nsg = new NumberSetGradeAdapter();
@@ -145,9 +180,11 @@ public class CourseRoom {
 			System.out.println("Grade with a VG-system or a Number-system?");
 			System.out.println("1. VG-system");
 			System.out.println("2. Number-system");
+			//Flytta hela switch-satsen till SetGradeAdapter
 			int choice = 1; //Hårdkodar choice till VG-system
 			System.out.println("Choice(1-2): ");
 			System.out.println("** Teacher chose VG-system ** ");
+			//Skicka vidare till SetGradeAdapter(factory).
 			switch(choice){
 			case 1: ctl.setGradeSys(1);
 				break;
