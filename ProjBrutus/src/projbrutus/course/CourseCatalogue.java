@@ -45,9 +45,10 @@ public class CourseCatalogue {
 				ea.getCTL().getTasks().get(j).register(obj1);
 				System.out.println("Task: " + j + " : " + cName + " - " + liuID);
 				obj1.setSubject(ea.getCTL().getTasks().get(j));
-				obj1.update();
-				testGrade(ea);
 				
+				obj1.update();
+				//testGrade(ea);
+				//de två över är enbart för test om koppling finns
 			
 			}
 			allCourseRooms.add((CourseRoom) obj1);
@@ -57,7 +58,7 @@ public class CourseCatalogue {
 	
 	public void testGrade(ExaminationArea ea){
 		
-		ea.getCTL().getTasks().get(0).postMessage("Hej");
+		ea.getCTL().getTasks().get(0).postMessage("Hejbre");
 	}
 
 	public void printCourseRooms(){

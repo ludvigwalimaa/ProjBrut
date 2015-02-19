@@ -73,7 +73,7 @@ public class CourseTask implements Subject {
      
     //method to post message to the topic
     public void postMessage(String msg){
-        System.out.println("Teachern har rättat en task:"+msg);
+        System.out.println("Teachern har r�ttat en task:"+msg);
         this.message=msg;
         this.changed=true;
         notifyObservers();
@@ -184,8 +184,8 @@ public class CourseTask implements Subject {
 		case 3:
 			System.out.println("Grade set to VG!");
 			setGrade("VG");
-			postMessage("VG");
-			notifyObservers(); //är det denna som ska användas när man ska uppdatera observern (courseroom) om att
+			postMessage(" VG");
+			//notifyObservers(); //är det denna som ska användas när man ska uppdatera observern (courseroom) om att
 			//det finns nytt betyg inrapporterat
 			break;
 		}

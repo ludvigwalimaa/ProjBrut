@@ -41,14 +41,18 @@ public class CourseRoom implements Observer {
     public void update() {
         String msg = (String) topic.getUpdate(this);
         if(msg == null){
-            System.out.println(name+":: Inget inrapporterat betyg");
+            System.out.println("inget message, borde vara med, har ju precis greadeat? detta med kommer frÂn courseroom udpdate()");
         }else{
-        	System.out.println(name+":: Inrapporterat betyg:"+msg);
-        	for(int i = 0; i>ea.getCTL().getTasks().size(); i++){
-        		if(ea.getCTL().getTasks().get(i).getGrade() == "Handed in"){
-        			System.out.println("Ej betyg p√• alla tasks");
+        	System.out.println("kurs: " + name + ": Inrapporterat betyg:"+msg);
+        	System.out.println("Antal tasks i listan: " + ea.getCTL().getTasks().size());
+        	for(int i = 0; i<ea.getCTL().getTasks().size(); i++){
+        		System.out.println("Betyg satt: " + ea.getCTL().getTasks().get(i).getGrade().toString());
+        		if(ea.getCTL().getTasks().get(i).getGrade().equals("G") || ea.getCTL().getTasks().get(i).getGrade().equals("VG"))  {
+        			System.out.println("Alla uppgifter inl‰mnade");
+        			//anropa metod fˆr ber‰kning av betyg fˆr att sedan s‰tta coursegrade, vilket
+        			//i sin tur skickas till adapter
         		}else{
-        			System.out.println("Alla uppgifter inl√§mnade");
+        			System.out.println("Saknas betyg fˆr ber‰kning");
         		}
         		
         	}
@@ -135,7 +139,8 @@ public class CourseRoom implements Observer {
 		System.out.println("** Setting VG-grades for all tasks **\n");
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
-			ctl.get(i).setGrade("VG");
+			ctl.get(i).setGradeTeacher(3);
+			
 		}
 	}
 	
