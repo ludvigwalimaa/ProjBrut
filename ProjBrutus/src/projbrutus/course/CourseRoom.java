@@ -42,16 +42,17 @@ public class CourseRoom implements Observer {
         String msg = (String) topic.getUpdate(this);
         if(msg == null){
         }else{
-        	System.out.println("kurs: " + name + ": Inrapporterat betyg: "+msg);
+        	System.out.println(cId + " - " + name + ": Tog emot meddelande om att alla tasks √§r r√§ttade");
         	System.out.println("Antal tasks i listan: " + ea.getCTL().getTasks().size());
+        	
         	for(int i = 0; i<ea.getCTL().getTasks().size(); i++){
         		System.out.println("Betyg satt: " + ea.getCTL().getTasks().get(i).getGrade().toString());
         		if(ea.getCTL().getTasks().get(i).getGrade().equals("G") || ea.getCTL().getTasks().get(i).getGrade().equals("VG"))  {
-        			System.out.println("Alla uppgifter inl‰mnade");
-        			//anropa metod fˆr ber‰kning av betyg fˆr att sedan s‰tta coursegrade, vilket
+        			System.out.println("Alla uppgifter inlÔøΩmnade");
+        			//anropa metod fÔøΩr berÔøΩkning av betyg fÔøΩr att sedan sÔøΩtta coursegrade, vilket
         			//i sin tur skickas till adapter
         		}else{
-        			System.out.println("Saknas betyg fˆr ber‰kning");
+        			System.out.println("Saknas betyg fÔøΩr berÔøΩkning");
         		}
         		
         	}
