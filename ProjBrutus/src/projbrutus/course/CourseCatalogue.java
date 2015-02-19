@@ -43,12 +43,12 @@ public class CourseCatalogue {
 			obj1 = new CourseRoom(cID, cName, liuID, ea, cName);
 			for(int j = 0; j<ea.getCTL().getTasks().size(); j++){
 				ea.getCTL().getTasks().get(j).register(obj1);
-				System.out.println("Task: " + j + " : " + cName + " - " + liuID);
+				//System.out.println("Task: " + j + " : " + cName + " - " + liuID);
 				obj1.setSubject(ea.getCTL().getTasks().get(j));
 				
-				obj1.update();
+				//obj1.update();
 				//testGrade(ea);
-				//de två över är enbart för test om koppling finns
+				//de tvï¿½ ï¿½ver ï¿½r enbart fï¿½r test om koppling finns
 			
 			}
 			allCourseRooms.add((CourseRoom) obj1);
