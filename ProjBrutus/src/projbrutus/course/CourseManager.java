@@ -52,9 +52,14 @@ public class CourseManager {
 		chooseCourseTeacher(0); //Hårdkodat val av kursrum (courseroom)
 		setGradeSys(); //Den här metoden tillhör INL3
 		tmpCR.printCourseRoom();
-		boolean loopGrading = true;
-		while (loopGrading) {
+		
+		//f�ljande loop ska vara aktiv om systemet ej var h�rdkodat. Nu s�tts alla betyg av en
+		//annan metod ist�llet som �r h�rdkodat, inget input beh�vs
+		
+		//boolean loopGrading = true;
+		//while (loopGrading) {
 		chooseTaskTeacher(0); //Hårdkodat val av kursmoment (courseTask)
+		
 		
 		if(tmpCR.gradesLeft()){
 		System.out.println("\nPress 0 to grade another task, 1 to finish");
@@ -68,10 +73,10 @@ public class CourseManager {
 			tmpCR.setAllVGGrades(); //Sätter alla grades till VG för test-syfte.
 			break;
 		case 1:
-			loopGrading = false;
+		//	loopGrading = false;
 			break;
 		}}else{
-			loopGrading = false;
+	//		loopGrading = false;
 			System.out.println("Grading Done!");
 //			Används i INL3
 			System.out.println("\n** Printing Tasks **");
@@ -82,7 +87,7 @@ public class CourseManager {
 			
 			
 		}
-	}
+	//}
 	}	
 
 	private void setGradeSys(){
@@ -118,7 +123,7 @@ public class CourseManager {
 	private void chooseTaskTeacher(int choice) {
 		tmpCT = tmpCR.chooseTaskTeacher(choice);
 		tmpCT.downloadFile(fm);
-		//tmpCT.setGradeTeacher(3); //Hårdkodat - Sätter grade till VG
+		tmpCT.setGradeTeacher(3); //Hårdkodat - Sätter grade till VG
 		
 	}
 	

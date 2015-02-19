@@ -138,6 +138,7 @@ public class CourseRoom implements Observer {
 		System.out.println("** Setting VG-grades for all tasks **\n");
 		ArrayList<CourseTask> ctl = ea.getCTL().getTasks();
 		for(int i= 0; i < ctl.size(); i++){
+			System.out.println("\n" + "Gonna set grade for task: " + i + " next");
 			ctl.get(i).setGradeTeacher(3);
 			
 		}
