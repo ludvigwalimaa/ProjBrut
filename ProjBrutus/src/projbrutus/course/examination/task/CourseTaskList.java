@@ -14,6 +14,7 @@ public class CourseTaskList {
 	private int gradeSys; // 1 = VG , 2 = Number  0 = undecided
 	private int ctSize;
 	
+	
 	public CourseTaskList(String cId, CourseStructure cs){
 		this.cId = cId;
 		this.ctSize = cs.getDefaultCTLSize();
@@ -43,9 +44,9 @@ public class CourseTaskList {
 		return gradeSys;
 	}
 
-	public void setGradeSys(int gradeSys) {
-		this.gradeSys = gradeSys;
-	}
+//	public void setGradeSys(int gradeSys) {
+//		this.gradeSys = gradeSys;
+//	}
 	
 	
 	

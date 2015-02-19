@@ -3,8 +3,10 @@ package projbrutus.course;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import projbrutus.adapter.NumberSetGradeAdapter;
-import projbrutus.adapter.VGSetGradeAdapter;
+import projbrutus.adapter.Adapter;
+import projbrutus.adapter.GradeFactory;
+import projbrutus.adapter.NumberAdapter;
+import projbrutus.adapter.VGAdapter;
 import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.course.examination.task.CourseTaskList;
@@ -18,6 +20,8 @@ public class CourseRoom implements Observer {
 	private ExaminationArea ea;
 	private ArrayList<String> participantList;
 	private String liuID;
+	private GradeFactory gradeFactory = new GradeFactory();
+	private Adapter gradeAdapter;
 	
 	//MyTopicSubscriber
 	private String courseGrade;
@@ -44,18 +48,23 @@ public class CourseRoom implements Observer {
         }else{
         	System.out.println(cId + " - " + name + ": Tog emot meddelande om att alla tasks är rättade");
         	System.out.println("Antal tasks i listan: " + ea.getCTL().getTasks().size());
-        	
+        	int VG = 0;
+        	int G = 0;
         	for(int i = 0; i<ea.getCTL().getTasks().size(); i++){
-        		System.out.println("Betyg satt: " + ea.getCTL().getTasks().get(i).getGrade().toString());
-        		if(ea.getCTL().getTasks().get(i).getGrade().equals("G") || ea.getCTL().getTasks().get(i).getGrade().equals("VG"))  {
-        			System.out.println("Alla uppgifter inl�mnade");
+        		System.out.println("Task " + i + ". - Betyg : " + ea.getCTL().getTasks().get(i).getGrade().toString());
+        		if(ea.getCTL().getTasks().get(i).getGrade().equals("G")){
+        			G++;
         			//anropa metod f�r ber�kning av betyg f�r att sedan s�tta coursegrade, vilket
         			//i sin tur skickas till adapter
-        		}else{
+        		}else if(ea.getCTL().getTasks().get(i).getGrade().equals("VG")){
+        			VG++;
+        		}
+        		else{
         			System.out.println("Saknas betyg f�r ber�kning");
         		}
-        		
         	}
+        	calcGrade(G,VG);
+        	
         }
         
         
@@ -156,19 +165,33 @@ public class CourseRoom implements Observer {
 		}
 	}
 
-	public void calcGrade(String liuID) {
-		CourseTaskList ctl = ea.getCTL();
-		if(ctl.getGradeSys() == 1){
-			VGSetGradeAdapter vsg = new VGSetGradeAdapter();
-			System.out.println("Sending to adapter..");
-			System.out.println(vsg.postGrade());
-			
-
-		}else{
-			NumberSetGradeAdapter nsg = new NumberSetGradeAdapter();
-			System.out.println("Sending to adapter..");
-			System.out.println(nsg.postGrade());
-		}
+	public void calcGrade(int G, int VG) {
+		if(VG >=G){
+    		System.out.println("Number of VG: " + VG);
+    		System.out.println("Number of G: " + G);
+    		this.courseGrade = "VG";
+    		System.out.println("Course grade: " + courseGrade);
+    		System.out.println("* Sending to  adapter *");
+    		gradeAdapter.postGrade(courseGrade);
+    	}else if(G>VG){
+    		System.out.println("Antal VG: " + VG);
+    		System.out.println("Antal G: " + G);
+    		this.courseGrade = "G";
+    		System.out.println("Slutbetyg: " + courseGrade);
+    		
+    	}
+//		CourseTaskList ctl = ea.getCTL();
+//		if(ctl.getGradeSys() == 1){
+//			VGSetGradeAdapter vsg = new VGSetGradeAdapter();
+//			System.out.println("Sending to adapter..");
+//			System.out.println(vsg.postGrade());
+//			
+//
+//		}else{
+//			NumberSetGradeAdapter nsg = new NumberSetGradeAdapter();
+//			System.out.println("Sending to adapter..");
+//			System.out.println(nsg.postGrade());
+//		}
 	}
 	
 	/* 
@@ -190,13 +213,16 @@ public class CourseRoom implements Observer {
 			int choice = 1; //Hårdkodar choice till VG-system
 			System.out.println("Choice(1-2): ");
 			System.out.println("** Teacher chose VG-system ** ");
-			//Skicka vidare till SetGradeAdapter(factory).
-			switch(choice){
-			case 1: ctl.setGradeSys(1);
-				break;
-			case 2: ctl.setGradeSys(2);
-				break;
-			}
+			//Skicka vidare till GradeAdapter(factory).
+			gradeAdapter = gradeFactory.chooseAdapter(choice);
+			System.out.println(gradeAdapter.getClass() + " vald!");
+			
+//			switch(choice){
+//			case 1: ctl.setGradeSys(1);
+//				break;
+//			case 2: ctl.setGradeSys(2);
+//				break;
+//			}
 		}else{
 			//Teachern har redan valt ett GradeSystem. 
 		}

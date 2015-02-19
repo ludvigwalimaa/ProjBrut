@@ -53,8 +53,8 @@ public class CourseManager {
 		setGradeSys(); //Den hÃ¤r metoden tillhÃ¶r INL3
 		tmpCR.printCourseRoom();
 		
-		//följande loop ska vara aktiv om systemet ej var hårdkodat. Nu sätts alla betyg av en
-		//annan metod istället som är hårdkodat, inget input behövs
+		//fï¿½ljande loop ska vara aktiv om systemet ej var hï¿½rdkodat. Nu sï¿½tts alla betyg av en
+		//annan metod istï¿½llet som ï¿½r hï¿½rdkodat, inget input behï¿½vs
 		
 		//boolean loopGrading = true;
 		//while (loopGrading) {
@@ -82,7 +82,7 @@ public class CourseManager {
 			System.out.println("\n** Printing Tasks **");
 			tmpCR.showTasks();
 			//Den hï¿½r sker nï¿½r det inte finns fler Tasks att rï¿½tta.
-			calcGrade();
+//			calcGrade();
 			
 			
 			
@@ -94,9 +94,9 @@ public class CourseManager {
 		tmpCR.setGradeSys();
 	}
 	
-	private void calcGrade(){ //AnvÃ¤nds i INL3
-		tmpCR.calcGrade(tmpCR.getliuID());
-	}
+//	private void calcGrade(){ //AnvÃ¤nds i INL3
+//		tmpCR.calcGrade(tmpCR.getliuID());
+//	}
 	
 	
 	private void loadStudentCourses(Person p) {
