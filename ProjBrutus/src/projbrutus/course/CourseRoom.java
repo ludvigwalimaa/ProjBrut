@@ -41,9 +41,8 @@ public class CourseRoom implements Observer {
     public void update() {
         String msg = (String) topic.getUpdate(this);
         if(msg == null){
-            System.out.println("inget message, borde vara med, har ju precis greadeat? detta med kommer från courseroom udpdate()");
         }else{
-        	System.out.println("kurs: " + name + ": Inrapporterat betyg:"+msg);
+        	System.out.println("kurs: " + name + ": Inrapporterat betyg: "+msg);
         	System.out.println("Antal tasks i listan: " + ea.getCTL().getTasks().size());
         	for(int i = 0; i<ea.getCTL().getTasks().size(); i++){
         		System.out.println("Betyg satt: " + ea.getCTL().getTasks().get(i).getGrade().toString());
