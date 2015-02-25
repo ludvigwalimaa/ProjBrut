@@ -207,7 +207,6 @@ public class CourseRoom implements Observer {
 			System.out.println("1. VG-system");
 			System.out.println("2. Number-system");
 			
-			//Flytta hela switch-satsen till SetGradeAdapter
 			int choice = 1; //Hårdkodar choice till VG-system
 			System.out.println("Choice(1-2): ");
 			System.out.println("** Teacher chose VG-system ** ");
