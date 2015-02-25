@@ -18,8 +18,6 @@ public class FileManager {
 		System.out.println("Chosen material downloaded...!");
 	}
 	
-//	public void chooseFile(){
-//		
-//	}
+
 }
 

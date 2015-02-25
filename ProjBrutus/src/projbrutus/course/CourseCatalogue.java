@@ -3,7 +3,7 @@ package projbrutus.course;
 import java.util.ArrayList;
 
 import projbrutus.course.examination.ExaminationArea;
-import projbrutus.course.examination.ExaminationList;
+import projbrutus.course.examination.ExaminationAreaList;
 import projbrutus.course.participant.ParticipantCatalogue;
 import projbrutus.observer.Observer;
 import projbrutus.person.Person;
@@ -27,13 +27,13 @@ public class CourseCatalogue {
 	public void createRoom(String cID, String cName, PersonCatalogue pc){
 		CourseStructure cs = new CourseStructure();
 		CourseRoom cr;
-		ExaminationList eaL;
+		ExaminationAreaList eaL;
 		ExaminationArea ea;
 		ParticipantCatalogue ppc = new ParticipantCatalogue(cID);
 		int ppcSize = ppc.getPPCSize();
 
 		
-		eaL = new ExaminationList(cID, cs);
+		eaL = new ExaminationAreaList(cID, cs);
 		eaL.populateDBexaList();
 		Observer obj1;
 		for(int i = 0; i < ppcSize; i++){
@@ -48,7 +48,7 @@ public class CourseCatalogue {
 				
 				//obj1.update();
 				//testGrade(ea);
-				//de tv� �ver �r enbart f�r test om koppling finns
+				//de tva funktionerna ovan ar enbart for test om koppling finns
 			
 			}
 			allCourseRooms.add((CourseRoom) obj1);
@@ -58,7 +58,7 @@ public class CourseCatalogue {
 	
 	public void testGrade(ExaminationArea ea){
 		
-		ea.getCTL().getTasks().get(0).postMessage("Hejbre");
+		ea.getCTL().getTasks().get(0).postMessage("test");
 	}
 
 	public void printCourseRooms(){

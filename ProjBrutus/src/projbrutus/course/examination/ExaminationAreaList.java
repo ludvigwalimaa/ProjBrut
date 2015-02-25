@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import projbrutus.course.CourseStructure;
 
 
-public class ExaminationList {
+public class ExaminationAreaList {
 	
 	private ArrayList<ExaminationArea> DBexaList = new ArrayList<ExaminationArea>();
 	
@@ -14,13 +14,13 @@ public class ExaminationList {
 
 	private CourseStructure cs;
 	
-	public ExaminationList(String cId, CourseStructure cs){
+	public ExaminationAreaList(String cId, CourseStructure cs){
 		this.cId = cId;
 		this.cs = cs;
 		this.exaAreaSize = cs.getDefaultExaAreaSize();
 
 	}
-	public ExaminationList(){
+	public ExaminationAreaList(){
 
 	}
 	

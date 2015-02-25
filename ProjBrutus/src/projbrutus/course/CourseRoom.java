@@ -22,9 +22,7 @@ public class CourseRoom implements Observer {
 	private ExaminationArea ea;
 	private ArrayList<String> participantList;
 	private String liuID;
-	private GradeFactory gradeFactory = new GradeFactory();
 	private Adapter gradeAdapter;
-	
 	private String courseGrade;
 	
 	
@@ -203,26 +201,21 @@ public class CourseRoom implements Observer {
 	 * GradeSystemet är alltså inte knutet till kurskoden utan kan väljas manuellt.
 	 */
 	public void setGradeSys(){
-		CourseTaskList ctl = ea.getCTL();
-		if(ctl.getGradeSys() == 0){
+		if(this.gradeAdapter == null){
 			System.out.println("** First time grading CR.. must choose a gradesystem **");
 			System.out.println("Grade with a VG-system or a Number-system?");
 			System.out.println("1. VG-system");
 			System.out.println("2. Number-system");
+			
 			//Flytta hela switch-satsen till SetGradeAdapter
 			int choice = 1; //Hårdkodar choice till VG-system
 			System.out.println("Choice(1-2): ");
 			System.out.println("** Teacher chose VG-system ** ");
 			//Skicka vidare till GradeAdapter(factory).
+			GradeFactory gradeFactory = new GradeFactory();
 			gradeAdapter = gradeFactory.chooseAdapter(choice);
 			System.out.println(gradeAdapter.getClass() + " vald!");
 			
-//			switch(choice){
-//			case 1: ctl.setGradeSys(1);
-//				break;
-//			case 2: ctl.setGradeSys(2);
-//				break;
-//			}
 		}else{
 			//Teachern har redan valt ett GradeSystem. 
 		}

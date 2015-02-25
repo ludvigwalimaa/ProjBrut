@@ -15,8 +15,6 @@ public class CourseTask implements Subject {
 	private String description;
 	private String grade;
 	private String filepath; //I den här variabeln kommer vi att spara sökvägen till den inlämnade filen. 
-
-	//MyTopic
 	private List<Observer> observers;
     private String message;
     private boolean changed;
@@ -27,7 +25,6 @@ public class CourseTask implements Subject {
 		this.setcId(cId);
 		this.setDescription(description);
 		this.setGrade(grade);
-		
 		this.observers=new ArrayList<Observer>();
 	}
 	
@@ -73,7 +70,7 @@ public class CourseTask implements Subject {
      
     //method to post message to the topic
     public void postMessage(String msg){
-        System.out.println("Teachern har r�ttat en task:"+msg);
+        System.out.println("Teachern har r�ttat en task:"+msg);
         this.message=msg;
         this.changed=true;
         notifyObservers();
