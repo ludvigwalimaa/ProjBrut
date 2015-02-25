@@ -17,16 +17,16 @@ public class CourseRoom implements Observer {
 	private Scanner in = new Scanner(System.in);
 	private String cId;
 	private String cName;
+	private String name;
+	private Subject topic;
 	private ExaminationArea ea;
 	private ArrayList<String> participantList;
 	private String liuID;
 	private GradeFactory gradeFactory = new GradeFactory();
 	private Adapter gradeAdapter;
 	
-	//MyTopicSubscriber
 	private String courseGrade;
-	private String name;
-	private Subject topic;
+	
 	
 	public CourseRoom(String cId, String cName, String liuID, ExaminationArea ea, String nm){
 		this.cId = cId;
