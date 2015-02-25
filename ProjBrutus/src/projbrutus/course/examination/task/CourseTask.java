@@ -169,19 +169,22 @@ public class CourseTask implements Subject {
 		case 0:
 			System.out.println("Grade set to U!");
 			setGrade("U");
+			postMessage("U");
 			break;
 		case 1:
 			System.out.println("Grade set to K!");
 			setGrade("K");
+			postMessage("K");
 			break;
 		case 2:
 			System.out.println("Grade set to G!");
 			setGrade("G");
+			postMessage("G");
 			break;
 		case 3:
 			System.out.println("Grade set to VG!");
 			setGrade("VG");
-			postMessage(" VG");
+			postMessage("VG");
 			//notifyObservers(); //är det denna som ska användas när man ska uppdatera observern (courseroom) om att
 			//det finns nytt betyg inrapporterat
 			break;

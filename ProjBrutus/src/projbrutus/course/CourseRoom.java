@@ -5,11 +5,8 @@ import java.util.Scanner;
 
 import projbrutus.adapter.Adapter;
 import projbrutus.adapter.GradeFactory;
-import projbrutus.adapter.NumberAdapter;
-import projbrutus.adapter.VGAdapter;
 import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.task.CourseTask;
-import projbrutus.course.examination.task.CourseTaskList;
 import projbrutus.observer.Observer;
 import projbrutus.observer.Subject;
 
@@ -172,10 +169,12 @@ public class CourseRoom implements Observer {
     		System.out.println("* Sending to  adapter *");
     		gradeAdapter.postGrade(courseGrade);
     	}else if(G>VG){
-    		System.out.println("Antal VG: " + VG);
-    		System.out.println("Antal G: " + G);
+    		System.out.println("Number of VG: " + VG);
+    		System.out.println("Number of G: " + G);
     		this.courseGrade = "G";
-    		System.out.println("Slutbetyg: " + courseGrade);
+    		System.out.println("Course grade: " + courseGrade);
+    		System.out.println("* Sending to  adapter *");
+    		gradeAdapter.postGrade(courseGrade);
     		
     	}
 //		CourseTaskList ctl = ea.getCTL();
@@ -192,14 +191,7 @@ public class CourseRoom implements Observer {
 //		}
 	}
 	
-	/* 
-	 * Den här metoden fungerar som vår Factory.
-	 * Metoden sker då CourseTaskListan inte har ett valt GradeSystem. 
-	 * Valet kan Teacher-klassen göra 1 gång per CourseTaskList. (Alltså 1 gång per kursrum).
-	 * Valet kommer därefter att vara statiskt. 
-	 * Den här metoden tillåter läraren att rätta kurser med olika GradeSystem beroende på om eleven går FilFak eller TekFak. 
-	 * GradeSystemet är alltså inte knutet till kurskoden utan kan väljas manuellt.
-	 */
+	
 	public void setGradeSys(){
 		if(this.gradeAdapter == null){
 			System.out.println("** First time grading CR.. must choose a gradesystem **");
@@ -210,7 +202,7 @@ public class CourseRoom implements Observer {
 			int choice = 1; //Hårdkodar choice till VG-system
 			System.out.println("Choice(1-2): ");
 			System.out.println("** Teacher chose VG-system ** ");
-			//Skicka vidare till GradeAdapter(factory).
+			//Skicka vidare till GradeAdapter(factory) som sedan i vårt fall skapar en VGAdapter. 
 			GradeFactory gradeFactory = new GradeFactory();
 			gradeAdapter = gradeFactory.chooseAdapter(choice);
 			System.out.println(gradeAdapter.getClass() + " vald!");
