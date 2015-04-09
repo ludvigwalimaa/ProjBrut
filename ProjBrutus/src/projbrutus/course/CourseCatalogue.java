@@ -6,7 +6,6 @@ import projbrutus.course.examination.ExaminationArea;
 import projbrutus.course.examination.ExaminationAreaList;
 import projbrutus.course.participant.ParticipantCatalogue;
 import projbrutus.observer.Observer;
-import projbrutus.person.Person;
 import projbrutus.person.PersonCatalogue;
 
 public class CourseCatalogue {
@@ -26,7 +25,6 @@ public class CourseCatalogue {
 	
 	public void createRoom(String cID, String cName, PersonCatalogue pc){
 		CourseStructure cs = new CourseStructure();
-		CourseRoom cr;
 		ExaminationAreaList eaL;
 		ExaminationArea ea;
 		ParticipantCatalogue ppc = new ParticipantCatalogue(cID);
@@ -41,14 +39,13 @@ public class CourseCatalogue {
 			String liuID = ppc.getliuID(i); // Hämtar liuID
 			ea.setliuID(liuID);
 			obj1 = new CourseRoom(cID, cName, liuID, ea, cName);
-			for(int j = 0; j<ea.getCTL().getTasks().size(); j++){
+			int taskSize = ea.getCTL().getTasks().size();
+			for(int j = 0; j<taskSize; j++){
+				
+				//"ea.getCTL().getTasks().get(j)" = currentTask i IAD i startStudent samt startTeacher. 
 				ea.getCTL().getTasks().get(j).register(obj1);
-				//System.out.println("Task: " + j + " : " + cName + " - " + liuID);
 				obj1.setSubject(ea.getCTL().getTasks().get(j));
 				
-				//obj1.update();
-				//testGrade(ea);
-				//de tva funktionerna ovan ar enbart for test om koppling finns
 			
 			}
 			allCourseRooms.add((CourseRoom) obj1);
