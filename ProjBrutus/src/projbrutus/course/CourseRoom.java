@@ -203,9 +203,7 @@ public class CourseRoom implements Observer {
 			System.out.println("Choice(1-2): ");
 			System.out.println("** Teacher chose VG-system ** ");
 			//Skicka vidare till GradeAdapter(factory) som sedan i vårt fall skapar en VGAdapter. 
-			GradeFactory gradeFactory = GradeFactory.getInstance(); 
-//			GradeFactory gradeFactory = new GradeFactory();
-			gradeAdapter = gradeFactory.chooseAdapter(choice);
+			gradeAdapter = GradeFactory.getInstance().chooseAdapter(choice);
 			System.out.println(gradeAdapter.getClass() + " vald!");
 			
 		}else{
