@@ -33,22 +33,22 @@ public class CourseCatalogue {
 		
 		eaL = new ExaminationAreaList(cID, cs);
 		eaL.populateDBexaList();
-		Observer obj1;
+		Observer cr;
 		for(int i = 0; i < ppcSize; i++){
 			ea = eaL.getExaArea(i);
 			String liuID = ppc.getliuID(i); // Hämtar liuID
 			ea.setliuID(liuID);
-			obj1 = new CourseRoom(cID, cName, liuID, ea, cName);
+			cr = new CourseRoom(cID, cName, liuID, ea, cName);
 			int taskSize = ea.getCTL().getTasks().size();
 			for(int j = 0; j<taskSize; j++){
 				
 				//"ea.getCTL().getTasks().get(j)" = currentTask i IAD i startStudent samt startTeacher. 
-				ea.getCTL().getTasks().get(j).register(obj1);
-				obj1.setSubject(ea.getCTL().getTasks().get(j));
+				ea.getCTL().getTasks().get(j).register(cr);
+				cr.setSubject(ea.getCTL().getTasks().get(j));
 				
 			
 			}
-			allCourseRooms.add((CourseRoom) obj1);
+			allCourseRooms.add((CourseRoom) cr);
 		}
 		
 	}
