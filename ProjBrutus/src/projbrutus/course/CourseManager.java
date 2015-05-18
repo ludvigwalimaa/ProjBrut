@@ -3,7 +3,7 @@ package projbrutus.course;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import projbrutus.FileManager;
+import projbrutus.Files.FileManager;
 import projbrutus.course.examination.task.CourseTask;
 import projbrutus.course.examination.task.CourseTaskList;
 import projbrutus.person.Person;

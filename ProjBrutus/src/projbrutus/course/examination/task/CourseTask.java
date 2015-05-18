@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import projbrutus.FileManager;
+import projbrutus.Files.FileManager;
 import projbrutus.course.CourseRoom;
 import projbrutus.observer.Observer;
 import projbrutus.observer.Subject;
