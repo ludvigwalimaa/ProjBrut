@@ -43,6 +43,36 @@ public class DBconn {
 			e.printStackTrace();
 		}
 	}
+	
+	public Person fetch(){
+		
+		String liuID ="";
+		String name ="";
+		String personNummer = "";
+		String password = "";
+		
+        try {
+            stat = con.prepareStatement("select * from personcatalogue order by id ASC");
+            result = stat.executeQuery();
+            
+            while (result.next()) {
+            	liuID = result.getString("liuID");
+            	name = result.getString("name");
+            	personNummer = result.getString("personNummer");
+            	password = result.getString("password");
+                
+                System.out.println("h�mtat fr�n databasen " + liuID + " " + name + " " + personNummer + " " + password);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+       
+		
+		
+	}
+	
 	 public String getCourseTask(String liuId) {
 
 		 String course = "";

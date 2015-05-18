@@ -2,9 +2,12 @@ package projbrutus.person;
 
 import java.util.ArrayList;
 
+import projbrutus.Database.DBconn;
+
 public class PersonCatalogue {
 
 	private ArrayList<Person> PCatalogue;
+	DBconn dbconn = new DBconn();
 
 	public PersonCatalogue() {
 		PCatalogue = new ArrayList<Person>();
@@ -14,7 +17,9 @@ public class PersonCatalogue {
 
 	private void fetchPersons() {
 		// Databas koppling till persondatabas.
-
+		
+		
+		
 		PCatalogue.add(new Person("gabol892", "Gabriel", "0123456789", "hej123"));
 		PCatalogue.add(new Person("filbr616", "Filip", "0123456789", "hej123"));
 		PCatalogue.add(new Person("ludwa930", "Ludvig", "0123456789", "hej123"));
