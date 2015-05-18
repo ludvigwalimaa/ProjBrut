@@ -19,7 +19,7 @@ public class CourseTaskList {
 		this.cId = cId;
 		this.ctSize = cs.getDefaultCTLSize();
 		for(int i=0; i < ctSize; i++){
-			CourseTask ct = new CourseTask(this.cId, "A default description", "Not recieved");
+			CourseTask ct = new CourseTask(this.cId, "A default description", "Not recieved"); //Ändra till "Handed in" för att köra igenom hela programmet. 
 			DBctList.add(ct);
 		}
 	}

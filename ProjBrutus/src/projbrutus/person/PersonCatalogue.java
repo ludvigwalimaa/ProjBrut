@@ -12,19 +12,21 @@ public class PersonCatalogue {
 	public PersonCatalogue() {
 		PCatalogue = new ArrayList<Person>();
 		fetchPersons();
-
+		
 	}
 
 	private void fetchPersons() {
 		// Databas koppling till persondatabas.
+		dbconn.startConnection();
+		PCatalogue = dbconn.fetch();
+		dbconn.closeConnection();
 		
-		
-		
-		PCatalogue.add(new Person("gabol892", "Gabriel", "0123456789", "hej123"));
-		PCatalogue.add(new Person("filbr616", "Filip", "0123456789", "hej123"));
-		PCatalogue.add(new Person("ludwa930", "Ludvig", "0123456789", "hej123"));
-		PCatalogue.add(new Person("anka101", "Andreas", "0123456789", "hej123"));
-		PCatalogue.add(new Teacher("ivan", "ivan", "0123456789", "hej123"));
+//		
+//		PCatalogue.add(new Person("gabol892", "Gabriel", "0123456789", "hej123"));
+//		PCatalogue.add(new Person("filbr616", "Filip", "0123456789", "hej123"));
+//		PCatalogue.add(new Person("ludwa930", "Ludvig", "0123456789", "hej123"));
+//		PCatalogue.add(new Person("anka101", "Andreas", "0123456789", "hej123"));
+//		PCatalogue.add(new Teacher("ivan", "ivan", "0123456789", "hej123"));
 
 		
 	}
