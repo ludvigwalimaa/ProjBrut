@@ -17,7 +17,7 @@ public class Person {
 	}
 	
 	public String toString(){
-		return name + " - " + liuID;
+		return liuID + " - " + name +  " - " + personNummer;
 	}
 
 	public String getLiudID() {

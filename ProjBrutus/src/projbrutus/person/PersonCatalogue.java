@@ -1,25 +1,56 @@
 package projbrutus.person;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-import projbrutus.Database.DBconn;
+import projbrutus.DBPersonAdapter;
 
 public class PersonCatalogue {
 
 	private ArrayList<Person> PCatalogue;
-	DBconn dbconn = new DBconn();
+	private Iterator iter;
+	private Person p;
+	private DBPersonAdapter dbpa = new DBPersonAdapter();
 
+	
 	public PersonCatalogue() {
 		PCatalogue = new ArrayList<Person>();
-		fetchPersons();
-		
+		PCatalogue = (ArrayList<Person>) dbpa.fetchPersons();	
+		iter = PCatalogue.iterator();
+		System.out.println("** Hämtat lista...**");
+		System.out.println("- LiuID --- Namn --- PersonNummer");
+		while(iter.hasNext()){
+			p = (Person)iter.next();
+			
+			System.out.println(p.toString());
+		}
+		System.out.println();
 	}
 
-	private void fetchPersons() {
-		// Databas koppling till persondatabas.
-		dbconn.startConnection();
-		PCatalogue = dbconn.fetch();
-		dbconn.closeConnection();
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
 		
 //		
 //		PCatalogue.add(new Person("gabol892", "Gabriel", "0123456789", "hej123"));
@@ -29,7 +60,7 @@ public class PersonCatalogue {
 //		PCatalogue.add(new Teacher("ivan", "ivan", "0123456789", "hej123"));
 
 		
-	}
+	
 
 	// Nån funktion för att kolla listan mot det man loggar in med.
 	public Person authenticate(String liuID, String password) {
