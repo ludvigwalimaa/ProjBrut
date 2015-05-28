@@ -1,4 +1,4 @@
-package projbrutus;
+package projbrutus.Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -85,49 +85,6 @@ public class DBfascade {
 		
 	}
 
-//	public ArrayList<Person> returnPersons(){
-//		this.startConnection();
-//		ArrayList<Person> FetchedPersons = new ArrayList<Person>();
-//		String liuID ="";
-//		String name ="";
-//		String personNummer = "";
-//		String password = "";
-//		int admin = 0;
-//		
-//        try {
-//            stat = con.prepareStatement("SELECT * FROM personcatalogue;");
-//            result = stat.executeQuery();
-//            System.out.println("** Populating PCatalogue from database ** ");
-//            while (result.next()) {
-//            	liuID = result.getString("liuID");
-//            	name = result.getString("name");
-//            	personNummer = result.getString("personNummer");
-//            	password = result.getString("password");
-//                admin = result.getInt("admin");
-//                if(admin == 0)
-//                {
-//                	FetchedPersons.add(new Person(liuID, name, personNummer, password));
-//                	System.out.println("Added student: " + liuID);
-//                	
-//                }else{
-//                	FetchedPersons.add(new Teacher(liuID, name, personNummer, password));
-//                	System.out.println("Added teacher: " + liuID);
-//                }
-//            }
-//            return FetchedPersons;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//		return FetchedPersons;
-//
-//		
-//	}
-	
-	
-	//Den här klassen ska ligga i "Domain-lagret"
-	//Den här klassen ska sköta uppkopplingen till databasen. Egentligen all interaktion med DBconn.
-	//Den ska också ta emot "datan" från databasen i string-form 
-	//och sedan göra om det till "Person-objekt" som skickas till PersonCatalogue. 
-	
+
 	
 }
